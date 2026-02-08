@@ -10,5 +10,14 @@
       "clusters/.+\\.ya?ml$",
       "infrastructure/.+\\.ya?ml$"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    }
+  ]
 }
