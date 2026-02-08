@@ -20,6 +20,8 @@ data:
     - search:
         provider: duckduckgo
         target: _blank
+  bookmarks.yaml: |
+    []
   services.yaml: |
     - Media:
         - Jellyfin:
