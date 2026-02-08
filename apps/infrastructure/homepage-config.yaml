@@ -128,3 +128,8 @@ data:
             icon: mdi-wifi
             siteMonitor: https://unifi.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - KVM:
+            href: https://kvm.romanpeters.nl
+            icon: mdi-monitor
+            siteMonitor: https://kvm.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
