@@ -34,3 +34,6 @@ resources:
   - audiobookshelf-deployment.yaml
   - audiobookshelf-service.yaml
   - audiobookshelf-ingress.yaml
+  - calibre-web-deployment.yaml
+  - calibre-web-service.yaml
+  - calibre-web-ingress.yaml
