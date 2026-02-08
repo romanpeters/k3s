@@ -1,5 +1,4 @@
 extends: default
-
 ignore: |
   ./rtv/**
   ./clusters/prod/flux-system/**
@@ -7,7 +6,6 @@ ignore: |
   rtv/**
   clusters/prod/flux-system/**
   **/*.sops.yaml
-
 rules:
   line-length: disable
   document-start: disable
