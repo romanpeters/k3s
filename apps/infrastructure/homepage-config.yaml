@@ -11,10 +11,10 @@ data:
     headerStyle: boxed
     statusStyle: dot
     layout:
-      Automation:
+      Apps:
         style: row
         columns: 2
-      Apps:
+      Automation:
         style: row
         columns: 2
       Media:
@@ -28,43 +28,48 @@ data:
   bookmarks.yaml: |
     []
   services.yaml: |
-    - Automation:
-        - Home Assistant:
-            href: https://home.romanpeters.nl
-            icon: mdi-home-assistant
-            siteMonitor: https://home.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Ansible Automation Platform:
-            href: https://automation.romanpeters.nl
-            icon: mdi-robot-industrial
-            siteMonitor: https://automation.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: mdi-eye
-            siteMonitor: https://change.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - n8n:
-            href: https://n8n.romanpeters.nl
-            icon: mdi-workflow
-            siteMonitor: https://n8n.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Apps:
         - Uptime Kuma:
             href: https://uptime.romanpeters.nl
-            icon: mdi-heart-pulse
+            icon: uptime-kuma
             siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Homebox:
             href: https://homebox.romanpeters.nl
-            icon: mdi-home-circle
+            icon: homebox
             siteMonitor: https://homebox.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Automation:
+        - Home Assistant:
+            href: https://home.romanpeters.nl
+            icon: home-assistant
+            siteMonitor: https://home.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Ansible Automation Platform:
+            href: https://automation.romanpeters.nl
+            icon: ansible
+            siteMonitor: https://automation.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: n8n
+            siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
             icon: jellyfin
             siteMonitor: https://jellyfin.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Plex:
+            href: https://plex.romanpeters.nl
+            icon: plex
+            siteMonitor: https://plex.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Overseerr:
             href: https://overseerr.romanpeters.nl
@@ -103,33 +108,33 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
         - Audiobookshelf:
             href: https://books.romanpeters.nl
-            icon: mdi-book-open-page-variant
+            icon: audiobookshelf
             siteMonitor: https://books.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
-            icon: mdi-book-open-variant
+            icon: calibre-web
             siteMonitor: https://ebooks.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl
-            icon: mdi-shield-account
+            icon: authentik
             siteMonitor: https://authentik.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - NGINX:
             href: https://nginx.romanpeters.nl
-            icon: mdi-server
+            icon: nginx
             siteMonitor: https://nginx.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Proxmox:
             href: https://proxmox.romanpeters.nl
-            icon: mdi-server-network
+            icon: proxmox
             siteMonitor: https://proxmox.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - UniFi:
             href: https://unifi.romanpeters.nl
-            icon: mdi-wifi
+            icon: unifi
             siteMonitor: https://unifi.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - KVM:
