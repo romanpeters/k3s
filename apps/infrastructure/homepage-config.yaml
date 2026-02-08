@@ -77,7 +77,7 @@ data:
             icon: n8n
             siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Media (Active):
+    - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
             icon: jellyfin
@@ -98,16 +98,16 @@ data:
             icon: calibre-web
             siteMonitor: https://ebooks.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Overseerr:
-            href: https://overseerr.romanpeters.nl
-            icon: overseerr
-            siteMonitor: https://overseerr.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Media (Other):
         - Immich:
             href: https://photos.romanpeters.nl
             icon: immich
             siteMonitor: https://photos.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Downloads:
+        - Overseerr:
+            href: https://overseerr.romanpeters.nl
+            icon: overseerr
+            siteMonitor: https://overseerr.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Sonarr:
             href: https://sonarr.romanpeters.nl

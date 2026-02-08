@@ -46,14 +46,15 @@ flowchart TB
       subgraph "Media Namespace"
         jellyfin["Jellyfin"]
         overseerr["Overseerr"]
+        audiobookshelf["Audiobookshelf"]
+        calibre["Calibre Web"]
+        immich["Immich"]
         sonarr["Sonarr"]
         radarr["Radarr"]
         bazarr["Bazarr"]
         prowlarr["Prowlarr"]
         transmission["Transmission (+ Gluetun)"]
         tautulli["Tautulli"]
-        audiobookshelf["Audiobookshelf"]
-        calibre["Calibre Web"]
       end
 
       subgraph "Monitoring Namespace"
@@ -65,7 +66,7 @@ flowchart TB
       subgraph "Infrastructure Namespace"
         authentik["Authentik"]
         homepage["Homepage"]
-        homepage_tv["Homepage TV"]
+        traefik["Traefik"]
       end
     end
 
