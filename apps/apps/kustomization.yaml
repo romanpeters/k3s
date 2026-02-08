@@ -7,6 +7,11 @@ resources:
   - n8n-deployment.yaml
   - n8n-service.yaml
   - n8n-ingress.yaml
+  - changedetection-deployment.yaml
+  - changedetection-service.yaml
+  - changedetection-ingress.yaml
+  - playwright-chrome-deployment.yaml
+  - playwright-chrome-service.yaml
   - uptime-kuma-deployment.yaml
   - uptime-kuma-service.yaml
   - uptime-kuma-ingress.yaml
