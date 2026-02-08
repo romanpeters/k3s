@@ -20,7 +20,10 @@ data:
       Automation:
         style: row
         columns: 2
-      Media:
+      Media (Active):
+        style: row
+        columns: 4
+      Media (Other):
         style: row
         columns: 4
       Infrastructure:
@@ -74,7 +77,7 @@ data:
             icon: n8n
             siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Media:
+    - Media (Active):
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
             icon: jellyfin
@@ -84,11 +87,6 @@ data:
             href: https://plex.romanpeters.nl
             icon: plex
             siteMonitor: https://plex.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Immich:
-            href: https://immich.romanpeters.nl
-            icon: immich
-            siteMonitor: https://immich.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Audiobookshelf:
             href: https://books.romanpeters.nl
@@ -104,6 +102,12 @@ data:
             href: https://overseerr.romanpeters.nl
             icon: overseerr
             siteMonitor: https://overseerr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Media (Other):
+        - Immich:
+            href: https://immich.romanpeters.nl
+            icon: immich
+            siteMonitor: https://immich.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Sonarr:
             href: https://sonarr.romanpeters.nl
