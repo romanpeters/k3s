@@ -11,6 +11,6 @@ spec:
   storageClassName: nfs
   nfs:
     server: 10.10.10.3
-    path: /var/nfs/shared/media
+    path: /volume/378ece44-40ef-4052-b45a-3f0185c9478a/.srv/.unifi-drive/media/.data
   mountOptions:
     - nfsvers=4.1
