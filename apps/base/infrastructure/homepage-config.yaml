@@ -13,12 +13,9 @@ data:
       Media:
         style: row
         columns: 4
-      Authentik:
-        style: row
-        columns: 2
       Infrastructure:
         style: row
-        columns: 2
+        columns: 3
   widgets.yaml: |
     - search:
         provider: duckduckgo
@@ -52,11 +49,10 @@ data:
         - Tautulli:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
-    - Authentik:
+    - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl
             icon: mdi-shield-account
-    - Infrastructure:
         - Homepage:
             href: https://homepage.romanpeters.nl
             icon: mdi-view-dashboard
