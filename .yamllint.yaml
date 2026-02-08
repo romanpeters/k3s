@@ -1,5 +1,13 @@
 extends: default
 
+ignore: |
+  ./rtv/**
+  ./clusters/prod/flux-system/**
+  ./**/*.sops.yaml
+  rtv/**
+  clusters/prod/flux-system/**
+  **/*.sops.yaml
+
 rules:
   line-length: disable
   document-start: disable
@@ -7,5 +15,5 @@ rules:
   comments:
     min-spaces-from-content: 1
   indentation:
-    indent-sequences: false
+    indent-sequences: true
     spaces: 2

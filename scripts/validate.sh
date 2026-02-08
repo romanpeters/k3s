@@ -15,7 +15,10 @@ require kustomize
 require kubeconform
 
 # Lint YAML (including Kustomize and Flux manifests)
-yamllint -c "$ROOT_DIR/.yamllint.yaml" "$ROOT_DIR"
+(
+  cd "$ROOT_DIR"
+  yamllint -c .yamllint.yaml .
+)
 
 # Render and validate all cluster manifests
 rendered="$(mktemp)"
