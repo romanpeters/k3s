@@ -11,6 +11,9 @@ data:
     headerStyle: boxed
     statusStyle: dot
     layout:
+      Automation:
+        style: row
+        columns: 2
       Apps:
         style: row
         columns: 2
@@ -25,23 +28,13 @@ data:
   bookmarks.yaml: |
     []
   services.yaml: |
-    - Apps:
-        - n8n:
-            href: https://n8n.romanpeters.nl
-            icon: mdi-workflow
-            siteMonitor: https://n8n.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: mdi-heart-pulse
-            siteMonitor: https://uptime.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Automation:
         - Home Assistant:
             href: https://home.romanpeters.nl
             icon: mdi-home-assistant
             siteMonitor: https://home.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Ansible Automation:
+        - Ansible Automation Platform:
             href: https://automation.romanpeters.nl
             icon: mdi-robot-industrial
             siteMonitor: https://automation.romanpeters.nl
@@ -50,6 +43,17 @@ data:
             href: https://change.romanpeters.nl
             icon: mdi-eye
             siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: mdi-workflow
+            siteMonitor: https://n8n.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Apps:
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: mdi-heart-pulse
+            siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Homebox:
             href: https://homebox.romanpeters.nl
