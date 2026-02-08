@@ -25,3 +25,13 @@ data:
         - Request:
             href: https://request.romanpeters.nl
             icon: overseerr
+        - Audiobookshelf:
+            href: https://books.romanpeters.nl
+            icon: mdi-book-open-page-variant
+            siteMonitor: https://books.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Calibre Web:
+            href: https://ebooks.romanpeters.nl
+            icon: mdi-book-open-variant
+            siteMonitor: https://ebooks.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
