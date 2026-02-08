@@ -1,0 +1,8 @@
+kubeconfig
+talosctl
+nodes
+config
+age.key
+.archive
+*.log
+.DS_Store
