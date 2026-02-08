@@ -3,6 +3,9 @@ kind: Kustomization
 namespace: infrastructure
 resources:
   - namespace.yaml
+  - helmrepo.yaml
+  - authentik-secrets.sops.yaml
+  - helmrelease.yaml
   - homepage-config.yaml
   - homepage-deployment.yaml
   - homepage-service.yaml
