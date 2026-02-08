@@ -14,6 +14,9 @@ data:
       Apps:
         style: row
         columns: 2
+      Monitoring:
+        style: row
+        columns: 2
       Automation:
         style: row
         columns: 2
@@ -29,15 +32,21 @@ data:
     []
   services.yaml: |
     - Apps:
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: uptime-kuma
-            siteMonitor: https://uptime.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Homebox:
             href: https://homebox.romanpeters.nl
             icon: homebox
             siteMonitor: https://homebox.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Monitoring:
+        - Grafana:
+            href: https://grafana.romanpeters.nl
+            icon: grafana
+            siteMonitor: https://grafana.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: uptime-kuma
+            siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Automation:
         - Home Assistant:
