@@ -87,6 +87,11 @@ data:
             icon: tautulli
             siteMonitor: http://tautulli.media.svc.cluster.local:8181
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
+        - Audiobookshelf:
+            href: https://books.romanpeters.nl
+            icon: mdi-book-open-page-variant
+            siteMonitor: https://books.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl

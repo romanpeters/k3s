@@ -31,3 +31,6 @@ resources:
   - jellyfin-deployment.yaml
   - jellyfin-service.yaml
   - jellyfin-ingress.yaml
+  - audiobookshelf-deployment.yaml
+  - audiobookshelf-service.yaml
+  - audiobookshelf-ingress.yaml
