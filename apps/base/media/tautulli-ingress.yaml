@@ -8,6 +8,16 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
+    - host: tautulli.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tautulli
+                port:
+                  name: http
     - host: tautulli.prod.romanpeters.nl
       http:
         paths:

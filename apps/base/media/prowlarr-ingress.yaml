@@ -8,6 +8,16 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
+    - host: prowlarr.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prowlarr
+                port:
+                  name: http
     - host: prowlarr.prod.romanpeters.nl
       http:
         paths:

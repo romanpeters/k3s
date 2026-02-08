@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: infrastructure
+data:
+  settings.yaml: |
+    title: Roman Peters
+    theme: dark
+    color: slate
+    headerStyle: boxed
+    layout:
+      Media:
+        style: row
+        columns: 4
+      Authentik:
+        style: row
+        columns: 2
+      Infrastructure:
+        style: row
+        columns: 2
+  widgets.yaml: |
+    - search:
+        provider: duckduckgo
+        target: _blank
+  services.yaml: |
+    - Media:
+        - Jellyfin:
+            href: https://jellyfin.romanpeters.nl
+            icon: jellyfin
+        - Overseerr:
+            href: https://overseerr.romanpeters.nl
+            icon: overseerr
+        - Requests:
+            href: https://requests.romanpeters.nl
+            icon: overseerr
+        - Sonarr:
+            href: https://sonarr.romanpeters.nl
+            icon: sonarr
+        - Radarr:
+            href: https://radarr.romanpeters.nl
+            icon: radarr
+        - Bazarr:
+            href: https://bazarr.romanpeters.nl
+            icon: bazarr
+        - Prowlarr:
+            href: https://prowlarr.romanpeters.nl
+            icon: prowlarr
+        - Transmission:
+            href: https://transmission.romanpeters.nl
+            icon: transmission
+        - Tautulli:
+            href: https://tautulli.romanpeters.nl
+            icon: tautulli
+    - Authentik:
+        - Authentik:
+            href: https://authentik.romanpeters.nl
+            icon: mdi-shield-account
+    - Infrastructure:
+        - Homepage:
+            href: https://homepage.romanpeters.nl
+            icon: mdi-view-dashboard

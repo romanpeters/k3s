@@ -8,6 +8,16 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
+    - host: sonarr.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarr
+                port:
+                  name: http
     - host: sonarr.prod.romanpeters.nl
       http:
         paths:
