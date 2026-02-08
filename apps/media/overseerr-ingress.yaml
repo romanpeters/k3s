@@ -28,6 +28,16 @@ spec:
                 name: overseerr
                 port:
                   name: http
+    - host: request.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: overseerr
+                port:
+                  name: http
     - host: overseerr.prod.romanpeters.nl
       http:
         paths:
@@ -39,6 +49,16 @@ spec:
                 port:
                   name: http
     - host: requests.prod.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: overseerr
+                port:
+                  name: http
+    - host: request.prod.romanpeters.nl
       http:
         paths:
           - path: /
