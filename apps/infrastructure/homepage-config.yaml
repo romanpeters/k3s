@@ -11,12 +11,12 @@ data:
     headerStyle: boxed
     statusStyle: dot
     layout:
-      Media:
-        style: row
-        columns: 4
       Apps:
         style: row
         columns: 2
+      Media:
+        style: row
+        columns: 4
       Infrastructure:
         style: row
         columns: 3
@@ -25,6 +25,27 @@ data:
   bookmarks.yaml: |
     []
   services.yaml: |
+    - Apps:
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: mdi-workflow
+            siteMonitor: https://n8n.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: mdi-heart-pulse
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Home Assistant:
+            href: https://home.romanpeters.nl
+            icon: mdi-home-assistant
+            siteMonitor: https://home.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Ansible Automation:
+            href: https://automation.romanpeters.nl
+            icon: mdi-robot-industrial
+            siteMonitor: https://automation.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
@@ -66,27 +87,6 @@ data:
             icon: tautulli
             siteMonitor: http://tautulli.media.svc.cluster.local:8181
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
-    - Apps:
-        - n8n:
-            href: https://n8n.romanpeters.nl
-            icon: mdi-workflow
-            siteMonitor: https://n8n.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: mdi-heart-pulse
-            siteMonitor: https://uptime.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Home Assistant:
-            href: https://home.romanpeters.nl
-            icon: mdi-home-assistant
-            siteMonitor: https://home.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Ansible Automation:
-            href: https://automation.romanpeters.nl
-            icon: mdi-robot-industrial
-            siteMonitor: https://automation.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl
