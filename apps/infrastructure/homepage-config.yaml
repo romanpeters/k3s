@@ -61,7 +61,7 @@ data:
         - Tautulli:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
-            siteMonitor: https://tautulli.romanpeters.nl
+            siteMonitor: http://tautulli.media.svc.cluster.local:8181
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
     - Infrastructure:
         - Authentik:
