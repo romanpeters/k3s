@@ -84,3 +84,13 @@ data:
             icon: mdi-wifi
             siteMonitor: https://unifi.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Home Assistant:
+            href: https://home.romanpeters.nl
+            icon: mdi-home-assistant
+            siteMonitor: https://home.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Automation:
+            href: https://automation.romanpeters.nl
+            icon: mdi-robot-industrial
+            siteMonitor: https://automation.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
