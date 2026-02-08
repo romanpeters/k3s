@@ -52,6 +52,12 @@ data:
         - Authentik:
             href: https://authentik.romanpeters.nl
             icon: mdi-shield-account
-        - Homepage:
-            href: https://homepage.romanpeters.nl
-            icon: mdi-view-dashboard
+        - NGINX:
+            href: https://nginx.romanpeters.nl
+            icon: mdi-server
+        - Proxmox:
+            href: https://proxmox.romanpeters.nl
+            icon: mdi-server-network
+        - UniFi:
+            href: https://unifi.romanpeters.nl
+            icon: mdi-wifi
