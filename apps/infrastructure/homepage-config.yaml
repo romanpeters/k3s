@@ -14,6 +14,9 @@ data:
       Media:
         style: row
         columns: 4
+      Apps:
+        style: row
+        columns: 2
       Infrastructure:
         style: row
         columns: 3
@@ -63,6 +66,17 @@ data:
             icon: tautulli
             siteMonitor: http://tautulli.media.svc.cluster.local:8181
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
+    - Apps:
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: mdi-workflow
+            siteMonitor: https://n8n.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: mdi-heart-pulse
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl

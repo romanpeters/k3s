@@ -44,7 +44,7 @@ spec:
             - name: TZ
               value: "Europe/Amsterdam"
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "tv.romanpeters.nl,rtv.romanpeters.nl,romantv.romanpeters.nl"
+              value: "tv.romanpeters.nl,tv.prod.romanpeters.nl,rtv.romanpeters.nl,romantv.romanpeters.nl"
           volumeMounts:
             - name: config
               mountPath: /app/config
