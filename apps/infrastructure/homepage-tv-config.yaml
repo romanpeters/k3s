@@ -23,9 +23,13 @@ data:
         - RomanTV:
             href: https://app.plex.tv/desktop/#!/
             icon: plex
+            siteMonitor: https://app.plex.tv/desktop/#!/
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Request:
             href: https://request.romanpeters.nl
             icon: overseerr
+            siteMonitor: https://request.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Audiobookshelf:
             href: https://books.romanpeters.nl
             icon: mdi-book-open-page-variant
