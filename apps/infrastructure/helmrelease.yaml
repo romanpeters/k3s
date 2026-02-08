@@ -24,6 +24,7 @@ spec:
         hosts:
           - authentik.romanpeters.nl
           - authentik.prod.romanpeters.nl
+          - auth.romanpeters.nl
     postgresql:
       enabled: true
     redis:
