@@ -1,4 +1,6 @@
-# k3s-cluster
+# kubernetes
+
+Single-node K3S running a large part of my homelab on Kairos on Proxmox using Flux.
 
 ## Development workflow
 
@@ -27,10 +29,4 @@ make validate
 
 ```bash
 make smoke
-```
-
-Override defaults if needed:
-
-```bash
-URL=https://overseerr.prod.romanpeters.nl EXPECTED_CODES_OVERRIDE="200 302" ./scripts/smoke.sh
 ```
