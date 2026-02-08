@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base"],
+  "timezone": "UTC",
+  "schedule": ["every week"],
+  "labels": ["dependencies", "docker"],
+  "enabledManagers": ["kubernetes"],
+  "kubernetes": {
+    "fileMatch": [
+      "apps/.+\\.ya?ml$",
+      "clusters/.+\\.ya?ml$",
+      "infrastructure/.+\\.ya?ml$"
+    ]
+  }
+}

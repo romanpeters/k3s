@@ -1,0 +1,20 @@
+name: Renovate
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Renovate
+        uses: renovatebot/github-action@v41
+        env:
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN || secrets.GITHUB_TOKEN }}
+          RENOVATE_CONFIG_FILE: .github/renovate.json
