@@ -28,3 +28,6 @@ resources:
   - tautulli-deployment.yaml
   - tautulli-service.yaml
   - tautulli-ingress.yaml
+  - jellyfin-deployment.yaml
+  - jellyfin-service.yaml
+  - jellyfin-ingress.yaml
