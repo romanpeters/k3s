@@ -28,9 +28,6 @@ data:
         - Overseerr:
             href: https://overseerr.romanpeters.nl
             icon: overseerr
-        - Requests:
-            href: https://requests.romanpeters.nl
-            icon: overseerr
         - Sonarr:
             href: https://sonarr.romanpeters.nl
             icon: sonarr
