@@ -14,6 +14,21 @@ spec:
       labels:
         app.kubernetes.io/name: homepage
     spec:
+      initContainers:
+        - name: seed-config
+          image: alpine:3.19
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -e
+              mkdir -p /app/config
+              cp -a /config-ro/. /app/config/
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+            - name: config-ro
+              mountPath: /config-ro
       containers:
         - name: homepage
           image: ghcr.io/gethomepage/homepage:v1.10.1
@@ -33,11 +48,9 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /app/config
-            - name: logs
-              mountPath: /app/config/logs
       volumes:
         - name: config
+          emptyDir: {}
+        - name: config-ro
           configMap:
             name: homepage-config
-        - name: logs
-          emptyDir: {}
