@@ -56,6 +56,11 @@ data:
             icon: mdi-view-dashboard
             siteMonitor: https://hello.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Homebox:
+            href: https://homebox.romanpeters.nl
+            icon: mdi-home-circle
+            siteMonitor: https://homebox.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl

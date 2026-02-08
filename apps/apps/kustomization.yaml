@@ -14,6 +14,9 @@ resources:
   - heimdall-service.yaml
   - heimdall-ingress.yaml
   - heimdall-redirects.yaml
+  - homebox-deployment.yaml
+  - homebox-service.yaml
+  - homebox-ingress.yaml
   - playwright-chrome-deployment.yaml
   - playwright-chrome-service.yaml
   - uptime-kuma-deployment.yaml
