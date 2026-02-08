@@ -18,9 +18,7 @@ data:
         style: row
         columns: 3
   widgets.yaml: |
-    - search:
-        provider: duckduckgo
-        target: _blank
+    []
   bookmarks.yaml: |
     []
   services.yaml: |
@@ -28,49 +26,61 @@ data:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
             icon: jellyfin
-            ping: https://jellyfin.romanpeters.nl
+            siteMonitor: https://jellyfin.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Overseerr:
             href: https://overseerr.romanpeters.nl
             icon: overseerr
-            ping: https://overseerr.romanpeters.nl
+            siteMonitor: https://overseerr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Sonarr:
             href: https://sonarr.romanpeters.nl
             icon: sonarr
-            ping: https://sonarr.romanpeters.nl
+            siteMonitor: https://sonarr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Radarr:
             href: https://radarr.romanpeters.nl
             icon: radarr
-            ping: https://radarr.romanpeters.nl
+            siteMonitor: https://radarr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Bazarr:
             href: https://bazarr.romanpeters.nl
             icon: bazarr
-            ping: https://bazarr.romanpeters.nl
+            siteMonitor: https://bazarr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Prowlarr:
             href: https://prowlarr.romanpeters.nl
             icon: prowlarr
-            ping: https://prowlarr.romanpeters.nl
+            siteMonitor: https://prowlarr.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Transmission:
             href: https://transmission.romanpeters.nl
             icon: transmission
-            ping: https://transmission.romanpeters.nl
+            siteMonitor: https://transmission.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Tautulli:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
-            ping: https://tautulli.romanpeters.nl
+            siteMonitor: https://tautulli.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl
             icon: mdi-shield-account
-            ping: https://authentik.romanpeters.nl
+            siteMonitor: https://authentik.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - NGINX:
             href: https://nginx.romanpeters.nl
             icon: mdi-server
-            ping: https://nginx.romanpeters.nl
+            siteMonitor: https://nginx.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Proxmox:
             href: https://proxmox.romanpeters.nl
             icon: mdi-server-network
-            ping: https://proxmox.romanpeters.nl
+            siteMonitor: https://proxmox.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - UniFi:
             href: https://unifi.romanpeters.nl
             icon: mdi-wifi
-            ping: https://unifi.romanpeters.nl
+            siteMonitor: https://unifi.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
