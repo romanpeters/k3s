@@ -5,7 +5,7 @@ metadata:
   namespace: infrastructure
 data:
   settings.yaml: |
-    title: Roman Peters
+    title: Homepage
     theme: dark
     color: slate
     headerStyle: boxed
@@ -62,7 +62,7 @@ data:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
             siteMonitor: https://tautulli.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
     - Infrastructure:
         - Authentik:
             href: https://authentik.romanpeters.nl
