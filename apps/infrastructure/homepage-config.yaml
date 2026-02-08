@@ -46,6 +46,11 @@ data:
             icon: mdi-robot-industrial
             siteMonitor: https://automation.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: mdi-eye
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
