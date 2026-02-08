@@ -51,6 +51,11 @@ data:
             icon: mdi-eye
             siteMonitor: https://change.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Heimdall:
+            href: https://hello.romanpeters.nl
+            icon: mdi-view-dashboard
+            siteMonitor: https://hello.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
             href: https://jellyfin.romanpeters.nl
