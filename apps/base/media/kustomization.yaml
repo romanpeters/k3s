@@ -12,6 +12,9 @@ resources:
   - radarr-deployment.yaml
   - radarr-service.yaml
   - radarr-ingress.yaml
+  - overseerr-deployment.yaml
+  - overseerr-service.yaml
+  - overseerr-ingress.yaml
   - bazarr-deployment.yaml
   - bazarr-service.yaml
   - bazarr-ingress.yaml
