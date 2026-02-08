@@ -9,6 +9,7 @@ data:
     theme: dark
     color: slate
     headerStyle: boxed
+    statusStyle: dot
     layout:
       TV:
         style: row
