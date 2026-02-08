@@ -25,15 +25,19 @@ jobs:
       - name: Install tools
         run: |
           python -m pip install --upgrade pip
-          pip install yamllint
+          pip install yamllint pre-commit
 
           go install sigs.k8s.io/kustomize/kustomize/v5@latest
           echo "$HOME/go/bin" >> "$GITHUB_PATH"
+          go install github.com/google/yamlfmt/cmd/yamlfmt@v0.9.0
 
           mkdir -p "$HOME/bin"
           curl -sSL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz \
             | tar -xz -C "$HOME/bin"
           echo "$HOME/bin" >> "$GITHUB_PATH"
+
+      - name: Pre-commit
+        run: pre-commit run --all-files
 
       - name: Validate manifests
         run: ./scripts/validate.sh

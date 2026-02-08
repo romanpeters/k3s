@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: overseerr.romanpeters.nl
+    - host: overseerr.prod.romanpeters.nl
       http:
         paths:
           - path: /
@@ -18,7 +18,7 @@ spec:
                 name: overseerr
                 port:
                   name: http
-    - host: requests.romanpeters.nl
+    - host: requests.prod.romanpeters.nl
       http:
         paths:
           - path: /
