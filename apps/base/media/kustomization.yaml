@@ -21,3 +21,4 @@ resources:
   - gluetun-openvpn.sops.yaml
   - transmission-deployment.yaml
   - transmission-service.yaml
+  - transmission-ingress.yaml
