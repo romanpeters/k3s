@@ -48,6 +48,11 @@ data:
             icon: uptime-kuma
             siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Automation:
         - Home Assistant:
             href: https://home.romanpeters.nl
@@ -58,11 +63,6 @@ data:
             href: https://automation.romanpeters.nl
             icon: ansible
             siteMonitor: https://automation.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: changedetection
-            siteMonitor: https://change.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - n8n:
             href: https://n8n.romanpeters.nl

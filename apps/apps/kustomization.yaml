@@ -4,12 +4,6 @@ namespace: apps
 resources:
   - namespace.yaml
   - config-pvcs.yaml
-  - n8n-deployment.yaml
-  - n8n-service.yaml
-  - n8n-ingress.yaml
-  - changedetection-deployment.yaml
-  - changedetection-service.yaml
-  - changedetection-ingress.yaml
   - heimdall-deployment.yaml
   - heimdall-service.yaml
   - heimdall-ingress.yaml
@@ -17,5 +11,3 @@ resources:
   - homebox-deployment.yaml
   - homebox-service.yaml
   - homebox-ingress.yaml
-  - playwright-chrome-deployment.yaml
-  - playwright-chrome-service.yaml
