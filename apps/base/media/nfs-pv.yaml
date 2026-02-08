@@ -10,7 +10,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   nfs:
-    server: unas.internal
+    server: 10.10.10.3
     path: /var/nfs/shared/media
   mountOptions:
     - nfsvers=4.1
