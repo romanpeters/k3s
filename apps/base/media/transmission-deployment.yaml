@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transmission
+  labels:
+    app.kubernetes.io/name: transmission
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: transmission
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: transmission
+    spec:
+      containers:
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.40.0
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
+            - name: TZ
+              value: "Europe/Amsterdam"
+            - name: VPN_SERVICE_PROVIDER
+              value: "nordvpn"
+            - name: VPN_TYPE
+              value: "openvpn"
+            - name: OPENVPN_USER
+              value: "Qf91ci2URG4bWVkjUHmDWsEE"
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: gluetun-openvpn
+                  key: OPENVPN_PASSWORD
+            - name: SERVER_COUNTRIES
+              value: "Romania"
+          volumeMounts:
+            - name: tun
+              mountPath: /dev/net/tun
+        - name: transmission
+          image: lscr.io/linuxserver/transmission:4.0.6-r4-ls311
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 9091
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Europe/Amsterdam"
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: media
+              mountPath: /downloads
+              subPath: downloads
+            - name: media
+              mountPath: /watch
+              subPath: downloads/watch
+      volumes:
+        - name: tun
+          hostPath:
+            path: /dev/net/tun
+            type: CharDevice
+        - name: config
+          persistentVolumeClaim:
+            claimName: transmission-config
+        - name: media
+          persistentVolumeClaim:
+            claimName: media-nfs
