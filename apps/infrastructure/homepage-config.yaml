@@ -105,9 +105,9 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media (Other):
         - Immich:
-            href: https://immich.romanpeters.nl
+            href: https://photos.romanpeters.nl
             icon: immich
-            siteMonitor: https://immich.romanpeters.nl
+            siteMonitor: https://photos.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Sonarr:
             href: https://sonarr.romanpeters.nl

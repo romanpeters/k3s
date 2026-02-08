@@ -76,7 +76,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: immich.romanpeters.nl
+    - host: photos.romanpeters.nl
       http:
         paths:
           - path: /
@@ -87,6 +87,16 @@ spec:
                 port:
                   name: http
     - host: immich.prod.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: immich-server
+                port:
+                  name: http
+    - host: immich.romanpeters.nl
       http:
         paths:
           - path: /
