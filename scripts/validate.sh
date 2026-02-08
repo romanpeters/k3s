@@ -18,7 +18,7 @@ require kubeconform
 yamllint -c "$ROOT_DIR/.yamllint.yaml" "$ROOT_DIR"
 
 # Render and validate all cluster manifests
-rendered="$ROOT_DIR/.tmp-rendered.yaml"
+rendered="$(mktemp)"
 trap 'rm -f "$rendered"' EXIT
 
 kustomize build "$ROOT_DIR/clusters/prod" > "$rendered"
