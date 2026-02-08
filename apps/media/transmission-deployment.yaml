@@ -68,11 +68,8 @@ spec:
             - name: config
               mountPath: /config
             - name: media
-              mountPath: /downloads
+              mountPath: /mnt/media/downloads
               subPath: downloads
-            - name: media
-              mountPath: /watch
-              subPath: downloads/watch
       volumes:
         - name: tun
           hostPath:
