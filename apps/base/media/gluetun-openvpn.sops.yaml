@@ -1,23 +1,23 @@
-apiVersion: ENC[AES256_GCM,data:AjY=,iv:22dQ3fxblzNPxawdQE9XP3PK0Z9e9wj3LnWMuFa5zvA=,tag:wDh/2+ihJsPOlCufAM0JCQ==,type:str]
-kind: ENC[AES256_GCM,data:fujWAzAK,iv:kxS0o8ZmCHpP9mvet8fD/mOwhNQQkqy8HCWS76YBlC4=,tag:rFGpwkWofzOBZgHWaVDu2Q==,type:str]
+apiVersion: v1
+kind: Secret
 metadata:
-    name: ENC[AES256_GCM,data:1mao//77EUZj4no/oHQN,iv:z6yUv0oyqPT4ZPFR7mWNySrLs+KWRr6mVnfGs5TTbWA=,tag:MBPQd/483KPk8Y+fTLcKNw==,type:str]
-    namespace: ENC[AES256_GCM,data:kxRUcNI=,iv:u3oNW42APiQCSjqXt5Ykj2oUVaJwlLsjCvdC8CtqkAE=,tag:n5pfbfPM9N9ooWBmvCbiAQ==,type:str]
-type: ENC[AES256_GCM,data:k7UDSWXS,iv:uK+Gwoc/ahBbzTwxEKz8A9jE0NQh/VC0bwUTPh73AMo=,tag:H7wVmdgDEfYSymQfBfUbLQ==,type:str]
+    name: gluetun-openvpn
+    namespace: media
+type: Opaque
 stringData:
-    OPENVPN_PASSWORD: ENC[AES256_GCM,data:mbHaEF4InGAp5BdPjGiWNKxqNA6Ikfeo,iv:MwoTelOTxCZhkW0icj5rk+JtsWst0a9A/3XkdocHS2U=,tag:Vg5p3fEsbDT9gphnDQJ99w==,type:str]
+    OPENVPN_PASSWORD: ENC[AES256_GCM,data:mQ4uleHgjlFnVt5bAXRxx04DcwfMfslF,iv:52GN2ucqJwkSI1N9diFPlgZv6gaqH7mVHIm4IakBM4k=,tag:IYz7EB+/oRu/RRmFA1jO4g==,type:str]
 sops:
     age:
         - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3bFNzalVWdjNoejU0T3J0
-            MUoxanU3SlBIQTZCUVpxM2l4UHNTcDhKa1RJCkh3bVJwekF2cWNFeVI5Y1FvSU14
-            VmRHd24wNWFXNG1IMERKeXZmVlVhRWsKLS0tIG9VZVhIRVpEbHlYbzB3MFVoSGsw
-            V2FjTXdsUE85b2c5ZjNwN0lXNkFmZGsKjYzrBAiR65I5xMilO0gd/3M0okjzxjr7
-            vzLx7mUIsyMtJR3M+ac1XXWM2Re4VKpOSD+IBO9/kPFBKjNEahWLBQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3cC9GQ3J1ZURKMExsRXBW
+            YmxQZTJXWjFkSlh4RzNqNnd3Nno5K2hlY0FrCjlZMytjS251b0lVdTRnTkk0eVJN
+            MU93d3dneFVLUU80QUkwVGVBcHNTeWsKLS0tIERXTWNFL0w0VithZjIzcmdmV3RS
+            Z08xZW5IL3F0M2FlMlRZaXZxcnQwcVUKeLzWXqIdU3gvRRQH6zysCTdOxPreear+
+            kv6+P6xkaCzWTj13uhjBHy7PD3BBq2QSejYT5K68H7q7aWxY57yvDQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-02-08T14:43:28Z"
-    mac: ENC[AES256_GCM,data:EhXR2OCURp1Rxm60Xqw454ZaxUE7d1IQdLPpUu6uXaPocPY8gdjzBALNthikH7wAju/MpeyOAkBrNoVUAju44tz4pAp+vZnTPhS17FGvP/fFwkFj17dgOYQbiCNSNmuNr1Vz4WVUDsEAG56Cb3jVmH01ocE40H6dAy8sLU5i1YI=,iv:d5Dye8CjdwrucACT1qZP7ZpeiZobNTY6keqn5lpVmYg=,tag:PJ6xEBHIW2LZA4vztG6GQg==,type:str]
-    unencrypted_suffix: _unencrypted
+    lastmodified: "2026-02-08T14:46:45Z"
+    mac: ENC[AES256_GCM,data:yxpcnf1dsu6b5MdZB65/0jCcESnV9IrewHfrvozJuy9XiEHrAukQZee5Km4PvS+YU+MDTIcPc0XC+KQvcAeHqfprwD0h6sN6Hs2mbPwDQnzzd95+fRKcBMI1FfkuGTQ9xLp4T3lnUoUN5276ay4NG49iAPbxXTPkmJUFeKcnU8w=,iv:sTg79Nhi8WTx5JAX2Z6royYmfSK6kPNzlcWbYXcgpfA=,tag:VY+ZrCg2uIB6jS3Ux4a4qw==,type:str]
+    encrypted_regex: ^(data|stringData)$
     version: 3.11.0
