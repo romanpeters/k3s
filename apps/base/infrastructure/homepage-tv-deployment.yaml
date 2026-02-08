@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage-tv
+  labels:
+    app.kubernetes.io/name: homepage-tv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: homepage-tv
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: homepage-tv
+    spec:
+      initContainers:
+        - name: seed-config
+          image: alpine:3.19
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -e
+              mkdir -p /app/config
+              cp -a /config-ro/. /app/config/
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+            - name: config-ro
+              mountPath: /config-ro
+      containers:
+        - name: homepage
+          image: ghcr.io/gethomepage/homepage:v1.10.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Europe/Amsterdam"
+            - name: HOMEPAGE_ALLOWED_HOSTS
+              value: "tv.romanpeters.nl,rtv.romanpeters.nl,romantv.romanpeters.nl"
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+      volumes:
+        - name: config
+          emptyDir: {}
+        - name: config-ro
+          configMap:
+            name: homepage-tv-config

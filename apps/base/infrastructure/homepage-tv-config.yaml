@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-tv-config
+  namespace: infrastructure
+data:
+  settings.yaml: |
+    title: RomanTV
+    theme: dark
+    color: slate
+    headerStyle: boxed
+    layout:
+      TV:
+        style: row
+        columns: 2
+  widgets.yaml: |
+    []
+  bookmarks.yaml: |
+    []
+  services.yaml: |
+    - TV:
+        - RomanTV:
+            href: https://app.plex.tv/desktop/#!/
+            icon: plex
+        - Request:
+            href: https://request.romanpeters.nl
+            icon: overseerr

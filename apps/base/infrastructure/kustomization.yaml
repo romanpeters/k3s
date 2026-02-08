@@ -7,3 +7,8 @@ resources:
   - homepage-deployment.yaml
   - homepage-service.yaml
   - homepage-ingress.yaml
+  - homepage-tv-config.yaml
+  - homepage-tv-deployment.yaml
+  - homepage-tv-service.yaml
+  - homepage-tv-ingress.yaml
+  - homepage-tv-redirects.yaml
