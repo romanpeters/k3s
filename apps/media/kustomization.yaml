@@ -41,5 +41,4 @@ resources:
   - immich-postgres.yaml
   - immich-redis.yaml
   - immich-machine-learning.yaml
-  - immich-microservices.yaml
   - immich-server.yaml
