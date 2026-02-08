@@ -8,3 +8,6 @@ resources:
   - grafana-deployment.yaml
   - grafana-service.yaml
   - grafana-ingress.yaml
+  - uptime-kuma-deployment.yaml
+  - uptime-kuma-service.yaml
+  - uptime-kuma-ingress.yaml
