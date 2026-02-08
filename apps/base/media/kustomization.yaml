@@ -22,3 +22,6 @@ resources:
   - transmission-deployment.yaml
   - transmission-service.yaml
   - transmission-ingress.yaml
+  - tautulli-deployment.yaml
+  - tautulli-service.yaml
+  - tautulli-ingress.yaml
