@@ -15,8 +15,8 @@ spec:
         app.kubernetes.io/name: calibre-web
     spec:
       containers:
-        - name: calibre-web
-          image: lscr.io/linuxserver/calibre-web:0.6.21-ls259
+        - name: calibre-web-automated
+          image: crocodilestick/calibre-web-automated:v4.0.6
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
@@ -27,10 +27,22 @@ spec:
             - name: PGID
               value: "1000"
             - name: TZ
-              value: "America/New_York"
+              value: "Europe/Amsterdam"
+            - name: NETWORK_SHARE_MODE
+              value: "true"
+            - name: CWA_PORT_OVERRIDE
+              value: "8083"
+            - name: TRUSTED_PROXY_COUNT
+              value: "2"
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: media
+              mountPath: /cwa-book-ingest
+              subPath: books/ingest
+            - name: media
+              mountPath: /calibre-library
+              subPath: books/ebooks
             - name: media
               mountPath: /mnt/media/books/ebooks
               subPath: books/ebooks
