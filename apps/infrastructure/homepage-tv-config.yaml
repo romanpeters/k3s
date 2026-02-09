@@ -6,14 +6,44 @@ metadata:
 data:
   settings.yaml: |
     title: RomanTV
-    theme: dark
+    theme: light
     color: slate
+    background: https://raw.githubusercontent.com/romanpeters/romanpeters.github.io/refs/heads/main/assets/rtvbg.jpeg
     headerStyle: boxed
     statusStyle: dot
     layout:
       TV:
         style: row
         columns: 2
+        header: false
+      Books:
+        style: row
+        columns: 2
+        header: false
+      Other:
+        style: row
+        columns: 2
+        header: false
+  custom.css: |
+    /* white cards */
+    .service-card,
+    .widget-container {
+      background-color: #ffffff !important;
+      opacity: 0.85 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .service-card *,
+    .widget-container * {
+      color: #0f172a !important;
+    }
+
+    /* Hide only the top bar element */
+    header {
+      display: none !important;
+    }
+
   widgets.yaml: |
     []
   bookmarks.yaml: |
@@ -30,13 +60,25 @@ data:
             icon: overseerr
             siteMonitor: https://request.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Books:
         - Audiobookshelf:
             href: https://books.romanpeters.nl
-            icon: mdi-book-open-page-variant
+            icon: audiobookshelf
             siteMonitor: https://books.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
-            icon: mdi-book-open-variant
+            icon: calibre-web
             siteMonitor: https://ebooks.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Other:
+        - Status:
+            href: https://uptime.romanpeters.nl/status/rtv
+            icon: uptime-kuma
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Authentication:
+            href: https://auth.romanpeters.nl
+            icon: authentik
+            siteMonitor: https://auth.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
