@@ -37,6 +37,7 @@ resources:
   - calibre-web-deployment.yaml
   - calibre-web-service.yaml
   - calibre-web-ingress.yaml
+  - calibre-web-redirects.yaml
   - immich-secrets.sops.yaml
   - immich-postgres.yaml
   - immich-redis.yaml
