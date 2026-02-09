@@ -14,6 +14,26 @@ spec:
       labels:
         app.kubernetes.io/name: calibre-web
     spec:
+      initContainers:
+        - name: patch-templates
+          image: crocodilestick/calibre-web-automated:v4.0.6
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              set -eu
+              cp -a /app/calibre-web-automated/cps/templates/. /work/
+              awk '{
+                print
+                if ($0 ~ /uploadprogress.js/) {
+                  print "    <script>if (window.jQuery && !jQuery.fn.uploadprogress) { jQuery.fn.uploadprogress = function(){ return this; }; }</script>"
+                }
+              }' /app/calibre-web-automated/cps/templates/layout.html > /work/layout.html
+          volumeMounts:
+            - name: templates
+              mountPath: /work
       containers:
         - name: calibre-web-automated
           image: crocodilestick/calibre-web-automated:v4.0.6
@@ -35,6 +55,8 @@ spec:
             - name: TRUSTED_PROXY_COUNT
               value: "2"
           volumeMounts:
+            - name: templates
+              mountPath: /app/calibre-web-automated/cps/templates
             - name: config
               mountPath: /config
             - name: media
@@ -47,6 +69,8 @@ spec:
               mountPath: /mnt/media/books/ebooks
               subPath: books/ebooks
       volumes:
+        - name: templates
+          emptyDir: {}
         - name: config
           persistentVolumeClaim:
             claimName: calibre-web-config
