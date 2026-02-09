@@ -136,9 +136,9 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
-            href: https://authentik.romanpeters.nl
+            href: https://auth.romanpeters.nl
             icon: authentik
-            siteMonitor: https://authentik.romanpeters.nl
+            siteMonitor: https://auth.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - NGINX:
             href: https://nginx.romanpeters.nl

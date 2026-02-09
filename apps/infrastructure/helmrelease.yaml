@@ -22,8 +22,6 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - authentik.romanpeters.nl
-          - authentik.prod.romanpeters.nl
           - auth.romanpeters.nl
     postgresql:
       enabled: true
