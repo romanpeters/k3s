@@ -17,13 +17,3 @@ spec:
                 name: uptime-kuma
                 port:
                   name: http
-    - host: uptime.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: uptime-kuma
-                port:
-                  name: http

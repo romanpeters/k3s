@@ -1,32 +1,32 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: calibreweb-xscheme
+  name: immich-redirect
   namespace: media
 spec:
-  headers:
-    customRequestHeaders:
-      X-Scheme: "https"
-      X-Forwarded-Proto: "https"
+  redirectRegex:
+    regex: ^https?://immich\.romanpeters\.nl/(.*)
+    replacement: https://photos.romanpeters.nl/$1
+    permanent: true
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: calibre-web
+  name: immich-redirect-ingress
   namespace: media
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
-    traefik.ingress.kubernetes.io/router.middlewares: media-calibreweb-xscheme@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: media-immich-redirect@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
-    - host: ebooks.romanpeters.nl
+    - host: immich.romanpeters.nl
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: calibre-web
+                name: immich-server
                 port:
                   name: http

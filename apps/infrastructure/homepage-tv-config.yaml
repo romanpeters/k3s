@@ -76,7 +76,7 @@ data:
             icon: uptime-kuma
             siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Authentication:
+        - R-account:
             href: https://auth.romanpeters.nl
             icon: authentik
             siteMonitor: https://auth.romanpeters.nl

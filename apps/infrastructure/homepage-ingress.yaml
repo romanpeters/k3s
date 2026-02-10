@@ -18,13 +18,3 @@ spec:
                 name: homepage
                 port:
                   name: http
-    - host: homepage.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: homepage
-                port:
-                  name: http

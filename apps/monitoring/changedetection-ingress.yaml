@@ -17,13 +17,3 @@ spec:
                 name: changedetection
                 port:
                   name: http
-    - host: change.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: changedetection
-                port:
-                  name: http

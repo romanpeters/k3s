@@ -18,13 +18,3 @@ spec:
                 name: homebox
                 port:
                   name: http
-    - host: homebox.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: homebox
-                port:
-                  name: http

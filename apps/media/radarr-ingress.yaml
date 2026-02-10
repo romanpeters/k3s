@@ -18,13 +18,3 @@ spec:
                 name: radarr
                 port:
                   name: http
-    - host: radarr.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: radarr
-                port:
-                  name: http

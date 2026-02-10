@@ -43,3 +43,5 @@ resources:
   - immich-redis.yaml
   - immich-machine-learning.yaml
   - immich-server.yaml
+  - audiobookshelf-redirect.yaml
+  - immich-redirect.yaml

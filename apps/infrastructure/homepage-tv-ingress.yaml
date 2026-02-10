@@ -18,13 +18,3 @@ spec:
                 name: homepage-tv
                 port:
                   name: http
-    - host: tv.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: homepage-tv
-                port:
-                  name: http

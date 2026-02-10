@@ -18,13 +18,3 @@ spec:
                 name: transmission
                 port:
                   name: http
-    - host: transmission.prod.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: transmission
-                port:
-                  name: http
