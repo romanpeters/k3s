@@ -40,6 +40,11 @@ data:
             icon: homebox
             siteMonitor: https://homebox.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Gitea:
+            href: https://git.romanpeters.nl
+            icon: gitea
+            siteMonitor: https://git.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Monitoring:
         - Grafana:
             href: https://grafana.romanpeters.nl

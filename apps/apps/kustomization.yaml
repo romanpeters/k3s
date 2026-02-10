@@ -14,3 +14,10 @@ resources:
   - homebox-deployment.yaml
   - homebox-service.yaml
   - homebox-ingress.yaml
+  - gitea-postgres-data-pvc.yaml
+  - gitea-postgres.yaml
+  - gitea-data-pvc.yaml
+  - gitea-deployment.yaml
+  - gitea-service.yaml
+  - gitea-ingress.yaml
+  - gitea-secrets.sops.yaml

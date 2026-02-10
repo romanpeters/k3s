@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitea-postgres
+  labels:
+    app.kubernetes.io/name: gitea-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: gitea-postgres
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: gitea-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: pgvector/pgvector:pg16
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: postgres
+              containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: gitea
+            - name: POSTGRES_USER
+              value: gitea
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: gitea-secrets
+                  key: DB_PASSWORD
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: gitea-postgres-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitea-postgres
+  labels:
+    app.kubernetes.io/name: gitea-postgres
+spec:
+  selector:
+    app.kubernetes.io/name: gitea-postgres
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
