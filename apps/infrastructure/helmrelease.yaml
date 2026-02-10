@@ -23,6 +23,9 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
           - auth.romanpeters.nl
+      env:
+        AUTHENTIK_LISTEN__TRUSTED_PROXY_CIDRS: '["10.42.0.0/16"]'
+        AUTHENTIK_WEB__CSRF_TRUSTED_ORIGINS: "https://auth.romanpeters.nl"
     postgresql:
       enabled: true
     redis:
