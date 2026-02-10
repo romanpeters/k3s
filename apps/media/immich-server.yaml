@@ -46,7 +46,7 @@ spec:
               value: "http://immich-machine-learning:3003"
           volumeMounts:
             - name: upload
-              mountPath: /usr/src/app/upload
+              mountPath: /mnt/media/photos
               subPath: photos
       volumes:
         - name: upload
