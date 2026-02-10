@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - config-pvcs.yaml
   - grafana-admin.sops.yaml
+  - grafana-oauth.sops.yaml
   - grafana-deployment.yaml
   - grafana-service.yaml
   - grafana-ingress.yaml

@@ -25,7 +25,35 @@ spec:
             - name: TZ
               value: "Europe/Amsterdam"
             - name: GF_SERVER_ROOT_URL
-              value: "https://grafana.romanpeters.nl"
+              value: "https://dashboard.romanpeters.nl"
+            - name: GF_AUTH_GENERIC_OAUTH_ENABLED
+              value: "true"
+            - name: GF_AUTH_GENERIC_OAUTH_NAME
+              value: "authentik"
+            - name: GF_AUTH_GENERIC_OAUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: grafana-oauth
+                  key: GF_AUTH_GENERIC_OAUTH_CLIENT_ID
+            - name: GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: grafana-oauth
+                  key: GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET
+            - name: GF_AUTH_GENERIC_OAUTH_SCOPES
+              value: "openid profile email"
+            - name: GF_AUTH_GENERIC_OAUTH_AUTH_URL
+              value: "https://auth.romanpeters.nl/application/o/authorize/"
+            - name: GF_AUTH_GENERIC_OAUTH_TOKEN_URL
+              value: "https://auth.romanpeters.nl/application/o/token/"
+            - name: GF_AUTH_GENERIC_OAUTH_API_URL
+              value: "https://auth.romanpeters.nl/application/o/userinfo/"
+            - name: GF_AUTH_SIGNOUT_REDIRECT_URL
+              value: "https://auth.romanpeters.nl/application/o/grafana/end-session/"
+            - name: GF_AUTH_OAUTH_AUTO_LOGIN
+              value: "true"
+            - name: GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH
+              value: "contains(groups[*], 'Grafana Admins') && 'Admin' || contains(groups[*], 'Grafana Editors') && 'Editor' || 'Viewer'"
             - name: GF_SECURITY_ADMIN_USER
               valueFrom:
                 secretKeyRef:

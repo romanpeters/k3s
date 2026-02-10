@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-oauth
+  namespace: monitoring
+type: Opaque
+stringData:
+  GF_AUTH_GENERIC_OAUTH_CLIENT_ID: ENC[AES256_GCM,data:C6ufPtfkDDJCT0p/NlRZbeiYzSLD+Sk3rjbkkSATd6KTqKtQAnpyeQ==,iv:avGLObUxQS2O62XgtU0zyF1UB6CMR54JMEevnXJAzXE=,tag:Njh7LFDnHPZ/hgCte8YCOg==,type:str]
+  GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: ENC[AES256_GCM,data:5hWNwHSMjQ+pm60W2JtJZiBZaAuhlrvuQs4HQyeLtrIXJ96T9emNl1voVkqSDFD9iXkvxPO2wZaGsSDbwSXYSvEM7P/sZlx6mrDCCUzb5FukV4G7WikHmKBhrYsDm5XdgeMlzJVzyzW/PgNUVY62zhQrcy3EEuWM6aTE59GLAF0=,iv:4cb/etFdGCTWZLQMGRNaBVQmUNIw1PB8GkYLNq9Qdmk=,tag:H0QDHcLFO/ovC3POdJDP/A==,type:str]
+sops:
+  age:
+    - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQR3llelpvdldLaS80Vy83
+        K1RVdHhvUERFOUMrK0NKKyt5ODRlbThBazJRCjV4RFNsYmJJd3BtUTgyK3BsVDFq
+        cG5DTGlwTHNSS3dBVmUxelIreVNJaGsKLS0tIHdGUFRpT296NUt0dVl2VEIwenhh
+        cW0zMm41VlA4Nkh4ZmRPTWRtZWNsL1UKgOpr9wvA520yLEKyKZkOBB5/ZLIPFKH8
+        Vd6oNHl3uwWVTTB8O1xd2DREPiQ5wLQD2vMRYyXEdkS+hFqcTnBljQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-02-10T18:23:40Z"
+  mac: ENC[AES256_GCM,data:e+c/dItdrKYXj0WAtD1OI/w7MAcZdyxdl4a2t5t/tbErhVmA5a3a2dCWleQux5qDo8ZpuB5W4bgKA+HLRbTkte/2UN6Z/UFlj9RopB9Sbt9JszENUFbHXaV61ixC+Tz+xXsQ16f2bj1k3M6WL9ncApt038LtERi5RYxL0caRve4=,iv:AuHa439G64vjjJ46P9PsLL0ipMIXsTI23zgxBaJyCYo=,tag:3iBOHOyYYnte0aRL5B60/Q==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  version: 3.11.0
