@@ -6,4 +6,4 @@ metadata:
 spec:
   valuesContent: |-
     additionalArguments:
-      - "--entrypoints.web.forwardedHeaders.trustedIPs=10.10.20.150"
+      - "--entrypoints.web.forwardedHeaders.insecure=true"
