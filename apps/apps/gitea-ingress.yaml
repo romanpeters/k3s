@@ -5,7 +5,6 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-to-https@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
 spec:
@@ -29,7 +28,6 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-gitea@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
 spec:
