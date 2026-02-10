@@ -45,11 +45,17 @@ spec:
             - name: IMMICH_MACHINE_LEARNING_URL
               value: "http://immich-machine-learning:3003"
           volumeMounts:
-            - name: upload
+            - name: immich-data
+              mountPath: /data
+            - name: media
               mountPath: /mnt/media/photos
               subPath: photos
+              readOnly: true
       volumes:
-        - name: upload
+        - name: immich-data
+          persistentVolumeClaim:
+            claimName: immich-data
+        - name: media
           persistentVolumeClaim:
             claimName: media-nfs
 ---
