@@ -1,23 +1,23 @@
-apiVersion: ENC[AES256_GCM,data:wGI=,iv:nPhtqk2DFjFPNop/YvGsq50Ekhw/nPOKHHacEpaqWzg=,tag:kzdGfJeM8DkP0UsxIYX+/w==,type:str]
-kind: ENC[AES256_GCM,data:5KvSr0Vo,iv:RlfddjPc0XknjmLd3ui4+Q+HlmPGnCUwcusGPGIpbQM=,tag:b4rfn346VSnhgv2D+8LfCg==,type:str]
+apiVersion: v1
+kind: Secret
 metadata:
-  name: ENC[AES256_GCM,data:YkM1C4NMccvaLyjmUvIUsfw=,iv:DdDvQamOoJ9RldfOIIq9TuvYxfT5FpwVnyd5YeDGzuQ=,tag:9mjiqN6WiDguraVTB4NIkA==,type:str]
-  namespace: ENC[AES256_GCM,data:m+Dz4e+HqNc0ZQ==,iv:0FOCOJ7oKhdk31Cb/nbKuOkAnljxu1r2Q9JTDnHalik=,tag:/pmioKlOyYKQw+mLLDO21A==,type:str]
-type: ENC[AES256_GCM,data:DW7NSS6j,iv:sfz3UEzl1k5gHIYpasjklASP/jQV3WHAmnvKg9rr3dg=,tag:Dwju/tFejjAoQcG7CaS1bg==,type:str]
+  name: tautulli-exporter
+  namespace: monitoring
+type: Opaque
 stringData:
-  TAUTULLI_API_KEY: ENC[AES256_GCM,data:/F9027S8IZ3SP0pxkmTNBB9Smu6dzZIcxo3blVnlLus=,iv:vQlFE4DSvBKsPgyGxGwdW0thBo2vU3XWB0KKmgzEjo0=,tag:Qa+5aseLnkCiFvXLjLtkkg==,type:str]
+  TAUTULLI_API_KEY: ENC[AES256_GCM,data:drbonbeeGkjTzvB3cIt0fhHydL5yXhBORsvkH1Wi6Lk=,iv:5x8N+5X1sEhuEVQriQo4/ij+56drly7PTc1eJ/g8yl0=,tag:R0OUmSAicewDFu6Yb9YbCQ==,type:str]
 sops:
   age:
     - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
       enc: |
         -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmUk1pRFluVGNTNDE4a2ZR
-        K0cxam5HRmNxU20waW56azRRMHBaWndpbkNzClhrbnZ2Q05BSkdWZm9SSEYvMUJJ
-        c1JNNkE1eW1LVmlqK3lOZURuR0xPWVkKLS0tIDBxdlNSZ2N4SzJ5aXR3aktWNGlw
-        Wmc4U3JXSVArblpzWkF0RE14TmJTV1UKXFeTZzopM1sRCCuc0hnLH6v/j+5iLd9p
-        5NX8WXCJZHaiePFek7q9OmrA2KmlR3+6h31TItRZvMh1ZqFiBVq+oQ==
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5UG9EdTFXZ0o2eVcrNWM2
+        SnUwcGFtbHhULzlMWUFpU1o5R0k4TnltSXgwCmtaazZZZHN1ZVVvQzBrYzFjNUxn
+        Qzg4U0pGUE84ZzFVNXN3QU1xeWowaFUKLS0tIGZiTU5QNG41NTlpZkp5dlhpMXdL
+        emUreHFNWHZlTDRWbmRacHdWK2tzUzQK6wlwplzOSAMnJ+vm/TV9TKQ1oPA3UZky
+        PO4CRvAdgXXiqOcvHyD1cDbhFjSU6M4UuwwyTvnBoW14RMxQjcAw0w==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2026-02-10T18:55:26Z"
-  mac: ENC[AES256_GCM,data:TjPeteUhBpVwLwsR+3uba6FFopJW+56fHeybTBphmrdofRYntADQmSFlcUwd8m94onJN5aD18t4uaeq8uctPcWaaDzWhpd0FO63fqSYy7wxoZQNWXCk0JoZMjueKDpeEjf0CouBceGB6k5FWhvb58fl51IwC5CuiPlp58SuNhas=,iv:+13hV8CIZxLoUgX8BwpmlA6dTcrL+gy0wjWxLXXuLIo=,tag:Zh5FgynKmRQ8J4eX6m5VSg==,type:str]
-  unencrypted_suffix: _unencrypted
+  lastmodified: "2026-02-10T21:56:34Z"
+  mac: ENC[AES256_GCM,data:ilLEWDBPGTWcf+nhofP1xDa+ZWOwr4R5a6WsuJWwcRAp+VeMB6xNvlQwwa+X8ydQaoTyI7P3Ci3dJv1K0/wH4TZfsZW/Z1r/s0kIFlMMtsdUeERqZSpvauaXXnuUpNk5Ucgpb/i/F7jkvv0ZOxRqf0+CYP58WVmPDv4OS5Alplo=,iv:Xij91/KvTv+MbF47AfU/P/Upf1RWim09TUyByu7gAF8=,tag:sRJ5iTpUYiVWznY4+AbNJg==,type:str]
+  encrypted_regex: ^(data|stringData)$
   version: 3.11.0
