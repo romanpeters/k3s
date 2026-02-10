@@ -43,7 +43,6 @@ data:
     header {
       display: none !important;
     }
-
   widgets.yaml: |
     []
   bookmarks.yaml: |
@@ -61,15 +60,15 @@ data:
             siteMonitor: https://request.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Books:
-        - Audiobookshelf:
-            href: https://books.romanpeters.nl
-            icon: audiobookshelf
-            siteMonitor: https://books.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Calibre Web:
+        - Ebooks:
             href: https://ebooks.romanpeters.nl
             icon: calibre-web
             siteMonitor: https://ebooks.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Audiobooks:
+            href: https://books.romanpeters.nl
+            icon: audiobookshelf
+            siteMonitor: https://books.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Other:
         - Status:
