@@ -54,6 +54,8 @@ spec:
               value: "true"
             - name: GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH
               value: "contains(groups[*], 'grafana-admins') && 'Admin' || contains(groups[*], 'grafana-editors') && 'Editor' || 'Viewer'"
+            - name: GF_AUTH_GENERIC_OAUTH_LOGIN_ATTRIBUTE_PATH
+              value: "preferred_username"
             - name: GF_SECURITY_ADMIN_USER
               valueFrom:
                 secretKeyRef:
