@@ -14,18 +14,18 @@ data:
       Apps:
         style: row
         columns: 2
+      Media:
+        style: row
+        columns: 4
+      Downloads:
+        style: row
+        columns: 4
       Monitoring:
         style: row
         columns: 2
       Automation:
         style: row
         columns: 2
-      Media (Active):
-        style: row
-        columns: 4
-      Media (Other):
-        style: row
-        columns: 4
       Infrastructure:
         style: row
         columns: 3
@@ -44,43 +44,6 @@ data:
             href: https://git.romanpeters.nl
             icon: gitea
             siteMonitor: https://git.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Monitoring:
-        - Grafana:
-            href: https://grafana.romanpeters.nl
-            icon: grafana
-            siteMonitor: https://grafana.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: uptime-kuma
-            siteMonitor: https://uptime.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: changedetection
-            siteMonitor: https://change.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Tautulli:
-            href: https://tautulli.romanpeters.nl
-            icon: tautulli
-            siteMonitor: http://tautulli.media.svc.cluster.local:8181
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
-    - Automation:
-        - Home Assistant:
-            href: https://home.romanpeters.nl
-            icon: home-assistant
-            siteMonitor: https://home.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Ansible Automation Platform:
-            href: https://automation.romanpeters.nl
-            icon: ansible
-            siteMonitor: https://automation.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - n8n:
-            href: https://n8n.romanpeters.nl
-            icon: n8n
-            siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Media:
         - Jellyfin:
@@ -110,9 +73,9 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Downloads:
         - Overseerr:
-            href: https://overseerr.romanpeters.nl
+            href: https://request.romanpeters.nl
             icon: overseerr
-            siteMonitor: https://overseerr.romanpeters.nl
+            siteMonitor: https://request.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Sonarr:
             href: https://sonarr.romanpeters.nl
@@ -138,6 +101,43 @@ data:
             href: https://transmission.romanpeters.nl
             icon: transmission
             siteMonitor: https://transmission.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Monitoring:
+        - Grafana:
+            href: https://dashboard.romanpeters.nl
+            icon: grafana
+            siteMonitor: https://dashboard.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: uptime-kuma
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Tautulli:
+            href: https://tautulli.romanpeters.nl
+            icon: tautulli
+            siteMonitor: https://tautulli.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
+    - Automation:
+        - Home Assistant:
+            href: https://home.romanpeters.nl
+            icon: home-assistant
+            siteMonitor: https://home.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Ansible Automation Platform:
+            href: https://automation.romanpeters.nl
+            icon: ansible
+            siteMonitor: https://automation.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: n8n
+            siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Authentik:
