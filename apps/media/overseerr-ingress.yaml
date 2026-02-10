@@ -27,11 +27,54 @@ metadata:
   namespace: media
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
-    traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-requests@kubernetescrd,media-overseerr-redirect-main@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
     - host: request.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: overseerr
+                port:
+                  name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: overseerr-redirect-requests
+  namespace: media
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-requests@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: requests.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: overseerr
+                port:
+                  name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: overseerr-redirect-main
+  namespace: media
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-main@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: overseerr.romanpeters.nl
       http:
         paths:
           - path: /
