@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tautulli-exporter
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: tautulli-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: tautulli-exporter
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: tautulli-exporter
+    spec:
+      containers:
+        - name: tautulli-exporter
+          image: mm404/tautulli-exporter:20260105-b6a4130
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: TAUTULLI_URL
+              value: "https://tautulli.romanpeters.nl"
+            - name: TAUTULLI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: tautulli-exporter
+                  key: TAUTULLI_API_KEY

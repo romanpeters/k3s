@@ -1,0 +1,176 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tautulli-library-exporter
+  namespace: monitoring
+data:
+  exporter.py: |
+    import json
+    import os
+    import ssl
+    import time
+    import urllib.parse
+    import urllib.request
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    TAUTULLI_URL = os.environ.get("TAUTULLI_URL", "").rstrip("/")
+    TAUTULLI_API_KEY = os.environ.get("TAUTULLI_API_KEY", "")
+    VERIFY_SSL = os.environ.get("TAUTULLI_VERIFY_SSL", "true").lower() != "false"
+    LISTEN_HOST = os.environ.get("LISTEN_HOST", "0.0.0.0")
+    LISTEN_PORT = int(os.environ.get("LISTEN_PORT", "9101"))
+
+    if not TAUTULLI_URL or not TAUTULLI_API_KEY:
+      raise SystemExit("TAUTULLI_URL and TAUTULLI_API_KEY must be set")
+
+    def fetch_libraries():
+      params = urllib.parse.urlencode({
+        "apikey": TAUTULLI_API_KEY,
+        "cmd": "get_libraries",
+      })
+      url = f"{TAUTULLI_URL}/api/v2?{params}"
+      ctx = None
+      if url.startswith("https") and not VERIFY_SSL:
+        ctx = ssl._create_unverified_context()
+      start = time.time()
+      with urllib.request.urlopen(url, context=ctx, timeout=10) as resp:
+        payload = json.loads(resp.read().decode("utf-8"))
+      duration = time.time() - start
+      data = payload.get("response", {}).get("data", [])
+      return data, duration
+
+    def fetch_home_stats():
+      params = urllib.parse.urlencode({
+        "apikey": TAUTULLI_API_KEY,
+        "cmd": "get_home_stats",
+      })
+      url = f"{TAUTULLI_URL}/api/v2?{params}"
+      ctx = None
+      if url.startswith("https") and not VERIFY_SSL:
+        ctx = ssl._create_unverified_context()
+      with urllib.request.urlopen(url, context=ctx, timeout=10) as resp:
+        payload = json.loads(resp.read().decode("utf-8"))
+      return payload.get("response", {}).get("data", [])
+
+    def safe_label(value):
+      if value is None:
+        return ""
+      text = str(value)
+      return (
+        text.replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace("\r", "")
+        .replace("\"", "\\\"")
+      )
+
+    def get_stat_rows(stats, stat_id):
+      for stat in stats:
+        if stat.get("stat_id") == stat_id:
+          return stat.get("rows", [])
+      return []
+
+    def build_metrics(libraries, stats, duration, success):
+      movies = 0
+      series = 0
+      seasons = 0
+      episodes = 0
+      for lib in libraries:
+        section_type = lib.get("section_type")
+        if section_type == "movie":
+          movies += int(lib.get("count", 0))
+        elif section_type == "show":
+          series += int(lib.get("count", 0))
+          seasons += int(lib.get("parent_count", 0))
+          episodes += int(lib.get("child_count", 0))
+
+      lines = [
+        "# HELP tautulli_library_movies_total Total number of movies across all movie libraries",
+        "# TYPE tautulli_library_movies_total gauge",
+        f"tautulli_library_movies_total {movies}",
+        "# HELP tautulli_library_tv_series_total Total number of TV series across all show libraries",
+        "# TYPE tautulli_library_tv_series_total gauge",
+        f"tautulli_library_tv_series_total {series}",
+        "# HELP tautulli_library_tv_seasons_total Total number of TV seasons across all show libraries",
+        "# TYPE tautulli_library_tv_seasons_total gauge",
+        f"tautulli_library_tv_seasons_total {seasons}",
+        "# HELP tautulli_library_tv_episodes_total Total number of TV episodes across all show libraries",
+        "# TYPE tautulli_library_tv_episodes_total gauge",
+        f"tautulli_library_tv_episodes_total {episodes}",
+      ]
+
+      popular_movies = get_stat_rows(stats, "popular_movies")[:5]
+      popular_tv = get_stat_rows(stats, "popular_tv")[:5]
+      top_users = get_stat_rows(stats, "top_users")[:5]
+
+      lines += [
+        "# HELP tautulli_top_movies_users_watched Top movies by unique users (top 5)",
+        "# TYPE tautulli_top_movies_users_watched gauge",
+      ]
+      for row in popular_movies:
+        title = safe_label(row.get("title", ""))
+        rating_key = safe_label(row.get("rating_key", ""))
+        users_watched = int(row.get("users_watched") or 0)
+        lines.append(
+          f'tautulli_top_movies_users_watched{{title="{title}",rating_key="{rating_key}"}} {users_watched}'
+        )
+
+      lines += [
+        "# HELP tautulli_top_tv_users_watched Top TV series by unique users (top 5)",
+        "# TYPE tautulli_top_tv_users_watched gauge",
+      ]
+      for row in popular_tv:
+        title = safe_label(row.get("title", ""))
+        rating_key = safe_label(row.get("grandparent_rating_key") or row.get("rating_key") or "")
+        users_watched = int(row.get("users_watched") or 0)
+        lines.append(
+          f'tautulli_top_tv_users_watched{{title="{title}",rating_key="{rating_key}"}} {users_watched}'
+        )
+
+      lines += [
+        "# HELP tautulli_top_users_total_plays Most active users by total plays (top 5)",
+        "# TYPE tautulli_top_users_total_plays gauge",
+      ]
+      for row in top_users:
+        user = safe_label(row.get("user", ""))
+        user_id = safe_label(row.get("user_id", ""))
+        plays = int(row.get("total_plays") or 0)
+        lines.append(
+          f'tautulli_top_users_total_plays{{user="{user}",user_id="{user_id}"}} {plays}'
+        )
+
+      lines += [
+        "# HELP tautulli_library_scrape_success Whether the last scrape of Tautulli succeeded (1/0)",
+        "# TYPE tautulli_library_scrape_success gauge",
+        f"tautulli_library_scrape_success {1 if success else 0}",
+        "# HELP tautulli_library_scrape_duration_seconds Duration of the Tautulli API request in seconds",
+        "# TYPE tautulli_library_scrape_duration_seconds gauge",
+        f"tautulli_library_scrape_duration_seconds {duration:.6f}",
+      ]
+      return "\n".join(lines) + "\n"
+
+    class Handler(BaseHTTPRequestHandler):
+      def do_GET(self):
+        if self.path not in ("/metrics", "/"):
+          self.send_response(404)
+          self.end_headers()
+          return
+        try:
+          libraries, duration = fetch_libraries()
+          stats = fetch_home_stats()
+          body = build_metrics(libraries, stats, duration, True)
+          self.send_response(200)
+        except Exception:
+          body = build_metrics([], [], 0.0, False)
+          self.send_response(200)
+        self.send_header("Content-Type", "text/plain; version=0.0.4")
+        self.end_headers()
+        self.wfile.write(body.encode("utf-8"))
+
+      def log_message(self, fmt, *args):
+        return
+
+    def main():
+      server = HTTPServer((LISTEN_HOST, LISTEN_PORT), Handler)
+      server.serve_forever()
+
+    if __name__ == "__main__":
+      main()
