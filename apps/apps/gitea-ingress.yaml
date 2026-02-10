@@ -3,8 +3,7 @@ kind: Ingress
 metadata:
   name: gitea
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
   labels:
     app.kubernetes.io/name: gitea
 spec:
@@ -26,8 +25,7 @@ kind: Ingress
 metadata:
   name: gitea-redirect
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
   labels:
     app.kubernetes.io/name: gitea
 spec:
