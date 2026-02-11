@@ -6,6 +6,15 @@ resources:
   - helmrepo.yaml
   - authentik-secrets.sops.yaml
   - helmrelease.yaml
+  - garage-config.yaml
+  - garage-secrets.sops.yaml
+  - garage-pvc.yaml
+  - garage-deployment.yaml
+  - garage-service.yaml
+  - garage-ingress.yaml
+  - garage-webui-deployment.yaml
+  - garage-webui-service.yaml
+  - garage-webui-ingress.yaml
   - homepage-config.yaml
   - homepage-deployment.yaml
   - homepage-service.yaml

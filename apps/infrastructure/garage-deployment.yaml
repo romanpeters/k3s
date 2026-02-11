@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: garage
+  namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: garage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: garage
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: garage
+    spec:
+      initContainers:
+        - name: init-data-dirs
+          image: alpine:3.19
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              set -e
+              mkdir -p /var/lib/garage/meta /var/lib/garage/data
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/garage
+      containers:
+        - name: garage
+          image: dxflrs/garage:v2.2.0
+          imagePullPolicy: IfNotPresent
+          command:
+            - /garage
+          args:
+            - -c
+            - /etc/garage/garage.toml
+            - server
+          ports:
+            - name: s3
+              containerPort: 3900
+            - name: rpc
+              containerPort: 3901
+            - name: admin
+              containerPort: 3903
+          volumeMounts:
+            - name: config
+              mountPath: /etc/garage/garage.toml
+              subPath: garage.toml
+              readOnly: true
+            - name: secrets
+              mountPath: /run/secrets/garage
+              readOnly: true
+            - name: data
+              mountPath: /var/lib/garage
+      volumes:
+        - name: config
+          configMap:
+            name: garage-config
+        - name: secrets
+          secret:
+            secretName: garage-secrets
+            defaultMode: 0400
+        - name: data
+          persistentVolumeClaim:
+            claimName: garage-data

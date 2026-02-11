@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: garage-webui
+  namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: garage-webui
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: garage-webui
+  ports:
+    - name: http
+      port: 3909
+      targetPort: http
