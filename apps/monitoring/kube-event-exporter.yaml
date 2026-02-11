@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kube-event-exporter
+  namespace: monitoring
+data:
+  config.yaml: |
+    logLevel: info
+    logFormat: json
+    receivers:
+      - name: stdout
+        stdout: {}
+    route:
+      routes:
+        - match:
+            - receiver: stdout
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-event-exporter
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: kube-event-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kube-event-exporter
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kube-event-exporter
+    spec:
+      serviceAccountName: kube-state-metrics
+      containers:
+        - name: kube-event-exporter
+          image: opsgenie/kubernetes-event-exporter:v0.11
+          imagePullPolicy: IfNotPresent
+          args:
+            - --config=/config/config.yaml
+          ports:
+            - name: http
+              containerPort: 2112
+          volumeMounts:
+            - name: config
+              mountPath: /config
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: kube-event-exporter
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-event-exporter
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: kube-event-exporter
+spec:
+  selector:
+    app.kubernetes.io/name: kube-event-exporter
+  ports:
+    - name: http
+      port: 2112
+      targetPort: http
