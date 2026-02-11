@@ -34,3 +34,14 @@ spec:
               value: "http://garage.infrastructure.svc.cluster.local:3900"
             - name: S3_REGION
               value: "garage"
+            - name: CONFIG_PATH
+              value: "/etc/garage.toml"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/garage.toml
+              subPath: garage.toml
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: garage-config
