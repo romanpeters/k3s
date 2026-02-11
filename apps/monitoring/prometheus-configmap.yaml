@@ -7,6 +7,8 @@ data:
   prometheus.yml: |
     global:
       scrape_interval: 30s
+    rule_files:
+      - /etc/prometheus/recording_rules.yml
     scrape_configs:
       - job_name: prometheus
         static_configs:
@@ -23,3 +25,15 @@ data:
         metrics_path: /metrics
         static_configs:
           - targets: ['media-nfs-exporter.media.svc.cluster.local:9100']
+  recording_rules.yml: |
+    groups:
+      - name: media_nfs
+        rules:
+          - record: media_nfs_total_bytes
+            expr: node_filesystem_size_bytes{job="media-nfs",mountpoint="/mnt/media"}
+          - record: media_nfs_free_bytes
+            expr: node_filesystem_avail_bytes{job="media-nfs",mountpoint="/mnt/media"}
+          - record: media_nfs_used_bytes
+            expr: node_filesystem_size_bytes{job="media-nfs",mountpoint="/mnt/media"} - node_filesystem_avail_bytes{job="media-nfs",mountpoint="/mnt/media"}
+          - record: media_nfs_used_percent
+            expr: 100 * (1 - node_filesystem_avail_bytes{job="media-nfs",mountpoint="/mnt/media"} / node_filesystem_size_bytes{job="media-nfs",mountpoint="/mnt/media"})
