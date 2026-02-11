@@ -15,7 +15,10 @@ spec:
         namespace: infrastructure
       interval: 10m0s
   values:
+    global:
+      env: []
     server:
+      env: []
       ingress:
         enabled: true
         ingressClassName: traefik
