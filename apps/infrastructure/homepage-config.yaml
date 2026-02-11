@@ -145,6 +145,11 @@ data:
             icon: authentik
             siteMonitor: https://auth.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Garage:
+            href: https://garage.romanpeters.nl
+            icon: mdi-warehouse
+            siteMonitor: https://garage.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - NGINX:
             href: https://nginx.romanpeters.nl
             icon: nginx
