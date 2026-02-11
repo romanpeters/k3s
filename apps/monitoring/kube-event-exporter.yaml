@@ -35,7 +35,7 @@ spec:
       serviceAccountName: kube-state-metrics
       containers:
         - name: kube-event-exporter
-          image: opsgenie/kubernetes-event-exporter:v0.11
+          image: ghcr.io/opsgenie/kubernetes-event-exporter:v0.11
           imagePullPolicy: IfNotPresent
           args:
             - --config=/config/config.yaml
