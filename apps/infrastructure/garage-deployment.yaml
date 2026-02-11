@@ -41,6 +41,8 @@ spec:
           ports:
             - name: s3
               containerPort: 3900
+            - name: web
+              containerPort: 3902
             - name: rpc
               containerPort: 3901
             - name: admin

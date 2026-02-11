@@ -19,6 +19,11 @@ data:
     s3_region = "garage"
     root_domain = ".s3.romanpeters.nl"
 
+    [s3_web]
+    bind_addr = "[::]:3902"
+    root_domain = ".static.romanpeters.nl"
+    index = "index.html"
+
     [admin]
     api_bind_addr = "0.0.0.0:3903"
     admin_token_file = "/run/secrets/garage/admin_token"

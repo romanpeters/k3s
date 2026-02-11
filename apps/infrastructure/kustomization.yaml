@@ -12,6 +12,7 @@ resources:
   - garage-deployment.yaml
   - garage-service.yaml
   - garage-ingress.yaml
+  - garage-web-ingress.yaml
   - garage-webui-deployment.yaml
   - garage-webui-service.yaml
   - garage-webui-ingress.yaml
