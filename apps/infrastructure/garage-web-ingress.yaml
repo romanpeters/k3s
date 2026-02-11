@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: romanpeters.nl
+    - host: images.romanpeters.nl
       http:
         paths:
           - path: /
@@ -18,7 +18,87 @@ spec:
                 name: garage
                 port:
                   name: web
-    - host: "*.romanpeters.nl"
+    - host: videos.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: gifs.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: html.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: pdf.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: css.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: fonts.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: audio.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: downloads.romanpeters.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: garage
+                port:
+                  name: web
+    - host: javascript.romanpeters.nl
       http:
         paths:
           - path: /
