@@ -38,7 +38,7 @@ spec:
           image: ghcr.io/opsgenie/kubernetes-event-exporter:v0.11
           imagePullPolicy: IfNotPresent
           args:
-            - --config=/config/config.yaml
+            - --conf=/config/config.yaml
           ports:
             - name: http
               containerPort: 2112
