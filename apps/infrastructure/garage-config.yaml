@@ -21,7 +21,7 @@ data:
 
     [s3_web]
     bind_addr = "[::]:3902"
-    root_domain = ".cdn.romanpeters.nl"
+    root_domain = ".romanpeters.nl"
     index = "index.html"
 
     [admin]
