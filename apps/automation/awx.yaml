@@ -1,0 +1,11 @@
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx
+spec:
+  service_type: ClusterIP
+  ingress_type: ingress
+  ingress_class_name: traefik
+  hostname: automation.romanpeters.nl
+  ingress_annotations: |
+    traefik.ingress.kubernetes.io/router.entrypoints: web
