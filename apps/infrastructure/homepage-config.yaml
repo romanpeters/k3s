@@ -140,6 +140,11 @@ data:
             siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
+        - Traefik:
+            href: https://traefik.romanpeters.nl
+            icon: traefik
+            siteMonitor: https://traefik.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Authentik:
             href: https://auth.romanpeters.nl
             icon: authentik
