@@ -129,10 +129,10 @@ data:
             icon: home-assistant
             siteMonitor: https://home.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Ansible Automation Platform:
-            href: https://automation.romanpeters.nl
+        - AWX:
+            href: https://awx.romanpeters.nl
             icon: ansible
-            siteMonitor: https://automation.romanpeters.nl
+            siteMonitor: https://awx.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - n8n:
             href: https://n8n.romanpeters.nl

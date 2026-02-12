@@ -5,7 +5,6 @@ resources:
   - namespace.yaml
   - github.com/ansible/awx-operator/config/default?ref=2.19.1
   - awx.yaml
-  - ansible-redirect.yaml
 patches:
   - target:
       kind: Namespace
