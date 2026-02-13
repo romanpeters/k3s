@@ -45,3 +45,5 @@ resources:
   - immich-server.yaml
   - audiobookshelf-redirect.yaml
   - immich-redirect.yaml
+  - resourcequota.yaml
+  - limitrange.yaml

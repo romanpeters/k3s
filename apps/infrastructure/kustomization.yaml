@@ -31,3 +31,5 @@ resources:
   - traefik-external-ingressroutes.yaml
   - traefik-proxmox-transport.yaml
   - romanpeters-wildcard-cert.yaml
+  - resourcequota.yaml
+  - limitrange.yaml

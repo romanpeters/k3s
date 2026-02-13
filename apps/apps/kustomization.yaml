@@ -22,3 +22,5 @@ resources:
   - gitea-ingress.yaml
   - gitea-ssh-ingressroute.yaml
   - gitea-secrets.sops.yaml
+  - resourcequota.yaml
+  - limitrange.yaml

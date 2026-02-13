@@ -46,3 +46,5 @@ resources:
   - ntfy-service.yaml
   - ntfy-ingress.yaml
   - ntfy.sops.yaml
+  - resourcequota.yaml
+  - limitrange.yaml
