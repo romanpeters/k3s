@@ -9,6 +9,7 @@ spec:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
     ports:
       websecure:
+        port: 8444
         expose:
           default: false
       websecure-int:
