@@ -11,6 +11,9 @@ resources:
   - external-dns-rbac.yaml
   - external-dns.sops.yaml
   - external-dns-deployment.yaml
+  - trivy-operator-namespace.yaml
+  - trivy-operator-helmrepo.yaml
+  - trivy-operator-helmrelease.yaml
   - traefik-helmchartconfig.yaml
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml
