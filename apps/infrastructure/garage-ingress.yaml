@@ -4,7 +4,7 @@ metadata:
   name: garage-s3
   namespace: infrastructure
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
 spec:
   ingressClassName: traefik
   rules:

@@ -4,7 +4,7 @@ metadata:
   name: heimdall
   namespace: apps
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
 spec:
   ingressClassName: traefik
   rules:
