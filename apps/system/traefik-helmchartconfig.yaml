@@ -7,3 +7,15 @@ spec:
   valuesContent: |-
     additionalArguments:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
+    ports:
+      websecure-internal:
+        port: 9443
+        expose:
+          default: false
+        exposedPort: 443
+        protocol: TCP
+        http:
+          tls:
+            enabled: true
+    service:
+      loadBalancerIP: 10.10.20.240

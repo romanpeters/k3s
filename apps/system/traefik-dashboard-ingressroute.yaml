@@ -5,10 +5,12 @@ metadata:
   namespace: kube-system
 spec:
   entryPoints:
-    - web
+    - websecure-internal
   routes:
     - match: Host(`traefik.romanpeters.nl`)
       kind: Rule
       services:
         - name: api@internal
           kind: TraefikService
+  tls:
+    secretName: romanpeters-nl-tls

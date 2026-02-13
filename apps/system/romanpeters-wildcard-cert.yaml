@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: romanpeters-nl-wildcard
+  namespace: kube-system
+spec:
+  secretName: romanpeters-nl-tls
+  issuerRef:
+    name: letsencrypt-cloudflare
+    kind: ClusterIssuer
+  dnsNames:
+    - romanpeters.nl
+    - "*.romanpeters.nl"
