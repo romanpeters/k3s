@@ -8,10 +8,22 @@ spec:
     additionalArguments:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
     ports:
+      websecure:
+        expose:
+          default: false
       websecure-int:
         port: 9443
         expose:
           default: false
+        exposedPort: 443
+        protocol: TCP
+        http:
+          tls:
+            enabled: true
+      websecure-ext:
+        port: 8443
+        expose:
+          default: true
         exposedPort: 443
         protocol: TCP
         http:
