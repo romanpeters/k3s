@@ -1,13 +1,13 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-dashboard
+  name: traefik-dashboard-external
   namespace: kube-system
 spec:
   entryPoints:
-    - websecure-int
+    - websecure
   routes:
-    - match: Host(`traefik.romanpeters.nl`) || Host(`internal.romanpeters.nl`)
+    - match: Host(`external.romanpeters.nl`)
       kind: Rule
       services:
         - name: api@internal
