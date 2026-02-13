@@ -144,14 +144,6 @@ data:
             href: https://traefik.romanpeters.nl
             icon: traefik
             siteMonitor: https://traefik.romanpeters.nl
-        - Traefik Internal:
-            href: https://internal.romanpeters.nl
-            icon: traefik
-            siteMonitor: https://internal.romanpeters.nl
-        - Traefik External:
-            href: https://external.romanpeters.nl
-            icon: traefik
-            siteMonitor: https://external.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Authentik:
             href: https://auth.romanpeters.nl

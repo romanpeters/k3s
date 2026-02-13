@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure-int
   routes:
-    - match: Host(`traefik.romanpeters.nl`) || Host(`internal.romanpeters.nl`)
+    - match: Host(`traefik.romanpeters.nl`)
       kind: Rule
       services:
         - name: api@internal

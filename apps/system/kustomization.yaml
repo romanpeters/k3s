@@ -9,5 +9,4 @@ resources:
   - metallb-config.yaml
   - traefik-helmchartconfig.yaml
   - traefik-dashboard-ingressroute.yaml
-  - traefik-dashboard-external-ingressroute.yaml
   - traefik-internal-service.yaml
