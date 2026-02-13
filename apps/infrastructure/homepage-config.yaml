@@ -147,7 +147,7 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - TV:
             href: https://tv.romanpeters.nl
-            icon: mdi-television
+            icon: https://images.romanpeters.nl/rtvlogo.jpeg
             siteMonitor: https://tv.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Authentik:
