@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-external
+spec:
+  ports:
+    - name: http
+      port: 8123
+      targetPort: 8123
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: home-external
+subsets:
+  - addresses:
+      - ip: 10.10.10.111
+    ports:
+      - name: http
+        port: 8123
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kvm-external
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: kvm-external
+subsets:
+  - addresses:
+      - ip: 10.10.20.121
+    ports:
+      - name: http
+        port: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-external
+spec:
+  type: ExternalName
+  externalName: mac-mini
+  ports:
+    - name: http
+      port: 11434
+      targetPort: 11434
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plex-external
+spec:
+  type: ExternalName
+  externalName: plex.internal
+  ports:
+    - name: http
+      port: 32400
+      targetPort: 32400
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxmox-external
+spec:
+  ports:
+    - name: https
+      port: 8006
+      targetPort: 8006
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: proxmox-external
+subsets:
+  - addresses:
+      - ip: 10.10.10.250
+    ports:
+      - name: https
+        port: 8006

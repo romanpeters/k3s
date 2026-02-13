@@ -1,0 +1,81 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: home-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`home.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: home-external
+          port: 8123
+  tls:
+    secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kvm-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`kvm.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: kvm-external
+          port: 80
+  tls:
+    secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ollama-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`ollama.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: ollama-external
+          port: 11434
+  tls:
+    secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: plex-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`plex.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: plex-external
+          port: 32400
+  tls:
+    secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`proxmox.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: proxmox-external
+          port: 8006
+          scheme: https
+          serversTransport: infrastructure-proxmox-transport@kubernetescrd
+  tls:
+    secretName: romanpeters-nl-tls

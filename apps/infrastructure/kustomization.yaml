@@ -25,3 +25,7 @@ resources:
   - homepage-tv-service.yaml
   - homepage-tv-ingress.yaml
   - homepage-tv-redirects.yaml
+  - traefik-external-services.yaml
+  - traefik-external-ingressroutes.yaml
+  - traefik-proxmox-transport.yaml
+  - romanpeters-wildcard-cert.yaml
