@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: alertmanager-ntfy-relay
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: alertmanager-ntfy-relay
+spec:
+  selector:
+    app.kubernetes.io/name: alertmanager-ntfy-relay
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http

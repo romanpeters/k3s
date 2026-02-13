@@ -11,6 +11,9 @@ resources:
   - alertmanager.sops.yaml
   - alertmanager-deployment.yaml
   - alertmanager-service.yaml
+  - alertmanager-ntfy-relay-configmap.yaml
+  - alertmanager-ntfy-relay-deployment.yaml
+  - alertmanager-ntfy-relay-service.yaml
   - kube-state-metrics.yaml
   - kube-event-exporter.yaml
   - blackbox-exporter-configmap.yaml
@@ -36,3 +39,6 @@ resources:
   - uptime-kuma-deployment.yaml
   - uptime-kuma-service.yaml
   - uptime-kuma-ingress.yaml
+  - ntfy-deployment.yaml
+  - ntfy-service.yaml
+  - ntfy-ingress.yaml

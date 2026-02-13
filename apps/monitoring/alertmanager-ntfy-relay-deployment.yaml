@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alertmanager-ntfy-relay
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: alertmanager-ntfy-relay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: alertmanager-ntfy-relay
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: alertmanager-ntfy-relay
+    spec:
+      containers:
+        - name: relay
+          image: python:3.12-alpine
+          imagePullPolicy: IfNotPresent
+          command: ["python", "/app/relay.py"]
+          env:
+            - name: NTFY_URL
+              value: http://ntfy.monitoring.svc.cluster.local/alerts
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - name: config
+              mountPath: /app/relay.py
+              subPath: relay.py
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: alertmanager-ntfy-relay
