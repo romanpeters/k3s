@@ -79,3 +79,39 @@ spec:
           serversTransport: proxmox-transport
   tls:
     secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: unifi-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`unifi.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: unifi-external
+          port: 443
+          scheme: https
+          serversTransport: proxmox-transport
+  tls:
+    secretName: romanpeters-nl-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: unas-external
+spec:
+  entryPoints:
+    - websecure-int
+  routes:
+    - match: Host(`unas.romanpeters.nl`)
+      kind: Rule
+      services:
+        - name: unas-external
+          port: 443
+          scheme: https
+          serversTransport: proxmox-transport
+  tls:
+    secretName: romanpeters-nl-tls

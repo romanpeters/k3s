@@ -84,3 +84,27 @@ subsets:
     ports:
       - name: https
         port: 8006
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unifi-external
+spec:
+  type: ExternalName
+  externalName: unifi
+  ports:
+    - name: https
+      port: 443
+      targetPort: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unas-external
+spec:
+  type: ExternalName
+  externalName: unas
+  ports:
+    - name: https
+      port: 443
+      targetPort: 443
