@@ -1,0 +1,27 @@
+apiVersion: ENC[AES256_GCM,data:MGo=,iv:z3fheSeF4EXKOKKV8kWlsv2l8OHtH/2XMQcEmyZ/3Uk=,tag:eQgoUXmQkgTX692JP8+Bmg==,type:str]
+kind: ENC[AES256_GCM,data:AlF4Tf7a,iv:69TS9imS5O3md8cYMs/mMbTKwi5mD6QxovbFrM40HyQ=,tag:iTafyzGw/pZ+/6wYN/sJmg==,type:str]
+metadata:
+  name: ENC[AES256_GCM,data:dQ1W36Lv5RvSeFQ=,iv:mQ1EI4YoStZaIluzMGZzGiIStaxgWvCwbvL+iu08kXE=,tag:3w6/chbAZnppOpzExnUxyg==,type:str]
+  namespace: ENC[AES256_GCM,data:AKJFG8y1Bgkf8A==,iv:+7aAPOKDIh9hH/P6rZeMCPywnk9lhT+EmISCP0ynVzI=,tag:E5kah1OqGYDFtl4S/Wo7NQ==,type:str]
+stringData:
+  NTFY_AUTH: ENC[AES256_GCM,data:k3sijQ==,iv:WEyLu19qs/4E/rU3FECQE44NnP8+vA3+OglhO260ip4=,tag:c2BF7xw7mElfOJPMeTLwtg==,type:str]
+  NTFY_AUTH_DEFAULT_ACCESS: ENC[AES256_GCM,data:w8PvmNmQnrs=,iv:iqTJYuu4K+09nU9o7oCe9laAdBrGu4urB/LG2J5LKDM=,tag:Tkc/KuKJYcglfz2i/K7G1w==,type:str]
+  NTFY_USER_NAME: ENC[AES256_GCM,data:tNFDQVU=,iv:gOczhL6h4LmmQb6zyKFSsODa2mz69Nl2ZK0BDxx5U6E=,tag:pxZW1PUPmVZlN7r7gvCwEA==,type:str]
+  NTFY_USER_PASS: ENC[AES256_GCM,data:3ZOi73d8+UHLBtJrI7MCN/jQOiI=,iv:I1u6rOsxaw6+EZe0IYlAjsUV9hAKhIGJnz/JHbfrAno=,tag:3hazGAJF6QNcQqInYHWftQ==,type:str]
+  NTFY_AUTH_FILE: ENC[AES256_GCM,data:gZiFfW5Ubxd88ilAay8xeamF1fRlm0Y=,iv:6ciT7U/hq26hBZWjXxvOfjEA0Kh1ZZ1GYp+iB+qZsRw=,tag:+L4gBAeDz+Le1qXfQQgvXA==,type:str]
+  NTFY_ALERTS_URL: ENC[AES256_GCM,data:UXmh+4Yqj1O6K5VHbp4GN5PuIgPwXGUu1xU1hSwM/ZcG3ORxr12zstVK+y2Ord6dvuh4HOMZGAXCHDZyWWLXtjLUE+8SEhNuSLA=,iv:Zre7medQt7MW0yypP1BHpSdrQI+PdFlFLKYRirHJUgQ=,tag:PjX93xD0Fe40cINLXavlpA==,type:str]
+sops:
+  age:
+    - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHS21CbU8zakRQL3RWYkxK
+        aXBiWUxQMHdIMWtZUnZLK2l5SEVrS3FFQUZ3CnhJZ25weFBWb2ZBR2tnbmJLWXky
+        WHpTdGdvWEt5eFpoZFhoK1NsSTc0TVUKLS0tIHJuYUxuY2ZSY1dEWVRyc3RsTDZQ
+        dXFaa0pLRWpFK0ZPZFNORzUvaFdmMXMKblLV9NiB5/NxvQ2aSuFjO4IAIwdYOb0N
+        omc9V/pMBV5DBGrjTRvuh/lqmJqQll0bukA9pmtuqumDOuPcPV47iQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-02-13T22:25:51Z"
+  mac: ENC[AES256_GCM,data:FgNz6PpiELRZAd3HkPXOGZFtUIufPkwPVov0s7czArqOQubF9z+ldMsB66l0BXWDQTL3+c+JgIc4IuH7bA5hoAY2mxUVuLmQUR/0ZFB0F6GSSLCQifzJn1P9K6SzxMijIYpz6On010Mo6CngpcIePOC/8jJhEFbNLrQD4LfMVA4=,iv:HX3/BNFA1QJNbKV1HwEUDpItHASJCqEBcid5wSn9zhQ=,tag:JxJVa0kf8XBbVebyyFyLPw==,type:str]
+  unencrypted_suffix: _unencrypted
+  version: 3.11.0

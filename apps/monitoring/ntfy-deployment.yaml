@@ -30,6 +30,31 @@ spec:
               value: "true"
             - name: NTFY_CACHE_FILE
               value: /var/cache/ntfy/cache.db
+            - name: NTFY_AUTH
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_AUTH
+            - name: NTFY_AUTH_DEFAULT_ACCESS
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_AUTH_DEFAULT_ACCESS
+            - name: NTFY_USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_USER_NAME
+            - name: NTFY_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_USER_PASS
+            - name: NTFY_AUTH_FILE
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_AUTH_FILE
           ports:
             - name: http
               containerPort: 80

@@ -42,3 +42,4 @@ resources:
   - ntfy-deployment.yaml
   - ntfy-service.yaml
   - ntfy-ingress.yaml
+  - ntfy.sops.yaml

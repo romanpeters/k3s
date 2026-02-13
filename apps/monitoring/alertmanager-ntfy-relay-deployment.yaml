@@ -22,7 +22,10 @@ spec:
           command: ["python", "/app/relay.py"]
           env:
             - name: NTFY_URL
-              value: http://ntfy.monitoring.svc.cluster.local/alerts
+              valueFrom:
+                secretKeyRef:
+                  name: ntfy-config
+                  key: NTFY_ALERTS_URL
           ports:
             - name: http
               containerPort: 8080
