@@ -15,7 +15,8 @@ metadata:
   name: heimdall-root-alias
   namespace: apps
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+    external-dns: external
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: apps-heimdall-redirect-root@kubernetescrd
 spec:
   ingressClassName: traefik
