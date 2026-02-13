@@ -10,9 +10,9 @@ spec:
   type: LoadBalancer
   loadBalancerIP: 10.10.20.241
   ports:
-    - name: websecure-internal
+    - name: websecure-int
       port: 443
-      targetPort: websecure-internal
+      targetPort: websecure-int
       protocol: TCP
   selector:
     app.kubernetes.io/instance: traefik-kube-system

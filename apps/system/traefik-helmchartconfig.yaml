@@ -8,7 +8,7 @@ spec:
     additionalArguments:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
     ports:
-      websecure-internal:
+      websecure-int:
         port: 9443
         expose:
           default: false

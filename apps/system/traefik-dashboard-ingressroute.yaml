@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
 spec:
   entryPoints:
-    - websecure-internal
+    - websecure-int
   routes:
     - match: Host(`traefik.romanpeters.nl`)
       kind: Rule
