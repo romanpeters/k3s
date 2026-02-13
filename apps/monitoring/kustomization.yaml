@@ -13,6 +13,9 @@ resources:
   - alertmanager-service.yaml
   - kube-state-metrics.yaml
   - kube-event-exporter.yaml
+  - blackbox-exporter-configmap.yaml
+  - blackbox-exporter-deployment.yaml
+  - blackbox-exporter-service.yaml
   - tautulli-exporter.sops.yaml
   - tautulli-exporter-deployment.yaml
   - tautulli-exporter-service.yaml

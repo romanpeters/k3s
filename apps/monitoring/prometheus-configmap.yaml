@@ -23,6 +23,23 @@ data:
       - job_name: kube-event-exporter
         static_configs:
           - targets: ['kube-event-exporter.monitoring.svc.cluster.local:2112']
+      - job_name: blackbox-traefik-vip
+        metrics_path: /probe
+        params:
+          module: [traefik_vip]
+        static_configs:
+          - targets:
+              - https://10.10.20.240
+              - https://10.10.20.241
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - source_labels: [__param_target]
+            target_label: vip
+          - target_label: __address__
+            replacement: blackbox-exporter.monitoring.svc.cluster.local:9115
       - job_name: tautulli
         metrics_path: /metrics
         static_configs:
@@ -103,3 +120,13 @@ data:
             annotations:
               summary: Node not ready
               description: Node {{ $labels.node }} has been not ready for over 5 minutes.
+      - name: vip-health
+        rules:
+          - alert: TraefikVipDown
+            expr: probe_success{job="blackbox-traefik-vip"} == 0
+            for: 2m
+            labels:
+              severity: critical
+            annotations:
+              summary: Traefik VIP down
+              description: VIP {{ $labels.vip }} is not reachable from the cluster.
