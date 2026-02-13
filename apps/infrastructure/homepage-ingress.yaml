@@ -4,9 +4,13 @@ metadata:
   name: homepage
   namespace: infrastructure
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
 spec:
   ingressClassName: traefik
+  tls:
+    - secretName: romanpeters-nl-tls
+      hosts:
+        - homepage.romanpeters.nl
   rules:
     - host: homepage.romanpeters.nl
       http:
