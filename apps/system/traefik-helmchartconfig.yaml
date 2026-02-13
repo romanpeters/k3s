@@ -16,6 +16,12 @@ spec:
         port: 8444
         expose:
           default: false
+      ssh:
+        port: 2222
+        expose:
+          default: false
+        exposedPort: 22
+        protocol: TCP
       websecure-int:
         port: 9443
         expose:

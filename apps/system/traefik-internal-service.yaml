@@ -15,6 +15,10 @@ spec:
       port: 443
       targetPort: websecure-int
       protocol: TCP
+    - name: ssh
+      port: 22
+      targetPort: ssh
+      protocol: TCP
   selector:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
