@@ -48,3 +48,4 @@ resources:
   - ntfy.sops.yaml
   - resourcequota.yaml
   - limitrange.yaml
+  - networkpolicy.yaml

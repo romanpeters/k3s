@@ -24,3 +24,4 @@ resources:
   - gitea-secrets.sops.yaml
   - resourcequota.yaml
   - limitrange.yaml
+  - networkpolicy.yaml

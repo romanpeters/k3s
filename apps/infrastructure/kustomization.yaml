@@ -33,3 +33,4 @@ resources:
   - romanpeters-wildcard-cert.yaml
   - resourcequota.yaml
   - limitrange.yaml
+  - networkpolicy.yaml

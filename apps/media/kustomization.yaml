@@ -47,3 +47,4 @@ resources:
   - immich-redirect.yaml
   - resourcequota.yaml
   - limitrange.yaml
+  - networkpolicy.yaml
