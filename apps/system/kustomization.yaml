@@ -10,3 +10,4 @@ resources:
   - traefik-helmchartconfig.yaml
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml
+  - traefik-tlsstore.yaml
