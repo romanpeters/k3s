@@ -11,3 +11,5 @@ resources:
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml
   - traefik-tlsstore.yaml
+patchesStrategicMerge:
+  - metallb-controller-lbclass-patch.yaml

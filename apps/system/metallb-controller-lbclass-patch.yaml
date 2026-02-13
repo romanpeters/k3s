@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller
+  namespace: metallb-system
+spec:
+  template:
+    spec:
+      containers:
+        - name: controller
+          args:
+            - --port=7472
+            - --log-level=info
+            - --tls-min-version=VersionTLS12
+            - --lb-class=metallb.universe.tf/metallb
