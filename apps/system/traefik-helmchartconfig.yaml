@@ -7,6 +7,8 @@ spec:
   valuesContent: |-
     additionalArguments:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
+      - "--entryPoints.websecure-int.http.tls=true"
+      - "--entryPoints.websecure-ext.http.tls=true"
     ports:
       websecure:
         port: 8444
