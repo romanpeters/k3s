@@ -9,6 +9,8 @@ spec:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
       - "--entryPoints.websecure-int.http.tls=true"
       - "--entryPoints.websecure-ext.http.tls=true"
+      - "--providers.kubernetescrd.allowExternalNameServices=true"
+      - "--providers.kubernetesingress.allowExternalNameServices=true"
     ports:
       websecure:
         port: 8444

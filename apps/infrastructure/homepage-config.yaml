@@ -160,11 +160,6 @@ data:
             icon: mdi-garage
             siteMonitor: https://garage.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - NGINX:
-            href: https://nginx.romanpeters.nl
-            icon: nginx
-            siteMonitor: https://nginx.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Proxmox:
             href: https://proxmox.romanpeters.nl
             icon: proxmox
