@@ -3,18 +3,13 @@ kind: Service
 metadata:
   name: traefik-internal
   namespace: kube-system
-  annotations:
-    metallb.io/loadBalancerIPs: "10.10.20.241,fd7b:c87:127b:14::241"
   labels:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
 spec:
   type: LoadBalancer
   loadBalancerClass: metallb.universe.tf/metallb
-  ipFamilyPolicy: PreferDualStack
-  ipFamilies:
-    - IPv4
-    - IPv6
+  loadBalancerIP: 10.10.20.241
   ports:
     - name: websecure-int
       port: 443
