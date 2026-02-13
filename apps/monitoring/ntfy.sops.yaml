@@ -1,27 +1,27 @@
-apiVersion: ENC[AES256_GCM,data:MGo=,iv:z3fheSeF4EXKOKKV8kWlsv2l8OHtH/2XMQcEmyZ/3Uk=,tag:eQgoUXmQkgTX692JP8+Bmg==,type:str]
-kind: ENC[AES256_GCM,data:AlF4Tf7a,iv:69TS9imS5O3md8cYMs/mMbTKwi5mD6QxovbFrM40HyQ=,tag:iTafyzGw/pZ+/6wYN/sJmg==,type:str]
+apiVersion: v1
+kind: Secret
 metadata:
-  name: ENC[AES256_GCM,data:dQ1W36Lv5RvSeFQ=,iv:mQ1EI4YoStZaIluzMGZzGiIStaxgWvCwbvL+iu08kXE=,tag:3w6/chbAZnppOpzExnUxyg==,type:str]
-  namespace: ENC[AES256_GCM,data:AKJFG8y1Bgkf8A==,iv:+7aAPOKDIh9hH/P6rZeMCPywnk9lhT+EmISCP0ynVzI=,tag:E5kah1OqGYDFtl4S/Wo7NQ==,type:str]
+  name: ntfy-config
+  namespace: monitoring
 stringData:
-  NTFY_AUTH: ENC[AES256_GCM,data:k3sijQ==,iv:WEyLu19qs/4E/rU3FECQE44NnP8+vA3+OglhO260ip4=,tag:c2BF7xw7mElfOJPMeTLwtg==,type:str]
-  NTFY_AUTH_DEFAULT_ACCESS: ENC[AES256_GCM,data:w8PvmNmQnrs=,iv:iqTJYuu4K+09nU9o7oCe9laAdBrGu4urB/LG2J5LKDM=,tag:Tkc/KuKJYcglfz2i/K7G1w==,type:str]
-  NTFY_USER_NAME: ENC[AES256_GCM,data:tNFDQVU=,iv:gOczhL6h4LmmQb6zyKFSsODa2mz69Nl2ZK0BDxx5U6E=,tag:pxZW1PUPmVZlN7r7gvCwEA==,type:str]
-  NTFY_USER_PASS: ENC[AES256_GCM,data:3ZOi73d8+UHLBtJrI7MCN/jQOiI=,iv:I1u6rOsxaw6+EZe0IYlAjsUV9hAKhIGJnz/JHbfrAno=,tag:3hazGAJF6QNcQqInYHWftQ==,type:str]
-  NTFY_AUTH_FILE: ENC[AES256_GCM,data:gZiFfW5Ubxd88ilAay8xeamF1fRlm0Y=,iv:6ciT7U/hq26hBZWjXxvOfjEA0Kh1ZZ1GYp+iB+qZsRw=,tag:+L4gBAeDz+Le1qXfQQgvXA==,type:str]
-  NTFY_ALERTS_URL: ENC[AES256_GCM,data:UXmh+4Yqj1O6K5VHbp4GN5PuIgPwXGUu1xU1hSwM/ZcG3ORxr12zstVK+y2Ord6dvuh4HOMZGAXCHDZyWWLXtjLUE+8SEhNuSLA=,iv:Zre7medQt7MW0yypP1BHpSdrQI+PdFlFLKYRirHJUgQ=,tag:PjX93xD0Fe40cINLXavlpA==,type:str]
+  NTFY_AUTH: ENC[AES256_GCM,data:WDzHYA==,iv:BaxuRM4HhQdxcbb1bjjOFqGu73h8xEbCOHlgE7zqKXk=,tag:xKoeNoT8BGp9sbaz3+KSOQ==,type:str]
+  NTFY_AUTH_DEFAULT_ACCESS: ENC[AES256_GCM,data:IHIv0KnT05Q=,iv:tZM8ySkcE8KNN76fIiUOQYciy8rRLtUGIBi5zqiRjU0=,tag:tV+X4afD6pNqdYZdg0XfVA==,type:str]
+  NTFY_USER_NAME: ENC[AES256_GCM,data:icrZmP0=,iv:65ijeW6Lp2x0erPi5yEFXAHOq1mQdPyNJvg8VC50I+s=,tag:pXYtEu1N39Mf9QGqfb8rWw==,type:str]
+  NTFY_USER_PASS: ENC[AES256_GCM,data:yRS89KXPJb9KC/nddD2vziCSc5o=,iv:OPyNhgAphMGD89gBoYK9g+4SClRDCoTX6ow2pCjhl1s=,tag:/2+ovKrGgZr8BgJXY7OFuQ==,type:str]
+  NTFY_AUTH_FILE: ENC[AES256_GCM,data:JAciHCZ8RTi+ZJ/cXF0NHmIqzaXZpqI=,iv:0Hp8k2rKJSQ2URMvQ4oYbkF0TQjB6TLgKtdTkXBsjS4=,tag:GkJ6QAPmE5j3q88FTEZsCw==,type:str]
+  NTFY_ALERTS_URL: ENC[AES256_GCM,data:jM8EwVi2XvkhPo121maFBKxv6d1PcN25amY10apWDn0ObxbpNwShNt3GbIMQz3D6wSBpDSKD6cjAIahDlT6gnVV0oAdsCmec+Oc=,iv:1l7bv9PKSE3+yXtMeT5sf/xmKK393bG8UskGk58+h2U=,tag:QgwXfsxSgyshjAUb11USqw==,type:str]
 sops:
   age:
     - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
       enc: |
         -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHS21CbU8zakRQL3RWYkxK
-        aXBiWUxQMHdIMWtZUnZLK2l5SEVrS3FFQUZ3CnhJZ25weFBWb2ZBR2tnbmJLWXky
-        WHpTdGdvWEt5eFpoZFhoK1NsSTc0TVUKLS0tIHJuYUxuY2ZSY1dEWVRyc3RsTDZQ
-        dXFaa0pLRWpFK0ZPZFNORzUvaFdmMXMKblLV9NiB5/NxvQ2aSuFjO4IAIwdYOb0N
-        omc9V/pMBV5DBGrjTRvuh/lqmJqQll0bukA9pmtuqumDOuPcPV47iQ==
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAxOWFpUmtZWU1vUXFvZWta
+        SVk2MnFLUndraFU2OWlFNUs0MndDL0ZNSEJJCkhpZlVnOHk5TkV5UjVTR0ovNmNL
+        cU9yVDlJV1BNV3kxYXBzNXN3U3M5cjQKLS0tIDhvWHFqYTZ2b2sza2NTNHBTd3JZ
+        TlgwS2d2ODVLQUVTNFF4amJyMGEwbWcK+kDQEMAUWRA1R1XU7ICVlKs1pZJ7m5Pt
+        UtYZhKSrdO9JxxGqeS40d77dEAonYjlSITShV3JJpE3CWcGsLrxoxA==
         -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2026-02-13T22:25:51Z"
-  mac: ENC[AES256_GCM,data:FgNz6PpiELRZAd3HkPXOGZFtUIufPkwPVov0s7czArqOQubF9z+ldMsB66l0BXWDQTL3+c+JgIc4IuH7bA5hoAY2mxUVuLmQUR/0ZFB0F6GSSLCQifzJn1P9K6SzxMijIYpz6On010Mo6CngpcIePOC/8jJhEFbNLrQD4LfMVA4=,iv:HX3/BNFA1QJNbKV1HwEUDpItHASJCqEBcid5wSn9zhQ=,tag:JxJVa0kf8XBbVebyyFyLPw==,type:str]
-  unencrypted_suffix: _unencrypted
+  lastmodified: "2026-02-13T22:28:16Z"
+  mac: ENC[AES256_GCM,data:qwRhnkEyO21Oqm9hloRVF3VkdmSRY3onZmJ2NDnrxMCHf54wEGP0HU8Vj6DKYl8ur3jGraqUvQgBP8NIikPavNAjwp/PGJL2RBgFs54nIWl7CW/NGozQp3PJlD2Rdv8nJn8t8bWqcgYvRuWeSMKKVO6CWAwneJQWnuoHoAu/yOY=,iv:Ktrk2PZdv7MnSYqrdpleq5KnDlSoY11NuTdk/6LzbrU=,tag:2n+T7RAE8zkRlpvgoRTRRw==,type:str]
+  encrypted_regex: ^(stringData)$
   version: 3.11.0
