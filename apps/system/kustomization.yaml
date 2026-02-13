@@ -13,3 +13,4 @@ resources:
   - traefik-tlsstore.yaml
 patchesStrategicMerge:
   - metallb-controller-lbclass-patch.yaml
+  - metallb-speaker-lbclass-patch.yaml
