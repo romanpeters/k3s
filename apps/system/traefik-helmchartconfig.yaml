@@ -35,6 +35,11 @@ spec:
           tls:
             enabled: true
     service:
+      annotations:
+        metallb.io/loadBalancerIPs: "10.10.20.240,fd7b:c87:127b:14::240"
       spec:
         loadBalancerClass: metallb.universe.tf/metallb
-        loadBalancerIP: 10.10.20.240
+        ipFamilyPolicy: PreferDualStack
+        ipFamilies:
+          - IPv4
+          - IPv6
