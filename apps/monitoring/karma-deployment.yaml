@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karma
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: karma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: karma
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: karma
+    spec:
+      containers:
+        - name: karma
+          image: ghcr.io/prymitive/karma:latest
+          args:
+            - "--alertmanager.server=http://alertmanager.monitoring.svc.cluster.local:9093"
+            - "--listen.address=0.0.0.0:8080"
+            - "--ui.title=Alerts"
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20

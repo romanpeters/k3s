@@ -39,6 +39,9 @@ resources:
   - uptime-kuma-deployment.yaml
   - uptime-kuma-service.yaml
   - uptime-kuma-ingress.yaml
+  - karma-deployment.yaml
+  - karma-service.yaml
+  - karma-ingress.yaml
   - ntfy-deployment.yaml
   - ntfy-service.yaml
   - ntfy-ingress.yaml

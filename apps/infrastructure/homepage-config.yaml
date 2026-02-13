@@ -108,6 +108,11 @@ data:
             icon: grafana
             siteMonitor: https://dashboard.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Alerts:
+            href: https://alerts.romanpeters.nl
+            icon: mdi-bell-alert
+            siteMonitor: https://alerts.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Uptime Kuma:
             href: https://uptime.romanpeters.nl
             icon: uptime-kuma
