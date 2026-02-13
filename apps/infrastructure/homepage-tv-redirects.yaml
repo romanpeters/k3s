@@ -26,10 +26,15 @@ metadata:
   name: homepage-tv-aliases
   namespace: infrastructure
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: infrastructure-homepage-tv-redirect-rtv@kubernetescrd,infrastructure-homepage-tv-redirect-romantv@kubernetescrd
 spec:
   ingressClassName: traefik
+  tls:
+    - secretName: romanpeters-nl-tls
+      hosts:
+        - rtv.romanpeters.nl
+        - romantv.romanpeters.nl
   rules:
     - host: rtv.romanpeters.nl
       http:
