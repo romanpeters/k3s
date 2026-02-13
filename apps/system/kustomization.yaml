@@ -7,6 +7,10 @@ resources:
   - romanpeters-wildcard-cert.yaml
   - https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
   - metallb-config.yaml
+  - external-dns-namespace.yaml
+  - external-dns-rbac.yaml
+  - external-dns.sops.yaml
+  - external-dns-deployment.yaml
   - traefik-helmchartconfig.yaml
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml

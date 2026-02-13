@@ -23,6 +23,7 @@ spec:
         enabled: true
         ingressClassName: traefik
         annotations:
+          external-dns: external
           traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
         hosts:
           - auth.romanpeters.nl

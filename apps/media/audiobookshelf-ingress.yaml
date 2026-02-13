@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: audiobookshelf
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
 spec:
   ingressClassName: traefik

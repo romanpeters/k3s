@@ -26,6 +26,7 @@ metadata:
   name: overseerr
   namespace: media
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
 spec:
   ingressClassName: traefik
@@ -47,6 +48,7 @@ metadata:
   name: overseerr-redirect-requests
   namespace: media
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-requests@kubernetescrd
 spec:
@@ -69,6 +71,7 @@ metadata:
   name: overseerr-redirect-main
   namespace: media
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-main@kubernetescrd
 spec:

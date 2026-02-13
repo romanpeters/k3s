@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: uptime-kuma
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
 spec:
   ingressClassName: traefik

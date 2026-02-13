@@ -4,6 +4,7 @@ metadata:
   name: homepage
   namespace: infrastructure
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: infrastructure-authentik-forward-auth@kubernetescrd
 spec:

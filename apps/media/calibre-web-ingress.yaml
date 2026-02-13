@@ -15,6 +15,7 @@ metadata:
   name: calibre-web
   namespace: media
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: media-calibreweb-xscheme@kubernetescrd
 spec:

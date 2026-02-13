@@ -15,6 +15,7 @@ metadata:
   name: calibre-web-library-alias
   namespace: media
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
     traefik.ingress.kubernetes.io/router.middlewares: media-calibre-web-redirect-library@kubernetescrd
 spec:

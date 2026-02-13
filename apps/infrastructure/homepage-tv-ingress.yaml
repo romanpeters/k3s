@@ -4,6 +4,7 @@ metadata:
   name: homepage-tv
   namespace: infrastructure
   annotations:
+    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
 spec:
   ingressClassName: traefik
