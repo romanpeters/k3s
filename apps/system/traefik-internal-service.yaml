@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/name: traefik
 spec:
   type: LoadBalancer
+  loadBalancerClass: metallb.universe.tf/metallb
   loadBalancerIP: 10.10.20.241
   ports:
     - name: websecure-int

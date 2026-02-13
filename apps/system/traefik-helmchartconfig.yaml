@@ -36,4 +36,5 @@ spec:
             enabled: true
     service:
       spec:
+        loadBalancerClass: metallb.universe.tf/metallb
         loadBalancerIP: 10.10.20.240
