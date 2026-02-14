@@ -11,13 +11,16 @@ data:
     headerStyle: boxed
     statusStyle: dot
     layout:
+      Widgets:
+        style: row
+        columns: 3
       Apps:
         style: row
         columns: 2
       Media:
         style: row
         columns: 4
-      Downloads:
+      Softwarr:
         style: row
         columns: 4
       Monitoring:
@@ -54,7 +57,7 @@ data:
   bookmarks.yaml: |
     []
   services.yaml: |
-    - Apps:
+    - Widgets:
         - Plex:
             href: https://plex.romanpeters.nl
             icon: plex
@@ -64,6 +67,45 @@ data:
               type: plex
               url: https://plex.romanpeters.nl
               key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
+        - Transmission:
+            href: https://transmission.romanpeters.nl
+            icon: transmission
+            siteMonitor: https://transmission.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: transmission
+              url: https://transmission.romanpeters.nl
+              rpcUrl: /transmission/
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: uptime-kuma
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: uptimekuma
+              url: https://uptime.romanpeters.nl
+              slug: rtv
+        - Authentik:
+            href: https://auth.romanpeters.nl
+            icon: authentik
+            siteMonitor: https://auth.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: authentik
+              url: https://auth.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}"
+              version: 2
+        - Proxmox:
+            href: https://proxmox.romanpeters.nl
+            icon: proxmox
+            siteMonitor: https://proxmox.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: proxmox
+              url: https://proxmox.romanpeters.nl
+              username: api@pam!homepage
+              password: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
+    - Apps:
         - Audiobookshelf:
             href: https://books.romanpeters.nl
             icon: audiobookshelf
@@ -94,16 +136,7 @@ data:
             icon: immich
             siteMonitor: https://photos.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Downloads:
-        - Transmission:
-            href: https://transmission.romanpeters.nl
-            icon: transmission
-            siteMonitor: https://transmission.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: transmission
-              url: https://transmission.romanpeters.nl
-              rpcUrl: /transmission/
+    - Softwarr:
         - Overseerr:
             href: https://request.romanpeters.nl
             icon: overseerr
@@ -130,15 +163,6 @@ data:
             siteMonitor: https://prowlarr.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Monitoring:
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: uptime-kuma
-            siteMonitor: https://uptime.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: uptimekuma
-              url: https://uptime.romanpeters.nl
-              slug: rtv
         - Grafana:
             href: https://dashboard.romanpeters.nl
             icon: grafana
@@ -176,44 +200,16 @@ data:
             siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
-        - Authentik:
-            href: https://auth.romanpeters.nl
-            icon: authentik
-            siteMonitor: https://auth.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: authentik
-              url: https://auth.romanpeters.nl
-              key: "{{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}"
-              version: 2
-        - Proxmox:
-            href: https://proxmox.romanpeters.nl
-            icon: proxmox
-            siteMonitor: https://proxmox.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: proxmox
-              url: https://proxmox.romanpeters.nl
-              username: api@pam!homepage
-              password: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
         - Traefik:
             href: https://traefik.romanpeters.nl
             icon: traefik
             siteMonitor: https://traefik.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: traefik
-              url: https://traefik.romanpeters.nl
         - UniFi:
             href: https://unifi.romanpeters.nl
             icon: unifi
             siteMonitor: https://unifi.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: unifi
-              url: https://unifi.romanpeters.nl
-              username: "{{HOMEPAGE_VAR_UNIFI_USERNAME}}"
-              password: "{{HOMEPAGE_VAR_UNIFI_PASSWORD}}"
         - TV:
             href: https://tv.romanpeters.nl
             icon: https://images.romanpeters.nl/rtvlogo.jpeg
