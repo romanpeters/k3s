@@ -1,9 +1,12 @@
 {
-  "extends": ["config:base"],
-  "timezone": "UTC",
-  "schedule": ["every week"],
-  "labels": ["dependencies", "docker"],
-  "enabledManagers": ["kubernetes"],
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Amsterdam",
+  "labels": ["dependencies", "renovate"],
+  "enabledManagers": ["kubernetes", "flux", "helm-values", "github-actions"],
+  "prConcurrentLimit": 20,
+  "prHourlyLimit": 0,
+  "separateMajorMinor": false,
+  "separateMinorPatch": false,
   "kubernetes": {
     "fileMatch": [
       "apps/.+\\.ya?ml$",
@@ -15,9 +18,8 @@
     {
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      "automerge": false,
+      "groupName": "docker non-major updates"
     }
   ]
 }
