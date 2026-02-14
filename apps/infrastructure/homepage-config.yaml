@@ -44,6 +44,15 @@ data:
               type: audiobookshelf
               url: https://books.romanpeters.nl
               key: "{{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}"
+        - Plex:
+            href: https://plex.romanpeters.nl
+            icon: plex
+            siteMonitor: https://plex.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: plex
+              url: https://plex.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
         - Homebox:
             href: https://homebox.romanpeters.nl
             icon: homebox
@@ -59,11 +68,6 @@ data:
             icon: jellyfin
             siteMonitor: https://jellyfin.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Plex:
-            href: https://plex.romanpeters.nl
-            icon: plex
-            siteMonitor: https://plex.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
             icon: calibre-web
@@ -75,6 +79,15 @@ data:
             siteMonitor: https://photos.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Downloads:
+        - Transmission:
+            href: https://transmission.romanpeters.nl
+            icon: transmission
+            siteMonitor: https://transmission.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: transmission
+              url: https://transmission.romanpeters.nl
+              rpcUrl: /transmission/
         - Overseerr:
             href: https://request.romanpeters.nl
             icon: overseerr
@@ -100,11 +113,6 @@ data:
             icon: prowlarr
             siteMonitor: https://prowlarr.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Transmission:
-            href: https://transmission.romanpeters.nl
-            icon: transmission
-            siteMonitor: https://transmission.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Monitoring:
         - ChangeDetection:
             href: https://change.romanpeters.nl
@@ -115,6 +123,15 @@ data:
               type: changedetectionio
               url: https://change.romanpeters.nl
               key: "{{HOMEPAGE_VAR_CHANGEDETECTION_API_KEY}}"
+        - Uptime Kuma:
+            href: https://uptime.romanpeters.nl
+            icon: uptime-kuma
+            siteMonitor: https://uptime.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: uptimekuma
+              url: https://uptime.romanpeters.nl
+              slug: rtv
         - Grafana:
             href: https://dashboard.romanpeters.nl
             icon: grafana
@@ -124,11 +141,6 @@ data:
             href: https://alerts.romanpeters.nl
             icon: mdi-bell-alert
             siteMonitor: https://alerts.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Uptime Kuma:
-            href: https://uptime.romanpeters.nl
-            icon: uptime-kuma
-            siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Tautulli:
             href: https://tautulli.romanpeters.nl
@@ -177,6 +189,9 @@ data:
             icon: traefik
             siteMonitor: https://traefik.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: traefik
+              url: https://traefik.romanpeters.nl
         - TV:
             href: https://tv.romanpeters.nl
             icon: https://images.romanpeters.nl/rtvlogo.jpeg
