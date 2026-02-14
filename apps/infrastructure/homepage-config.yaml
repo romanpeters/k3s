@@ -191,6 +191,11 @@ data:
             icon: proxmox
             siteMonitor: https://proxmox.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: proxmox
+              url: https://proxmox.romanpeters.nl
+              token: root@pam!homepage
+              secret: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
         - UniFi:
             href: https://unifi.romanpeters.nl
             icon: unifi
