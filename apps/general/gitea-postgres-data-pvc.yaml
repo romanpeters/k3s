@@ -5,6 +5,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-path
+  volumeName: pvc-ca9e9499-eb87-4aef-97a3-972954a3dddf
   resources:
     requests:
       storage: 10Gi

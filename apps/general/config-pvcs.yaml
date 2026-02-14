@@ -5,6 +5,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-path
+  volumeName: pvc-ef3a4373-56f1-4ab4-8d07-36a6e41b1de3
   resources:
     requests:
       storage: 5Gi
@@ -16,6 +18,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-path
+  volumeName: pvc-587df120-9571-4b87-a4f7-b249b755d7b7
   resources:
     requests:
       storage: 5Gi
@@ -27,6 +31,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-path
+  volumeName: pvc-95b4b90d-557c-4feb-a0f8-6234402ac0f6
   resources:
     requests:
       storage: 5Gi
