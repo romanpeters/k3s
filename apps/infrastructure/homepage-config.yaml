@@ -30,7 +30,9 @@ data:
         style: row
         columns: 3
   widgets.yaml: |
-    []
+    - audiobookshelf:
+        url: https://books.romanpeters.nl
+        key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlJZCI6IjNkMjU0Zjc0LWRiY2QtNGM4ZC1hZDBkLWE1NTg0ZTMxNjE4MSIsIm5hbWUiOiJhcGlfa2V5IiwidHlwZSI6ImFwaSIsImlhdCI6MTc3MTA2MzY5NX0.***REDACTED***
   bookmarks.yaml: |
     []
   services.yaml: |
@@ -55,15 +57,6 @@ data:
             icon: plex
             siteMonitor: https://plex.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Audiobookshelf:
-            href: https://books.romanpeters.nl
-            icon: audiobookshelf
-            siteMonitor: https://books.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: audiobookshelf
-              url: https://books.romanpeters.nl
-              key: ***REDACTED***
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
             icon: calibre-web
