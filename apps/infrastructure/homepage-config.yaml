@@ -42,19 +42,14 @@ data:
           cpu: true
           memory: true
           showLabel: true
+    - unifi_console:
+        url: https://unifi.romanpeters.nl
+        username: "{{HOMEPAGE_VAR_UNIFI_USERNAME}}"
+        password: "{{HOMEPAGE_VAR_UNIFI_PASSWORD}}"
   bookmarks.yaml: |
     []
   services.yaml: |
     - Apps:
-        - Audiobookshelf:
-            href: https://books.romanpeters.nl
-            icon: audiobookshelf
-            siteMonitor: https://books.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: audiobookshelf
-              url: https://books.romanpeters.nl
-              key: "{{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}"
         - Plex:
             href: https://plex.romanpeters.nl
             icon: plex
@@ -64,6 +59,11 @@ data:
               type: plex
               url: https://plex.romanpeters.nl
               key: "{{HOMEPAGE_VAR_PLEX_TOKEN}}"
+        - Audiobookshelf:
+            href: https://books.romanpeters.nl
+            icon: audiobookshelf
+            siteMonitor: https://books.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Homebox:
             href: https://homebox.romanpeters.nl
             icon: homebox
@@ -125,15 +125,6 @@ data:
             siteMonitor: https://prowlarr.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Monitoring:
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: changedetection
-            siteMonitor: https://change.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: changedetectionio
-              url: https://change.romanpeters.nl
-              key: "{{HOMEPAGE_VAR_CHANGEDETECTION_API_KEY}}"
         - Uptime Kuma:
             href: https://uptime.romanpeters.nl
             icon: uptime-kuma
@@ -147,6 +138,11 @@ data:
             href: https://dashboard.romanpeters.nl
             icon: grafana
             siteMonitor: https://dashboard.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Alerts:
             href: https://alerts.romanpeters.nl
@@ -203,6 +199,16 @@ data:
             widget:
               type: traefik
               url: https://traefik.romanpeters.nl
+        - UniFi:
+            href: https://unifi.romanpeters.nl
+            icon: unifi
+            siteMonitor: https://unifi.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: unifi
+              url: https://unifi.romanpeters.nl
+              username: "{{HOMEPAGE_VAR_UNIFI_USERNAME}}"
+              password: "{{HOMEPAGE_VAR_UNIFI_PASSWORD}}"
         - TV:
             href: https://tv.romanpeters.nl
             icon: https://images.romanpeters.nl/rtvlogo.jpeg
@@ -212,11 +218,6 @@ data:
             href: https://garage.romanpeters.nl
             icon: mdi-garage
             siteMonitor: https://garage.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - UniFi:
-            href: https://unifi.romanpeters.nl
-            icon: unifi
-            siteMonitor: https://unifi.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - KVM:
             href: https://kvm.romanpeters.nl

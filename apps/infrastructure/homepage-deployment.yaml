@@ -14,6 +14,7 @@ spec:
       labels:
         app.kubernetes.io/name: homepage
     spec:
+      serviceAccountName: homepage
       initContainers:
         - name: seed-config
           image: alpine:3.19
@@ -70,6 +71,16 @@ spec:
                 secretKeyRef:
                   name: homepage-secrets
                   key: HOMEPAGE_VAR_PROXMOX_API_SECRET
+            - name: HOMEPAGE_VAR_UNIFI_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_UNIFI_USERNAME
+            - name: HOMEPAGE_VAR_UNIFI_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_UNIFI_PASSWORD
           volumeMounts:
             - name: config
               mountPath: /app/config

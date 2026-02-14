@@ -19,6 +19,7 @@ resources:
   - garage-webui-ingress.yaml
   - homepage-config.yaml
   - homepage-secrets.sops.yaml
+  - homepage-rbac.yaml
   - homepage-deployment.yaml
   - homepage-service.yaml
   - homepage-ingress.yaml
