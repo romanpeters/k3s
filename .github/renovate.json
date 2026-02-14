@@ -5,6 +5,7 @@
   "enabledManagers": ["kubernetes", "flux", "helm-values", "github-actions"],
   "prConcurrentLimit": 20,
   "prHourlyLimit": 0,
+  "platformAutomerge": true,
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "dependencyDashboard": false,
@@ -24,10 +25,26 @@
       "groupName": "pin floating latest docker tags"
     },
     {
+      "description": "Always hold major updates for manual review",
+      "matchDatasources": ["docker", "github-actions"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["dependencies", "renovate", "major-update", "manual-review"]
+    },
+    {
+      "description": "Auto-merge non-major updates for selected app paths after CI checks pass",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
+      "matchFileNames": [
+        "apps/general/**",
+        "apps/media/**",
+        "apps/infrastructure/**",
+        "apps/monitoring/**",
+        "apps/automation/**"
+      ],
       "automerge": true,
-      "groupName": "docker non-major updates"
+      "automergeType": "pr",
+      "groupName": "selected apps docker non-major updates"
     }
   ]
 }

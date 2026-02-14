@@ -24,3 +24,6 @@ resources:
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml
   - traefik-tlsstore.yaml
+  - node-hygiene-rbac.yaml
+  - node-hygiene-cleanup-cronjob.yaml
+  - node-hygiene-image-prune-cronjob.yaml

@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pod-autoheal
+  namespace: monitoring
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: pod-autoheal
+          restartPolicy: OnFailure
+          containers:
+            - name: autoheal
+              image: python:3.12.12-alpine3.22
+              imagePullPolicy: IfNotPresent
+              command:
+                - python
+                - /app/autoheal.py
+              resources:
+                requests:
+                  cpu: 50m
+                  memory: 96Mi
+                limits:
+                  memory: 256Mi
+              envFrom:
+                - secretRef:
+                    name: pod-autoheal-telegram
+              volumeMounts:
+                - name: app
+                  mountPath: /app
+          volumes:
+            - name: app
+              configMap:
+                name: pod-autoheal
+                defaultMode: 0555

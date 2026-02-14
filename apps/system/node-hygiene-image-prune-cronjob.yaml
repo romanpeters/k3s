@@ -1,0 +1,65 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: node-hygiene-image-prune
+  namespace: kube-system
+spec:
+  schedule: "40 3 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: node-hygiene
+          restartPolicy: OnFailure
+          containers:
+            - name: image-prune
+              image: rancher/k3s:v1.33.5-k3s1
+              imagePullPolicy: IfNotPresent
+              securityContext:
+                privileged: true
+              command:
+                - /bin/sh
+                - -ec
+                - |
+                  socket_path=/run/k3s/containerd/containerd.sock
+                  endpoint="unix://${socket_path}"
+                  store_path=/host/var/lib/rancher/k3s/agent/containerd
+
+                  if [ ! -S "${socket_path}" ]; then
+                    echo "containerd socket not found at ${socket_path}"
+                    exit 1
+                  fi
+
+                  before_mb=$(du -sm "${store_path}" | awk '{print $1}')
+                  before_images=$(crictl --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
+                  prune_output=$(crictl --runtime-endpoint "${endpoint}" rmi --prune 2>&1 || true)
+                  after_mb=$(du -sm "${store_path}" | awk '{print $1}')
+                  after_images=$(crictl --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
+                  freed_mb=$((before_mb-after_mb))
+
+                  echo "${prune_output}"
+                  echo "node-hygiene-image-prune: images_before=${before_images} images_after=${after_images} mb_before=${before_mb} mb_after=${after_mb} freed_mb=${freed_mb}"
+              volumeMounts:
+                - name: containerd-socket
+                  mountPath: /run/k3s/containerd/containerd.sock
+                - name: k3s-data
+                  mountPath: /host/var/lib/rancher/k3s
+          tolerations:
+            - key: "node-role.kubernetes.io/control-plane"
+              operator: Exists
+              effect: NoSchedule
+            - key: "node-role.kubernetes.io/master"
+              operator: Exists
+              effect: NoSchedule
+          volumes:
+            - name: containerd-socket
+              hostPath:
+                path: /run/k3s/containerd/containerd.sock
+                type: Socket
+            - name: k3s-data
+              hostPath:
+                path: /var/lib/rancher/k3s
+                type: Directory

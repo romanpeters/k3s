@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: node-hygiene-cleanup
+  namespace: kube-system
+spec:
+  schedule: "20 3 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: node-hygiene
+          restartPolicy: OnFailure
+          containers:
+            - name: cleanup
+              image: bitnami/kubectl:1.33.5
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/sh
+                - -ec
+                - |
+                  succeeded_before=$(kubectl get pods -A --field-selector=status.phase==Succeeded --no-headers 2>/dev/null | wc -l | tr -d ' ')
+                  failed_before=$(kubectl get pods -A --field-selector=status.phase==Failed --no-headers 2>/dev/null | wc -l | tr -d ' ')
+                  kubectl delete pod -A --field-selector=status.phase==Succeeded --ignore-not-found=true >/dev/null || true
+                  kubectl delete pod -A --field-selector=status.phase==Failed --ignore-not-found=true >/dev/null || true
+
+                  tmp_jobs=$(mktemp)
+                  kubectl get jobs -A -o go-template='{{range .items}}{{if or .status.succeeded .status.failed}}{{.metadata.namespace}} {{.metadata.name}}{{"\n"}}{{end}}{{end}}' > "${tmp_jobs}"
+                  jobs_count=$(grep -c . "${tmp_jobs}" || true)
+                  while read -r namespace name; do
+                    [ -z "${namespace}" ] && continue
+                    kubectl -n "${namespace}" delete job "${name}" --ignore-not-found=true >/dev/null || true
+                  done < "${tmp_jobs}"
+                  rm -f "${tmp_jobs}"
+
+                  echo "node-hygiene-cleanup: deleted succeeded_pods=${succeeded_before} failed_pods=${failed_before} finished_jobs=${jobs_count}"
