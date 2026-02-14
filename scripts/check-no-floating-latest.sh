@@ -1,17 +1,36 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Disallow floating :latest tags in manifests.
-# We allow a digest-pinned variant (e.g. image: repo:latest@sha256:...),
-# but plain :latest is blocked.
-pattern='^\s*image:\s*["'"'"']?[^"'"'"'"'"'"'\s]+:latest(?!@sha256:[a-f0-9]{64})["'"'"']?\s*$'
+python3 - <<'PY'
+import re
+import sys
+from pathlib import Path
 
-if rg -n --pcre2 "$pattern" apps clusters --glob '*.yaml' --glob '*.yml' \
-  --glob '!clusters/prod/flux-system/**'; then
-  echo
-  echo "Error: floating :latest image tags are not allowed."
-  echo "Use an explicit version tag (preferred) or digest pin."
-  exit 1
-fi
+roots = [Path("apps"), Path("clusters")]
+skip_prefix = Path("clusters/prod/flux-system")
+image_line = re.compile(r'^\s*image:\s*(["\']?)([^"\']+)\1\s*$')
+valid_ref = re.compile(r'^[^@\s]+:[^@\s]+@sha256:[a-f0-9]{64}$')
 
-echo "OK: no floating :latest image tags found."
+failures = []
+for root in roots:
+    if not root.exists():
+        continue
+    for path in list(root.rglob("*.yaml")) + list(root.rglob("*.yml")):
+        if skip_prefix in path.parents or path == skip_prefix:
+            continue
+        for idx, line in enumerate(path.read_text().splitlines(), start=1):
+            m = image_line.match(line)
+            if not m:
+                continue
+            ref = m.group(2).strip()
+            if not valid_ref.match(ref):
+                failures.append((str(path), idx, line.strip()))
+
+if failures:
+    for path, line, text in failures:
+        print(f"{path}:{line}: {text}")
+    print("\nError: image references must use repo:tag@sha256:digest syntax.", file=sys.stderr)
+    sys.exit(1)
+
+print("OK: all image references are immutable (tag + digest).")
+PY

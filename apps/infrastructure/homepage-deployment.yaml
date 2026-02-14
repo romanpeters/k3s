@@ -17,7 +17,7 @@ spec:
       serviceAccountName: homepage
       initContainers:
         - name: seed-config
-          image: alpine:3.23
+          image: alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
           command:
             - /bin/sh
             - -c
@@ -32,7 +32,7 @@ spec:
               mountPath: /config-ro
       containers:
         - name: homepage
-          image: ghcr.io/gethomepage/homepage:v1.10.1
+          image: ghcr.io/gethomepage/homepage:v1.10.1@sha256:0b596092c0b55fe4c65379a428a3fe90bd192f10d1b07d189a34fe5fabe7eedb
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

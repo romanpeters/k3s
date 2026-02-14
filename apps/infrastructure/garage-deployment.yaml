@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: init-data-dirs
-          image: alpine:3.23
+          image: alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
           command:
             - /bin/sh
             - -c
@@ -30,7 +30,7 @@ spec:
               mountPath: /var/lib/garage
       containers:
         - name: garage
-          image: dxflrs/garage:v2.2.0
+          image: dxflrs/garage:v2.2.0@sha256:45a61ce3f7c9c24fc23d9ed2b09b27ed560ab87b34605d175d5c588f539c24e4
           imagePullPolicy: IfNotPresent
           command:
             - /garage

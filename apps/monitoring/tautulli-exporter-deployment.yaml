@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tautulli-exporter
-          image: mm404/tautulli-exporter:20260207-5f32658
+          image: mm404/tautulli-exporter:20260207-5f32658@sha256:10418b2ada0521f44a3b4a4b99956a4b8a1e165a8e8a93890f2b5a1316ae767f
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

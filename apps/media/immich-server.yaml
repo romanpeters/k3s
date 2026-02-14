@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: immich-data-init
-          image: busybox:1.37
+          image: busybox:1.37@sha256:b3255e7dfbcd10cb367af0d409747d511aeb66dfac98cf30e97e87e4207dd76f
           command:
             - sh
             - -c
@@ -31,7 +31,7 @@ spec:
               mountPath: /data
       containers:
         - name: immich-server
-          image: ghcr.io/immich-app/immich-server:v2.5.6
+          image: ghcr.io/immich-app/immich-server:v2.5.6@sha256:aa163d2e1cc2b16a9515dd1fef901e6f5231befad7024f093d7be1f2da14341a
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

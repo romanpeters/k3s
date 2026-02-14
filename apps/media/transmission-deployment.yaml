@@ -21,7 +21,7 @@ spec:
     spec:
       initContainers:
         - name: init-downloads
-          image: busybox:1.37
+          image: busybox:1.37@sha256:b3255e7dfbcd10cb367af0d409747d511aeb66dfac98cf30e97e87e4207dd76f
           command:
             - /bin/sh
             - -c
@@ -38,7 +38,7 @@ spec:
               mountPath: /mnt/media
       containers:
         - name: gluetun
-          image: qmcgaw/gluetun:v3.41.1
+          image: qmcgaw/gluetun:v3.41.1@sha256:1a5bf4b4820a879cdf8d93d7ef0d2d963af56670c9ebff8981860b6804ebc8ab
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -75,7 +75,7 @@ spec:
             - name: tun
               mountPath: /dev/net/tun
         - name: transmission
-          image: lscr.io/linuxserver/transmission:4.1.0-r0-ls329
+          image: lscr.io/linuxserver/transmission:4.1.0-r0-ls329@sha256:29e631e2216f2d4a5e0f7274b3ef2045901efe1d13df78ef4d4d48e8a9f1b216
           imagePullPolicy: IfNotPresent
           resources:
             requests:
