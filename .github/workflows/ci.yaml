@@ -32,5 +32,7 @@ jobs:
           echo "$HOME/bin" >> "$GITHUB_PATH"
       - name: Pre-commit
         run: pre-commit run --all-files
+      - name: Disallow floating latest image tags
+        run: ./scripts/check-no-floating-latest.sh
       - name: Validate manifests
         run: ./scripts/validate.sh

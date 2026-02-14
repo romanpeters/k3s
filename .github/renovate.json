@@ -17,6 +17,13 @@
   },
   "packageRules": [
     {
+      "description": "If latest is used, pin digest so the image becomes immutable until replaced with a version tag",
+      "matchDatasources": ["docker"],
+      "matchCurrentValue": "/^latest$/",
+      "pinDigests": true,
+      "groupName": "pin floating latest docker tags"
+    },
+    {
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true,

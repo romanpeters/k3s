@@ -21,6 +21,11 @@ repos:
         exclude: '^(rtv/|clusters/prod/flux-system/)|(^|/).*\\.sops\\.yaml$'
   - repo: local
     hooks:
+      - id: no-floating-latest
+        name: Disallow floating latest image tags
+        entry: scripts/check-no-floating-latest.sh
+        language: system
+        pass_filenames: false
       - id: validate-kustomize
         name: Validate kustomize build + kubeconform
         entry: scripts/validate.sh
