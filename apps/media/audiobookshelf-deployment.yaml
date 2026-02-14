@@ -4,6 +4,10 @@ metadata:
   name: audiobookshelf
   labels:
     app.kubernetes.io/name: audiobookshelf
+    app.kubernetes.io/instance: audiobookshelf-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   replicas: 1
   selector:

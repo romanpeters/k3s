@@ -2,6 +2,12 @@ apiVersion: cilium.io/v2
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: lan-vips
+  labels:
+    app.kubernetes.io/name: lan-vips
+    app.kubernetes.io/instance: lan-vips-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   blocks:
     - start: 10.10.20.240

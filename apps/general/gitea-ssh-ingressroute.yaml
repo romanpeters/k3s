@@ -3,6 +3,12 @@ kind: IngressRouteTCP
 metadata:
   name: gitea-ssh
   namespace: general
+  labels:
+    app.kubernetes.io/name: gitea-ssh
+    app.kubernetes.io/instance: gitea-ssh-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   entryPoints:
     - ssh

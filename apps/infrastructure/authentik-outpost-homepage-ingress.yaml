@@ -5,6 +5,12 @@ metadata:
   namespace: infrastructure
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
+  labels:
+    app.kubernetes.io/name: authentik-outpost-homepage
+    app.kubernetes.io/instance: authentik-outpost-homepage-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   tls:

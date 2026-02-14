@@ -4,6 +4,10 @@ metadata:
   name: n8n
   labels:
     app.kubernetes.io/name: n8n
+    app.kubernetes.io/instance: n8n-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:

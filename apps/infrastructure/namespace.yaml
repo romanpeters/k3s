@@ -2,3 +2,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: infrastructure
+  labels:
+    app.kubernetes.io/name: infrastructure
+    app.kubernetes.io/instance: infrastructure-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal

@@ -4,121 +4,18 @@ metadata:
   name: garage-web
   namespace: infrastructure
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+    external-dns: external
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
+  labels:
+    app.kubernetes.io/name: garage-web
+    app.kubernetes.io/instance: garage-web-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:
-    - host: images.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: videos.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: gifs.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: html.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: pdf.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: css.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: fonts.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: audio.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: downloads.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: code.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: memes.romanpeters.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: garage
-                port:
-                  name: web
-    - host: javascript.romanpeters.nl
+    - host: cdn.romanpeters.nl
       http:
         paths:
           - path: /

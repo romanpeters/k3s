@@ -3,8 +3,14 @@ kind: CronJob
 metadata:
   name: node-hygiene-cleanup
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: node-hygiene-cleanup
+    app.kubernetes.io/instance: node-hygiene-cleanup-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
-  schedule: "20 3 * * *"
+  schedule: "*/15 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 2
@@ -22,21 +28,51 @@ spec:
                 - /bin/sh
                 - -ec
                 - |
-                  succeeded_before=$(kubectl get pods -A --field-selector=status.phase==Succeeded --no-headers 2>/dev/null | wc -l | tr -d ' ')
-                  failed_before=$(kubectl get pods -A --field-selector=status.phase==Failed --no-headers 2>/dev/null | wc -l | tr -d ' ')
-                  kubectl delete pod -A --field-selector=status.phase==Succeeded --ignore-not-found=true >/dev/null || true
-                  kubectl delete pod -A --field-selector=status.phase==Failed --ignore-not-found=true >/dev/null || true
+                  max_age_seconds=3600
+                  now_epoch="$(date -u +%s)"
 
-                  tmp_jobs=$(mktemp)
-                  kubectl get jobs -A -o go-template='{{range .items}}{{if or .status.succeeded .status.failed}}{{.metadata.namespace}} {{.metadata.name}}{{"\n"}}{{end}}{{end}}' > "${tmp_jobs}"
-                  jobs_count=$(grep -c . "${tmp_jobs}" || true)
-                  while read -r namespace name; do
-                    [ -z "${namespace}" ] && continue
-                    kubectl -n "${namespace}" delete job "${name}" --ignore-not-found=true >/dev/null || true
-                  done < "${tmp_jobs}"
-                  rm -f "${tmp_jobs}"
+                  prune_completed_pods() {
+                    phase="$1"
+                    deleted=0
+                    tmp_pods="$(mktemp)"
+                    kubectl get pods -A --field-selector="status.phase==${phase}" -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.metadata.creationTimestamp}{"\n"}{end}' > "${tmp_pods}" || true
+                    while IFS=$'\t' read -r namespace name created; do
+                      [ -z "${namespace}" ] && continue
+                      created_epoch="$(date -u -d "${created}" +%s 2>/dev/null || true)"
+                      [ -z "${created_epoch}" ] && continue
+                      age_seconds="$((now_epoch - created_epoch))"
+                      if [ "${age_seconds}" -ge "${max_age_seconds}" ]; then
+                        kubectl -n "${namespace}" delete pod "${name}" --ignore-not-found=true >/dev/null || true
+                        deleted="$((deleted + 1))"
+                      fi
+                    done < "${tmp_pods}"
+                    rm -f "${tmp_pods}"
+                    echo "${deleted}"
+                  }
 
-                  echo "node-hygiene-cleanup: deleted succeeded_pods=${succeeded_before} failed_pods=${failed_before} finished_jobs=${jobs_count}"
+                  prune_finished_jobs() {
+                    deleted=0
+                    tmp_jobs="$(mktemp)"
+                    kubectl get jobs -A -o go-template='{{range .items}}{{if or .status.succeeded .status.failed}}{{.metadata.namespace}}{{"\t"}}{{.metadata.name}}{{"\t"}}{{.metadata.creationTimestamp}}{{"\n"}}{{end}}{{end}}' > "${tmp_jobs}" || true
+                    while IFS=$'\t' read -r namespace name created; do
+                      [ -z "${namespace}" ] && continue
+                      created_epoch="$(date -u -d "${created}" +%s 2>/dev/null || true)"
+                      [ -z "${created_epoch}" ] && continue
+                      age_seconds="$((now_epoch - created_epoch))"
+                      if [ "${age_seconds}" -ge "${max_age_seconds}" ]; then
+                        kubectl -n "${namespace}" delete job "${name}" --ignore-not-found=true >/dev/null || true
+                        deleted="$((deleted + 1))"
+                      fi
+                    done < "${tmp_jobs}"
+                    rm -f "${tmp_jobs}"
+                    echo "${deleted}"
+                  }
+
+                  deleted_succeeded="$(prune_completed_pods Succeeded)"
+                  deleted_failed="$(prune_completed_pods Failed)"
+                  deleted_jobs="$(prune_finished_jobs)"
+
+                  echo "node-hygiene-cleanup: max_age_seconds=${max_age_seconds} deleted_succeeded_pods=${deleted_succeeded} deleted_failed_pods=${deleted_failed} deleted_finished_jobs=${deleted_jobs}"
           tolerations:
             - key: "node-role.kubernetes.io/control-plane"
               operator: Exists

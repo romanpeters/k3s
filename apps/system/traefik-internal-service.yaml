@@ -6,6 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
   annotations:
     lbipam.cilium.io/ips: 10.10.20.241
 spec:

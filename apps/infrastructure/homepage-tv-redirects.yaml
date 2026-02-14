@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: homepage-tv-redirect-rtv
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: homepage-tv-redirect-rtv
+    app.kubernetes.io/instance: homepage-tv-redirect-rtv-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://rtv\.romanpeters\.nl/(.*)
@@ -14,6 +20,12 @@ kind: Middleware
 metadata:
   name: homepage-tv-redirect-romantv
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: homepage-tv-redirect-romantv
+    app.kubernetes.io/instance: homepage-tv-redirect-romantv-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://romantv\.romanpeters\.nl/(.*)
@@ -29,6 +41,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: infrastructure-homepage-tv-redirect-rtv@kubernetescrd,infrastructure-homepage-tv-redirect-romantv@kubernetescrd
+  labels:
+    app.kubernetes.io/name: homepage-tv-aliases
+    app.kubernetes.io/instance: homepage-tv-aliases-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   tls:

@@ -3,6 +3,12 @@ kind: HelmChartConfig
 metadata:
   name: traefik
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: traefik
+    app.kubernetes.io/instance: traefik-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   valuesContent: |-
     additionalArguments:

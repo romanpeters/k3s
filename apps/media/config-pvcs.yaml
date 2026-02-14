@@ -2,6 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sonarr-config
+  labels:
+    app.kubernetes.io/name: sonarr-config
+    app.kubernetes.io/instance: sonarr-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -13,6 +19,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: radarr-config
+  labels:
+    app.kubernetes.io/name: radarr-config
+    app.kubernetes.io/instance: radarr-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -24,6 +36,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: overseerr-config
+  labels:
+    app.kubernetes.io/name: overseerr-config
+    app.kubernetes.io/instance: overseerr-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -35,6 +53,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: bazarr-config
+  labels:
+    app.kubernetes.io/name: bazarr-config
+    app.kubernetes.io/instance: bazarr-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -46,6 +70,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: prowlarr-config
+  labels:
+    app.kubernetes.io/name: prowlarr-config
+    app.kubernetes.io/instance: prowlarr-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -57,6 +87,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: immich-postgres-data
+  labels:
+    app.kubernetes.io/name: immich-postgres-data
+    app.kubernetes.io/instance: immich-postgres-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -68,6 +104,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: immich-data
+  labels:
+    app.kubernetes.io/name: immich-data
+    app.kubernetes.io/instance: immich-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -79,6 +121,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: transmission-config
+  labels:
+    app.kubernetes.io/name: transmission-config
+    app.kubernetes.io/instance: transmission-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -90,6 +138,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: tautulli-config
+  labels:
+    app.kubernetes.io/name: tautulli-config
+    app.kubernetes.io/instance: tautulli-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -101,6 +155,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: jellyfin-config
+  labels:
+    app.kubernetes.io/name: jellyfin-config
+    app.kubernetes.io/instance: jellyfin-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -112,6 +172,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: audiobookshelf-config
+  labels:
+    app.kubernetes.io/name: audiobookshelf-config
+    app.kubernetes.io/instance: audiobookshelf-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -123,6 +189,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: calibre-web-config
+  labels:
+    app.kubernetes.io/name: calibre-web-config
+    app.kubernetes.io/instance: calibre-web-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce

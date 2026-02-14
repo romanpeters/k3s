@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: homepage-config
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: homepage-config
+    app.kubernetes.io/instance: homepage-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   settings.yaml: |
     title: Homepage
@@ -212,7 +218,7 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - TV:
             href: https://tv.romanpeters.nl
-            icon: https://images.romanpeters.nl/rtvlogo.jpeg
+            icon: https://cdn.romanpeters.nl/images/rtvlogo.jpeg
             siteMonitor: https://tv.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Garage:

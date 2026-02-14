@@ -2,5 +2,11 @@ apiVersion: traefik.io/v1alpha1
 kind: ServersTransport
 metadata:
   name: proxmox-transport
+  labels:
+    app.kubernetes.io/name: proxmox-transport
+    app.kubernetes.io/instance: proxmox-transport-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   insecureSkipVerify: true

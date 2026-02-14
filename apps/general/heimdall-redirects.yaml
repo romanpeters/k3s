@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: heimdall-redirect-root
   namespace: general
+  labels:
+    app.kubernetes.io/name: heimdall-redirect-root
+    app.kubernetes.io/instance: heimdall-redirect-root-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://(www\.)?romanpeters\.nl/(.*)
@@ -18,6 +24,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: general-heimdall-redirect-root@kubernetescrd
+  labels:
+    app.kubernetes.io/name: heimdall-root-alias
+    app.kubernetes.io/instance: heimdall-root-alias-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:

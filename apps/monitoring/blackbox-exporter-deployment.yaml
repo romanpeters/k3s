@@ -5,6 +5,10 @@ metadata:
   namespace: monitoring
   labels:
     app.kubernetes.io/name: blackbox-exporter
+    app.kubernetes.io/instance: blackbox-exporter-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:

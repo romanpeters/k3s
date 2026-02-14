@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: blackbox-exporter-config
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: blackbox-exporter-config
+    app.kubernetes.io/instance: blackbox-exporter-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   blackbox.yml: |
     modules:

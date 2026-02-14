@@ -4,6 +4,10 @@ metadata:
   name: grafana
   labels:
     app.kubernetes.io/name: grafana
+    app.kubernetes.io/instance: grafana-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   replicas: 1
   selector:

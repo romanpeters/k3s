@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: garage-config
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: garage-config
+    app.kubernetes.io/instance: garage-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   garage.toml: |
     metadata_dir = "/var/lib/garage/meta"

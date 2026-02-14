@@ -4,6 +4,10 @@ metadata:
   name: radarr
   labels:
     app.kubernetes.io/name: radarr
+    app.kubernetes.io/instance: radarr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

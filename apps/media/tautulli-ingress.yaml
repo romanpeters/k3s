@@ -5,6 +5,12 @@ metadata:
   namespace: media
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+  labels:
+    app.kubernetes.io/name: tautulli
+    app.kubernetes.io/instance: tautulli-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

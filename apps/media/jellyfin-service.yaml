@@ -4,6 +4,10 @@ metadata:
   name: jellyfin
   labels:
     app.kubernetes.io/name: jellyfin
+    app.kubernetes.io/instance: jellyfin-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

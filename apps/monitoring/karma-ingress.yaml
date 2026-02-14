@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: karma-redirect
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: karma-redirect
+    app.kubernetes.io/instance: karma-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://alert\.romanpeters\.nl/(.*)
@@ -16,6 +22,12 @@ metadata:
   namespace: monitoring
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+  labels:
+    app.kubernetes.io/name: karma
+    app.kubernetes.io/instance: karma-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:
@@ -38,6 +50,12 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
     traefik.ingress.kubernetes.io/router.middlewares: monitoring-karma-redirect@kubernetescrd
+  labels:
+    app.kubernetes.io/name: karma-redirect
+    app.kubernetes.io/instance: karma-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

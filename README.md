@@ -35,12 +35,25 @@ make smoke
 
 ```mermaid
 flowchart TB
-  subgraph "Proxmox"
-    subgraph k3s["K3s Cluster"]
-      subgraph "Apps Namespace"
+  subgraph "Proxmox VM"
+    subgraph k3s["K3s Cluster (Kairos)"]
+      subgraph "System Namespace"
+        traefik["Traefik (websecure-int + websecure-pub)"]
+        cilium["Cilium"]
+        certmanager["cert-manager"]
+        externaldns["ExternalDNS"]
+        trivyop["Trivy Operator"]
+      end
+
+      subgraph "General Namespace"
         heimdall["Heimdall"]
+        gitea["Gitea"]
         homebox["Homebox"]
         n8n["n8n"]
+      end
+
+      subgraph "Automation Namespace"
+        awx["AWX + Operator"]
       end
 
       subgraph "Media Namespace"
@@ -53,31 +66,57 @@ flowchart TB
         radarr["Radarr"]
         bazarr["Bazarr"]
         prowlarr["Prowlarr"]
-        transmission["Transmission (+ Gluetun)"]
+        transmission["Transmission"]
         tautulli["Tautulli"]
       end
 
       subgraph "Monitoring Namespace"
-        changedetection["changedetection.io"]
-        uptime["Uptime Kuma"]
+        prometheus["Prometheus"]
+        alertmanager["Alertmanager"]
         grafana["Grafana"]
+        uptime["Uptime Kuma"]
+        karma["Karma"]
+        ntfy["ntfy"]
+        changedetection["changedetection.io"]
       end
 
       subgraph "Infrastructure Namespace"
         authentik["Authentik"]
         homepage["Homepage"]
-        traefik["Traefik"]
+        homepagetv["Homepage TV"]
+        garage["Garage (S3 + CDN)"]
+        garagewebui["Garage WebUI"]
       end
     end
 
-    nginx["NGINX Webserver)"]
-    plex["Plex"]
-    ha["Home Assistant OS"]
-    ansible["Ansible Automation Platform"]
-
-    nginx ---|routes| k3s
-    nginx --> plex
-    nginx --> ha
-    nginx --> ansible
+    subgraph "LAN Services (via Traefik websecure-int)"
+      ha["Home Assistant"]
+      nanokvm["NanoKVM"]
+      ollama["Ollama"]
+      plex["Plex"]
+      proxmox["Proxmox"]
+      unifi["UniFi"]
+      unas["UNAS Pro"]
+    end
   end
+
+  traefik --> heimdall
+  traefik --> gitea
+  traefik --> homebox
+  traefik --> n8n
+  traefik --> awx
+  traefik --> jellyfin
+  traefik --> overseerr
+  traefik --> immich
+  traefik --> grafana
+  traefik --> homepage
+  traefik --> homepagetv
+  traefik --> garage
+  traefik --> ha
+  traefik --> nanokvm
+  traefik --> ollama
+  traefik --> plex
+  traefik --> proxmox
+  traefik --> unifi
+  traefik --> unas
 ```

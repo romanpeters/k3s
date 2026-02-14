@@ -4,6 +4,10 @@ metadata:
   name: bazarr
   labels:
     app.kubernetes.io/name: bazarr
+    app.kubernetes.io/instance: bazarr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

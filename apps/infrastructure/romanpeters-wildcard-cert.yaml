@@ -2,6 +2,12 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: romanpeters-nl-wildcard
+  labels:
+    app.kubernetes.io/name: romanpeters-nl-wildcard
+    app.kubernetes.io/instance: romanpeters-nl-wildcard-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   secretName: romanpeters-nl-tls
   issuerRef:

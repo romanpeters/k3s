@@ -5,6 +5,13 @@ metadata:
   namespace: infrastructure
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+    traefik.ingress.kubernetes.io/router.middlewares: infrastructure-lan-allow-10-8@kubernetescrd
+  labels:
+    app.kubernetes.io/name: garage-webui
+    app.kubernetes.io/instance: garage-webui-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

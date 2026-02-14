@@ -6,6 +6,12 @@ metadata:
   annotations:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
+  labels:
+    app.kubernetes.io/name: homepage-tv
+    app.kubernetes.io/instance: homepage-tv-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   tls:

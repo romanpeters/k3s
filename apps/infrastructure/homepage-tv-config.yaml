@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: homepage-tv-config
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: homepage-tv-config
+    app.kubernetes.io/instance: homepage-tv-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   settings.yaml: |
     title: RomanTV

@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: authentik-forward-auth
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: authentik-forward-auth
+    app.kubernetes.io/instance: authentik-forward-auth-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   forwardAuth:
     address: http://ak-outpost-traefik-outpost.infrastructure.svc.cluster.local:9000/outpost.goauthentik.io/auth/traefik

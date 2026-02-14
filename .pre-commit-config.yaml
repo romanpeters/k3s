@@ -26,6 +26,21 @@ repos:
         entry: scripts/check-no-floating-latest.sh
         language: system
         pass_filenames: false
+      - id: required-baseline-labels
+        name: Require baseline Kubernetes labels
+        entry: scripts/check-required-labels.sh
+        language: system
+        pass_filenames: false
+      - id: internal-not-exposed
+        name: Block public exposure of internal resources
+        entry: scripts/check-internal-not-exposed.sh
+        language: system
+        pass_filenames: false
+      - id: websecure-int-lan-only
+        name: Enforce LAN-only protection on websecure-int
+        entry: scripts/check-websecure-int-lan-only.sh
+        language: system
+        pass_filenames: false
       - id: validate-kustomize
         name: Validate kustomize build + kubeconform
         entry: scripts/validate.sh

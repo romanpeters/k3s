@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: grafana-redirect
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: grafana-redirect
+    app.kubernetes.io/instance: grafana-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://grafana\.romanpeters\.nl/(.*)
@@ -17,6 +23,12 @@ metadata:
   annotations:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
+  labels:
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/instance: grafana-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:
@@ -40,6 +52,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: monitoring-grafana-redirect@kubernetescrd
+  labels:
+    app.kubernetes.io/name: grafana-redirect
+    app.kubernetes.io/instance: grafana-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:

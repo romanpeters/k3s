@@ -3,6 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: garage-data
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: garage-data
+    app.kubernetes.io/instance: garage-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce

@@ -4,6 +4,10 @@ metadata:
   name: playwright-chrome
   labels:
     app.kubernetes.io/name: playwright-chrome
+    app.kubernetes.io/instance: playwright-chrome-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:

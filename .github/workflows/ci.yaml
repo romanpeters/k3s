@@ -34,5 +34,11 @@ jobs:
         run: pre-commit run --all-files
       - name: Disallow floating latest image tags
         run: ./scripts/check-no-floating-latest.sh
+      - name: Require baseline Kubernetes labels
+        run: ./scripts/check-required-labels.sh
+      - name: Block public exposure of internal resources
+        run: ./scripts/check-internal-not-exposed.sh
+      - name: Enforce LAN-only protection on websecure-int
+        run: ./scripts/check-websecure-int-lan-only.sh
       - name: Validate manifests
         run: ./scripts/validate.sh

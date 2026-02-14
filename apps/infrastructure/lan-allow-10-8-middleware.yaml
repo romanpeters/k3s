@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: lan-allow-10-8
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: lan-allow-10-8
+    app.kubernetes.io/instance: lan-allow-10-8-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ipAllowList:
     sourceRange:

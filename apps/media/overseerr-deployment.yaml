@@ -4,6 +4,10 @@ metadata:
   name: overseerr
   labels:
     app.kubernetes.io/name: overseerr
+    app.kubernetes.io/instance: overseerr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   replicas: 1
   selector:

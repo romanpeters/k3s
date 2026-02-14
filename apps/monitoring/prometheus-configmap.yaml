@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: prometheus-config
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: prometheus-config
+    app.kubernetes.io/instance: prometheus-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   prometheus.yml: |
     global:

@@ -4,6 +4,10 @@ metadata:
   name: gitea
   labels:
     app.kubernetes.io/name: gitea
+    app.kubernetes.io/instance: gitea-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   selector:
     app.kubernetes.io/name: gitea

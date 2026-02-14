@@ -3,6 +3,12 @@ kind: IngressRoute
 metadata:
   name: traefik-dashboard
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: traefik-dashboard
+    app.kubernetes.io/instance: traefik-dashboard-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   entryPoints:
     - websecure-int

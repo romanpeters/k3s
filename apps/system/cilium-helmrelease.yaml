@@ -3,6 +3,12 @@ kind: HelmRelease
 metadata:
   name: cilium
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: cilium
+    app.kubernetes.io/instance: cilium-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   interval: 10m
   chart:

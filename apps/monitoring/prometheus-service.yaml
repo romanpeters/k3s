@@ -5,6 +5,10 @@ metadata:
   namespace: monitoring
   labels:
     app.kubernetes.io/name: prometheus
+    app.kubernetes.io/instance: prometheus-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

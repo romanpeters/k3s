@@ -3,6 +3,12 @@ kind: NetworkPolicy
 metadata:
   name: allow-ingress-same-namespace-and-traefik
   namespace: general
+  labels:
+    app.kubernetes.io/name: allow-ingress-same-namespace-and-traefik
+    app.kubernetes.io/instance: allow-ingress-same-namespace-and-traefik-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   podSelector: {}
   policyTypes:

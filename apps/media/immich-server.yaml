@@ -4,6 +4,10 @@ metadata:
   name: immich-server
   labels:
     app.kubernetes.io/name: immich-server
+    app.kubernetes.io/instance: immich-server-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:
@@ -80,6 +84,10 @@ metadata:
   name: immich-server
   labels:
     app.kubernetes.io/name: immich-server
+    app.kubernetes.io/instance: immich-server-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   selector:
     app.kubernetes.io/name: immich-server
@@ -94,6 +102,12 @@ metadata:
   name: immich
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+  labels:
+    app.kubernetes.io/name: immich
+    app.kubernetes.io/instance: immich-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

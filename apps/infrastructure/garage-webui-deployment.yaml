@@ -5,6 +5,10 @@ metadata:
   namespace: infrastructure
   labels:
     app.kubernetes.io/name: garage-webui
+    app.kubernetes.io/instance: garage-webui-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:

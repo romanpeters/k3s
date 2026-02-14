@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: calibreweb-xscheme
   namespace: media
+  labels:
+    app.kubernetes.io/name: calibreweb-xscheme
+    app.kubernetes.io/instance: calibreweb-xscheme-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   headers:
     customRequestHeaders:
@@ -18,6 +24,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-calibreweb-xscheme@kubernetescrd
+  labels:
+    app.kubernetes.io/name: calibre-web
+    app.kubernetes.io/instance: calibre-web-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:

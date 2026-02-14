@@ -4,6 +4,10 @@ metadata:
   name: changedetection
   labels:
     app.kubernetes.io/name: changedetection
+    app.kubernetes.io/instance: changedetection-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

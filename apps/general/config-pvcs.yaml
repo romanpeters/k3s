@@ -2,6 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: n8n-config
+  labels:
+    app.kubernetes.io/name: n8n-config
+    app.kubernetes.io/instance: n8n-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -15,6 +21,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: heimdall-config
+  labels:
+    app.kubernetes.io/name: heimdall-config
+    app.kubernetes.io/instance: heimdall-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -28,6 +40,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: homebox-data
+  labels:
+    app.kubernetes.io/name: homebox-data
+    app.kubernetes.io/instance: homebox-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce

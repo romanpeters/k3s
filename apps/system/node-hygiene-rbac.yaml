@@ -3,11 +3,23 @@ kind: ServiceAccount
 metadata:
   name: node-hygiene
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: node-hygiene
+    app.kubernetes.io/instance: node-hygiene-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: node-hygiene
+  labels:
+    app.kubernetes.io/name: node-hygiene
+    app.kubernetes.io/instance: node-hygiene-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 rules:
   - apiGroups: [""]
     resources: ["pods"]
@@ -20,6 +32,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: node-hygiene
+  labels:
+    app.kubernetes.io/name: node-hygiene
+    app.kubernetes.io/instance: node-hygiene-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

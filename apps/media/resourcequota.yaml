@@ -2,6 +2,12 @@ apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: namespace-quota
+  labels:
+    app.kubernetes.io/name: namespace-quota
+    app.kubernetes.io/instance: namespace-quota-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   hard:
     requests.cpu: "4"

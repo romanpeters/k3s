@@ -3,6 +3,12 @@ kind: CronJob
 metadata:
   name: node-hygiene-image-prune
   namespace: kube-system
+  labels:
+    app.kubernetes.io/name: node-hygiene-image-prune
+    app.kubernetes.io/instance: node-hygiene-image-prune-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   schedule: "40 3 * * *"
   concurrencyPolicy: Forbid

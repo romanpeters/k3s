@@ -2,6 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: grafana-data
+  labels:
+    app.kubernetes.io/name: grafana-data
+    app.kubernetes.io/instance: grafana-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -13,6 +19,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: prometheus-data
+  labels:
+    app.kubernetes.io/name: prometheus-data
+    app.kubernetes.io/instance: prometheus-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -24,6 +36,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: uptime-kuma-data
+  labels:
+    app.kubernetes.io/name: uptime-kuma-data
+    app.kubernetes.io/instance: uptime-kuma-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -35,6 +53,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: changedetection-data
+  labels:
+    app.kubernetes.io/name: changedetection-data
+    app.kubernetes.io/instance: changedetection-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce
@@ -46,6 +70,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ntfy-data
+  labels:
+    app.kubernetes.io/name: ntfy-data
+    app.kubernetes.io/instance: ntfy-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce

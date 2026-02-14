@@ -4,6 +4,10 @@ metadata:
   name: homebox
   labels:
     app.kubernetes.io/name: homebox
+    app.kubernetes.io/instance: homebox-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

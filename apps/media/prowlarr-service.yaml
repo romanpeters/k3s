@@ -4,6 +4,10 @@ metadata:
   name: prowlarr
   labels:
     app.kubernetes.io/name: prowlarr
+    app.kubernetes.io/instance: prowlarr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

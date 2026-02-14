@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: gitea-redirect
   namespace: general
+  labels:
+    app.kubernetes.io/name: gitea-redirect
+    app.kubernetes.io/instance: gitea-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://gitea\.romanpeters\.nl/(.*)
@@ -17,6 +23,10 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
   labels:
     app.kubernetes.io/name: gitea
+    app.kubernetes.io/instance: gitea-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:
@@ -40,6 +50,10 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: general-gitea-redirect@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
+    app.kubernetes.io/instance: gitea-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

@@ -4,6 +4,10 @@ metadata:
   name: immich-redis
   labels:
     app.kubernetes.io/name: immich-redis
+    app.kubernetes.io/instance: immich-redis-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:
@@ -34,6 +38,10 @@ metadata:
   name: immich-redis
   labels:
     app.kubernetes.io/name: immich-redis
+    app.kubernetes.io/instance: immich-redis-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   selector:
     app.kubernetes.io/name: immich-redis

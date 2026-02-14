@@ -3,6 +3,12 @@ kind: LimitRange
 metadata:
   name: default-limits
   namespace: trivy-system
+  labels:
+    app.kubernetes.io/name: default-limits
+    app.kubernetes.io/instance: default-limits-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   limits:
     - type: Container

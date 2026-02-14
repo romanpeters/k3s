@@ -4,6 +4,10 @@ metadata:
   name: uptime-kuma
   labels:
     app.kubernetes.io/name: uptime-kuma
+    app.kubernetes.io/instance: uptime-kuma-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   replicas: 1
   selector:

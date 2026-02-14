@@ -4,6 +4,12 @@ metadata:
   name: n8n
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+  labels:
+    app.kubernetes.io/name: n8n
+    app.kubernetes.io/instance: n8n-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

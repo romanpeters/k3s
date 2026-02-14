@@ -2,6 +2,12 @@ apiVersion: awx.ansible.com/v1beta1
 kind: AWX
 metadata:
   name: awx
+  labels:
+    app.kubernetes.io/name: awx
+    app.kubernetes.io/instance: awx-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   service_type: ClusterIP
   ingress_type: ingress

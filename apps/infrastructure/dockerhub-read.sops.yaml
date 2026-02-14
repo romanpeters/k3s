@@ -6,6 +6,12 @@ metadata:
   creationTimestamp: null
   name: dockerhub-read
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: dockerhub-read
+    app.kubernetes.io/instance: dockerhub-read-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 type: kubernetes.io/dockerconfigjson
 sops:
   age:

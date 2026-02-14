@@ -4,6 +4,10 @@ metadata:
   name: sonarr
   labels:
     app.kubernetes.io/name: sonarr
+    app.kubernetes.io/instance: sonarr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:

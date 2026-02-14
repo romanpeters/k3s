@@ -3,11 +3,23 @@ kind: ServiceAccount
 metadata:
   name: external-dns
   namespace: external-dns
+  labels:
+    app.kubernetes.io/name: external-dns
+    app.kubernetes.io/instance: external-dns-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: external-dns
+  labels:
+    app.kubernetes.io/name: external-dns
+    app.kubernetes.io/instance: external-dns-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 rules:
   - apiGroups: [""]
     resources: ["services", "endpoints", "pods", "nodes", "namespaces"]
@@ -23,6 +35,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: external-dns
+  labels:
+    app.kubernetes.io/name: external-dns
+    app.kubernetes.io/instance: external-dns-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

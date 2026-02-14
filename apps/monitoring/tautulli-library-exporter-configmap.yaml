@@ -3,6 +3,12 @@ kind: ConfigMap
 metadata:
   name: tautulli-library-exporter
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: tautulli-library-exporter
+    app.kubernetes.io/instance: tautulli-library-exporter-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 data:
   exporter.py: |
     import json

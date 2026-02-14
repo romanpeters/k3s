@@ -3,6 +3,12 @@ kind: HelmRepository
 metadata:
   name: authentik
   namespace: infrastructure
+  labels:
+    app.kubernetes.io/name: authentik
+    app.kubernetes.io/instance: authentik-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   interval: 1h0m0s
   url: https://charts.goauthentik.io

@@ -3,6 +3,12 @@ kind: ENC[AES256_GCM,data:dB1kMMI1,iv:+ZM+gqEd/5df56TP22H6nvbzekwxCzTz9PNs+W7ua8
 metadata:
   name: ENC[AES256_GCM,data:ubabOf84UkygTrza,iv:aSavGe5reDcQslJP+0PkV+1mp2rdvTdapadeHpFAI0c=,tag:JxTfmJkRU5aGfXvvFlaodA==,type:str]
   namespace: ENC[AES256_GCM,data:86SDiT86+nhluGDS,iv:ElhpyUfFQIXTK0Sdgagzx7iC4iRrkQ7uJlhsoo0QBSA=,tag:bvu/lkocgAEnO4GnIMaGxQ==,type:str]
+  labels:
+    app.kubernetes.io/name: ENC[AES256_GCM,data:ubabOf84UkygTrza,iv:aSavGe5reDcQslJP+0PkV+1mp2rdvTdapadeHpFAI0c=,tag:JxTfmJkRU5aGfXvvFlaodA==,type:str]
+    app.kubernetes.io/instance: ENC[AES256_GCM,data:ubabOf84UkygTrza,iv:aSavGe5reDcQslJP+0PkV+1mp2rdvTdapadeHpFAI0c=,tag:JxTfmJkRU5aGfXvvFlaodA==,type:str]-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 stringData:
   CF_API_TOKEN: ENC[AES256_GCM,data:4jpAncN8vyPjyjro7zkD3DNrd+mSbrunzACcIEYHP1GqwDtS+OfOSA==,iv:YOZvVXpQSvsef+yr01y51OA/rEulYeh1kQylnftTfQE=,tag:wDecYpe6V/BPxcacNA+OMw==,type:str]
 sops:

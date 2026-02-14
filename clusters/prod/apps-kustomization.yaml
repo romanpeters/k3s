@@ -3,6 +3,12 @@ kind: Kustomization
 metadata:
   name: apps
   namespace: flux-system
+  labels:
+    app.kubernetes.io/name: apps
+    app.kubernetes.io/instance: apps-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   interval: 10m0s
   path: ./apps

@@ -3,11 +3,23 @@ kind: ServiceAccount
 metadata:
   name: kube-state-metrics
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: kube-state-metrics
+  labels:
+    app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 rules:
   - apiGroups:
       - ""
@@ -103,6 +115,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: kube-state-metrics
+  labels:
+    app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -119,6 +137,10 @@ metadata:
   namespace: monitoring
   labels:
     app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   selector:
@@ -147,6 +169,10 @@ metadata:
   namespace: monitoring
   labels:
     app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: kube-state-metrics-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   selector:
     app.kubernetes.io/name: kube-state-metrics

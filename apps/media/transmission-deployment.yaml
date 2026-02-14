@@ -4,6 +4,10 @@ metadata:
   name: transmission
   labels:
     app.kubernetes.io/name: transmission
+    app.kubernetes.io/instance: transmission-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   replicas: 1
   strategy:

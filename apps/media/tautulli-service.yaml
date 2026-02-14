@@ -4,6 +4,10 @@ metadata:
   name: tautulli
   labels:
     app.kubernetes.io/name: tautulli
+    app.kubernetes.io/instance: tautulli-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   type: ClusterIP
   selector:

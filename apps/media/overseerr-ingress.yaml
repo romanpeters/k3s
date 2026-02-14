@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: overseerr-redirect-requests
   namespace: media
+  labels:
+    app.kubernetes.io/name: overseerr-redirect-requests
+    app.kubernetes.io/instance: overseerr-redirect-requests-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://requests\.romanpeters\.nl/(.*)
@@ -14,6 +20,12 @@ kind: Middleware
 metadata:
   name: overseerr-redirect-main
   namespace: media
+  labels:
+    app.kubernetes.io/name: overseerr-redirect-main
+    app.kubernetes.io/instance: overseerr-redirect-main-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://overseerr\.romanpeters\.nl/(.*)
@@ -28,6 +40,12 @@ metadata:
   annotations:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
+  labels:
+    app.kubernetes.io/name: overseerr
+    app.kubernetes.io/instance: overseerr-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:
@@ -51,6 +69,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-requests@kubernetescrd
+  labels:
+    app.kubernetes.io/name: overseerr-redirect-requests
+    app.kubernetes.io/instance: overseerr-redirect-requests-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:
@@ -74,6 +98,12 @@ metadata:
     external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-main@kubernetescrd
+  labels:
+    app.kubernetes.io/name: overseerr-redirect-main
+    app.kubernetes.io/instance: overseerr-redirect-main-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   ingressClassName: traefik
   rules:

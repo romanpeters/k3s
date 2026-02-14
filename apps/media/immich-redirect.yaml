@@ -3,6 +3,12 @@ kind: Middleware
 metadata:
   name: immich-redirect
   namespace: media
+  labels:
+    app.kubernetes.io/name: immich-redirect
+    app.kubernetes.io/instance: immich-redirect-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   redirectRegex:
     regex: ^https?://immich\.romanpeters\.nl/(.*)
@@ -17,6 +23,12 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
     traefik.ingress.kubernetes.io/router.middlewares: media-immich-redirect@kubernetescrd
+  labels:
+    app.kubernetes.io/name: immich-redirect-ingress
+    app.kubernetes.io/instance: immich-redirect-ingress-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   ingressClassName: traefik
   rules:

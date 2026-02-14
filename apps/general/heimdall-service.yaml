@@ -4,6 +4,10 @@ metadata:
   name: heimdall
   labels:
     app.kubernetes.io/name: heimdall
+    app.kubernetes.io/instance: heimdall-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   type: ClusterIP
   selector:

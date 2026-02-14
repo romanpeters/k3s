@@ -3,6 +3,12 @@ kind: Secret
 metadata:
   name: ntfy-config
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: ntfy-config
+    app.kubernetes.io/instance: ntfy-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 stringData:
   NTFY_AUTH: ENC[AES256_GCM,data:WDzHYA==,iv:BaxuRM4HhQdxcbb1bjjOFqGu73h8xEbCOHlgE7zqKXk=,tag:xKoeNoT8BGp9sbaz3+KSOQ==,type:str]
   NTFY_AUTH_DEFAULT_ACCESS: ENC[AES256_GCM,data:IHIv0KnT05Q=,iv:tZM8ySkcE8KNN76fIiUOQYciy8rRLtUGIBi5zqiRjU0=,tag:tV+X4afD6pNqdYZdg0XfVA==,type:str]

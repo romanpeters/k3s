@@ -2,4 +2,10 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: awx
+  labels:
+    app.kubernetes.io/name: awx
+    app.kubernetes.io/instance: awx-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 $patch: delete

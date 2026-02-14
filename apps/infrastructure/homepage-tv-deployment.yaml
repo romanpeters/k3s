@@ -4,6 +4,10 @@ metadata:
   name: homepage-tv
   labels:
     app.kubernetes.io/name: homepage-tv
+    app.kubernetes.io/instance: homepage-tv-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: public
 spec:
   replicas: 1
   selector:

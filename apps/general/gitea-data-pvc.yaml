@@ -2,6 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: gitea-data
+  labels:
+    app.kubernetes.io/name: gitea-data
+    app.kubernetes.io/instance: gitea-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   accessModes:
     - ReadWriteOnce

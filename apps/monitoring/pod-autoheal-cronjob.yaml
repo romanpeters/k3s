@@ -3,6 +3,12 @@ kind: CronJob
 metadata:
   name: pod-autoheal
   namespace: monitoring
+  labels:
+    app.kubernetes.io/name: pod-autoheal
+    app.kubernetes.io/instance: pod-autoheal-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
 spec:
   schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
