@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: pgvector/pgvector:pg16-bookworm
+          image: pgvector/pgvector:0.8.1-pg16-trixie
           imagePullPolicy: IfNotPresent
           ports:
             - name: postgres

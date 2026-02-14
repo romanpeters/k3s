@@ -21,3 +21,6 @@ spec:
   values:
     operator:
       vulnerabilityReportsEnabled: true
+      scannerReportTTL: "6h"
+    trivy:
+      ignoreUnfixed: true
