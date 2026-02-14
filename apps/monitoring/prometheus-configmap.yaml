@@ -137,18 +137,18 @@ data:
       - name: trivy-vulnerabilities
         rules:
           - alert: TrivyCriticalVulnerabilities
-            expr: sum by (namespace) (trivy_image_vulnerabilities{severity="Critical",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"}) > 0
-            for: 10m
+            expr: trivy_image_vulnerabilities{severity="Critical",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
+            for: 5m
             labels:
               severity: critical
             annotations:
               summary: Critical image vulnerabilities detected
-              description: "Namespace {{ $labels.namespace }} has {{ $value }} Critical image vulnerabilities."
+              description: "{{ $labels.namespace }}/{{ $labels.resource_kind }}/{{ $labels.resource_name }} ({{ $labels.image_repository }}:{{ $labels.image_tag }}) has {{ $value }} Critical vulnerabilities."
           - alert: TrivyHighVulnerabilities
-            expr: sum by (namespace) (trivy_image_vulnerabilities{severity="High",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"}) > 0
-            for: 10m
+            expr: trivy_image_vulnerabilities{severity="High",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
+            for: 5m
             labels:
               severity: high
             annotations:
               summary: High image vulnerabilities detected
-              description: "Namespace {{ $labels.namespace }} has {{ $value }} High image vulnerabilities."
+              description: "{{ $labels.namespace }}/{{ $labels.resource_kind }}/{{ $labels.resource_name }} ({{ $labels.image_repository }}:{{ $labels.image_tag }}) has {{ $value }} High vulnerabilities."
