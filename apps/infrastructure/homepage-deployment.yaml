@@ -45,6 +45,21 @@ spec:
               value: "Europe/Amsterdam"
             - name: HOMEPAGE_ALLOWED_HOSTS
               value: "homepage.romanpeters.nl,homepage.prod.romanpeters.nl"
+            - name: HOMEPAGE_VAR_AUTHENTIK_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_AUTHENTIK_API_KEY
+            - name: HOMEPAGE_VAR_CHANGEDETECTION_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_CHANGEDETECTION_API_KEY
+            - name: HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY
           volumeMounts:
             - name: config
               mountPath: /app/config

@@ -63,7 +63,7 @@ data:
             widget:
               type: audiobookshelf
               url: https://books.romanpeters.nl
-              key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlJZCI6IjNkMjU0Zjc0LWRiY2QtNGM4ZC1hZDBkLWE1NTg0ZTMxNjE4MSIsIm5hbWUiOiJhcGlfa2V5IiwidHlwZSI6ImFwaSIsImlhdCI6MTc3MTA2MzY5NX0.***REDACTED***
+              key: "{{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}"
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
             icon: calibre-web
@@ -126,6 +126,10 @@ data:
             icon: changedetection
             siteMonitor: https://change.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: changedetectionio
+              url: https://change.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_CHANGEDETECTION_API_KEY}}"
         - Tautulli:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
@@ -163,6 +167,11 @@ data:
             icon: authentik
             siteMonitor: https://auth.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: authentik
+              url: https://auth.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}"
+              version: 2
         - Garage:
             href: https://garage.romanpeters.nl
             icon: mdi-garage
