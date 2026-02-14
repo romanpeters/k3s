@@ -67,6 +67,10 @@ spec:
                   key: OPENVPN_PASSWORD
             - name: SERVER_COUNTRIES
               value: "Romania"
+            - name: FIREWALL_INPUT_PORTS
+              value: "9091"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: "10.0.0.0/8,10.42.0.0/16,10.43.0.0/16"
           volumeMounts:
             - name: tun
               mountPath: /dev/net/tun
