@@ -119,7 +119,7 @@ data:
             widget:
               type: glances
               url: http://glances.monitoring.svc:61208
-              version: 3
+              version: 4
         - Alerts:
             href: https://alerts.romanpeters.nl
             icon: mdi-bell-alert
@@ -194,7 +194,7 @@ data:
             widget:
               type: proxmox
               url: https://proxmox.romanpeters.nl
-              token: root@pam!homepage
+              token: api@pam!homepage
               secret: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
         - UniFi:
             href: https://unifi.romanpeters.nl
