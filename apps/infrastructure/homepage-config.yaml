@@ -14,21 +14,19 @@ data:
       Widgets:
         style: row
         columns: 3
+        header: false
       Apps:
-        style: row
-        columns: 2
-      Media:
-        style: row
-        columns: 4
-      Softwarr:
-        style: row
-        columns: 4
-      Monitoring:
         style: row
         columns: 2
       Automation:
         style: row
         columns: 2
+      Monitoring:
+        style: row
+        columns: 2
+      Softwarr:
+        style: row
+        columns: 4
       Infrastructure:
         style: row
         columns: 3
@@ -136,6 +134,43 @@ data:
             icon: immich
             siteMonitor: https://photos.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Automation:
+        - Home Assistant:
+            href: https://home.romanpeters.nl
+            icon: home-assistant
+            siteMonitor: https://home.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - AWX:
+            href: https://awx.romanpeters.nl
+            icon: ansible
+            siteMonitor: https://awx.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - n8n:
+            href: https://n8n.romanpeters.nl
+            icon: n8n
+            siteMonitor: https://n8n.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+    - Monitoring:
+        - Grafana:
+            href: https://dashboard.romanpeters.nl
+            icon: grafana
+            siteMonitor: https://dashboard.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Alerts:
+            href: https://alerts.romanpeters.nl
+            icon: mdi-bell-alert
+            siteMonitor: https://alerts.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Tautulli:
+            href: https://tautulli.romanpeters.nl
+            icon: tautulli
+            siteMonitor: https://tautulli.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
     - Softwarr:
         - Overseerr:
             href: https://request.romanpeters.nl
@@ -161,43 +196,6 @@ data:
             href: https://prowlarr.romanpeters.nl
             icon: prowlarr
             siteMonitor: https://prowlarr.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-    - Monitoring:
-        - Grafana:
-            href: https://dashboard.romanpeters.nl
-            icon: grafana
-            siteMonitor: https://dashboard.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: changedetection
-            siteMonitor: https://change.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Alerts:
-            href: https://alerts.romanpeters.nl
-            icon: mdi-bell-alert
-            siteMonitor: https://alerts.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Tautulli:
-            href: https://tautulli.romanpeters.nl
-            icon: tautulli
-            siteMonitor: https://tautulli.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308, 401, 403]
-    - Automation:
-        - Home Assistant:
-            href: https://home.romanpeters.nl
-            icon: home-assistant
-            siteMonitor: https://home.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - AWX:
-            href: https://awx.romanpeters.nl
-            icon: ansible
-            siteMonitor: https://awx.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - n8n:
-            href: https://n8n.romanpeters.nl
-            icon: n8n
-            siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
         - Traefik:
