@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: infrastructure
 resources:
   - namespace.yaml
+  - dockerhub-read.sops.yaml
+  - default-serviceaccount.yaml
   - helmrepo.yaml
   - authentik-secrets.sops.yaml
   - authentik-forward-auth-middleware.yaml

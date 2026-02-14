@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: automation
 resources:
   - namespace.yaml
+  - dockerhub-read.sops.yaml
+  - default-serviceaccount.yaml
   - github.com/ansible/awx-operator/config/default?ref=2.19.1
   - awx.yaml
   - resourcequota.yaml

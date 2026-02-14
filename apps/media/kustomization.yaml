@@ -3,6 +3,8 @@ kind: Kustomization
 namespace: media
 resources:
   - namespace.yaml
+  - dockerhub-read.sops.yaml
+  - default-serviceaccount.yaml
   - nfs-pv.yaml
   - nfs-pvc.yaml
   - config-pvcs.yaml

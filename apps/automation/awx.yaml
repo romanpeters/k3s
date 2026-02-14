@@ -7,6 +7,22 @@ spec:
   ingress_type: ingress
   ingress_class_name: traefik
   hostname: awx.romanpeters.nl
+  web_resource_requirements:
+    requests:
+      cpu: 250m
+      memory: 768Mi
+  task_resource_requirements:
+    requests:
+      cpu: 300m
+      memory: 1Gi
+  rsyslog_resource_requirements:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  redis_resource_requirements:
+    requests:
+      cpu: 50m
+      memory: 128Mi
   redis_image: mirror.gcr.io/library/redis
   redis_image_version: 8.2.4-alpine3.22
   ingress_annotations: |

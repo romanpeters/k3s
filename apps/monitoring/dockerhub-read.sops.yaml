@@ -1,0 +1,24 @@
+apiVersion: v1
+data:
+  .dockerconfigjson: ENC[AES256_GCM,data:S4UPAX4Cv+mTkefhWgwm+4nv3HLy7QcVJFM49VUoiUE/Vij6RmZ/B0BuSYyAa9njWuxWR+IOAhS7cHltW73pU0ElF2bKtpkyTzgSewcaq4VIIke9C3R9vvOF44mXUvJRvnQO3IwQcpTt1gR8qpMKNilnwz//5TqAqR0dU1QgfMT9ff+10ch8NSnLMbpMPlvCycvo8H5ku2oc+9IZcm5/wCmtlV3FcNexvpV7sn+ZlSCbTSO/89kxkMyhlnU8kNQpg0KudYGPnEQSKY2dVPtv1Ix+flPLbJLu7PDrV0iETsXvXVxfJwO7RZhWQDuHWjVSZS2OUj41ksOKtE+0+OPaqQ==,iv:eXcIAD0x9oBJeSRYjCLuwM5EqiKaPypp+I5lCOldZno=,tag:vB+yglKRKPVjWO5gOLSJJQ==,type:str]
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: dockerhub-read
+  namespace: monitoring
+type: kubernetes.io/dockerconfigjson
+sops:
+  age:
+    - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBvdmVJaWdyQ3BZbVFEcEdH
+        dlZHNDJwSWwxV3YySitJcndpdll2UmJSaFRrCnF6bjNnYVNRU0liSDgyNzdjSURP
+        ang2S2pCcjh0eitvQjhCMEJQa3QwTlkKLS0tIEtyaG93SkR3dGs1OUU2YTJTVXZy
+        THpaNGtnQ0FXQUJCckVnK2tmR25aMTgKE8CZTPIeEZ1+ZY5OnF1EkCjOyBc5xrtG
+        LUODxX1z/t+RQfWtbslooOSb47NLAU2Y5/zq1v/BsB6ZpZqriQqNLQ==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-02-14T15:22:09Z"
+  mac: ENC[AES256_GCM,data:WiaWhobhYseI4sF1l/W+2RXhBDKzVluT8DlehsjDNGYovdWdj+VSYNzo+1JcyQnifdpZv75wt122sm10MYdFBqPD4NQi97W/Ti7InmK9tIZtxuZW85mQAR8EgRmoN1Lkt3Z83DB0Yw21WD2g0XxsGYAXp6NTSM0Dnx8OdlxP6Mc=,iv:yJz53hWndHMaYp0zJgLKOhD464tl6lrqwuhZrEUpVW4=,tag:kOB9DZeJLMb2w9Jz8laRXQ==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  version: 3.11.0
