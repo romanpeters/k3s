@@ -19,6 +19,8 @@ spec:
         - name: glances
           image: nicolargo/glances:latest
           imagePullPolicy: IfNotPresent
+          command:
+            - glances
           args:
             - "-w"
           ports:
