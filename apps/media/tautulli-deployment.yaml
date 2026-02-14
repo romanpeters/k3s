@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tautulli
-          image: linuxserver/tautulli:2.13.4
+          image: lscr.io/linuxserver/tautulli:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

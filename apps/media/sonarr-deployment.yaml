@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: sonarr
-          image: linuxserver/sonarr:4.0.15.2941-ls292
+          image: lscr.io/linuxserver/sonarr:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

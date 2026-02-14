@@ -26,7 +26,7 @@ spec:
               mountPath: /mnt/media
       containers:
         - name: gluetun
-          image: qmcgaw/gluetun:v3.40.0
+          image: qmcgaw/gluetun:v3.41.1
           imagePullPolicy: IfNotPresent
           securityContext:
             capabilities:
@@ -52,7 +52,7 @@ spec:
             - name: tun
               mountPath: /dev/net/tun
         - name: transmission
-          image: lscr.io/linuxserver/transmission:4.0.6-r4-ls311
+          image: lscr.io/linuxserver/transmission:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
