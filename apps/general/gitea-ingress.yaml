@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: gitea-redirect
-  namespace: apps
+  namespace: general
 spec:
   redirectRegex:
     regex: ^https?://gitea\.romanpeters\.nl/(.*)
@@ -37,7 +37,7 @@ metadata:
   name: gitea-redirect
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
-    traefik.ingress.kubernetes.io/router.middlewares: apps-gitea-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: general-gitea-redirect@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
 spec:
