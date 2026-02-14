@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: jellyfin
-          image: lscr.io/linuxserver/jellyfin:latest
+          image: lscr.io/linuxserver/jellyfin:10.11.6ubu2404-ls20
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

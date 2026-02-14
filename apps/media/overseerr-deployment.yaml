@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: overseerr
-          image: lscr.io/linuxserver/overseerr:latest
+          image: lscr.io/linuxserver/overseerr:v1.34.0-ls157
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

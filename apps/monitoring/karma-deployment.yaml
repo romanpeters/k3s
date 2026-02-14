@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: karma
-          image: ghcr.io/prymitive/karma:latest
+          image: ghcr.io/prymitive/karma:v0.122
           args:
             - "--alertmanager.uri=http://alertmanager.monitoring.svc.cluster.local:9093"
             - "--listen.address=0.0.0.0"

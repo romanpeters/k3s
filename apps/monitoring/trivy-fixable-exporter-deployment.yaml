@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trivy-fixable-exporter
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: trivy-fixable-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: trivy-fixable-exporter
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: trivy-fixable-exporter
+    spec:
+      serviceAccountName: trivy-fixable-exporter
+      containers:
+        - name: exporter
+          image: python:3.12.12-alpine3.22
+          imagePullPolicy: IfNotPresent
+          command:
+            - python
+            - /app/exporter.py
+          ports:
+            - name: http
+              containerPort: 9102
+          resources:
+            requests:
+              cpu: 25m
+              memory: 64Mi
+            limits:
+              memory: 256Mi
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          volumeMounts:
+            - name: app
+              mountPath: /app
+      volumes:
+        - name: app
+          configMap:
+            name: trivy-fixable-exporter
+            defaultMode: 0555

@@ -14,6 +14,10 @@ resources:
   - alertmanager-deployment.yaml
   - alertmanager-service.yaml
   - kube-state-metrics.yaml
+  - trivy-fixable-exporter-rbac.yaml
+  - trivy-fixable-exporter-configmap.yaml
+  - trivy-fixable-exporter-deployment.yaml
+  - trivy-fixable-exporter-service.yaml
   - kube-event-exporter.yaml
   - blackbox-exporter-configmap.yaml
   - blackbox-exporter-deployment.yaml

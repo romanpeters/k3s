@@ -75,7 +75,7 @@ spec:
             - name: tun
               mountPath: /dev/net/tun
         - name: transmission
-          image: lscr.io/linuxserver/transmission:latest
+          image: lscr.io/linuxserver/transmission:4.1.0-r0-ls329
           imagePullPolicy: IfNotPresent
           resources:
             requests:

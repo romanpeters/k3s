@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: heimdall
-          image: lscr.io/linuxserver/heimdall:latest
+          image: lscr.io/linuxserver/heimdall:v2.7.6-ls337
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
