@@ -30,7 +30,18 @@ data:
         style: row
         columns: 3
   widgets.yaml: |
-    []
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
   bookmarks.yaml: |
     []
   services.yaml: |
