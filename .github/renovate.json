@@ -7,11 +7,12 @@
   "prHourlyLimit": 0,
   "separateMajorMinor": false,
   "separateMinorPatch": false,
+  "dependencyDashboard": false,
   "kubernetes": {
-    "fileMatch": [
-      "apps/.+\\.ya?ml$",
-      "clusters/.+\\.ya?ml$",
-      "infrastructure/.+\\.ya?ml$"
+    "managerFilePatterns": [
+      "/apps/.+\\.ya?ml$/",
+      "/clusters/.+\\.ya?ml$/",
+      "/infrastructure/.+\\.ya?ml$/"
     ]
   },
   "packageRules": [
