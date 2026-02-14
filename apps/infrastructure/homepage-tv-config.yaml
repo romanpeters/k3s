@@ -76,6 +76,10 @@ data:
             icon: uptime-kuma
             siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: uptimekuma
+              url: https://uptime.romanpeters.nl
+              slug: rtv
         - Dashboard:
             href: https://dashboard.romanpeters.nl/d/dfcujsb0t2tq8c/romantv?orgId=1&refresh=10s&theme=system
             icon: grafana
