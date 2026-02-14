@@ -42,6 +42,7 @@ spec:
           tls:
             enabled: true
     service:
+      annotations:
+        lbipam.cilium.io/ips: 10.10.20.240
       spec:
-        loadBalancerClass: metallb.universe.tf/metallb
-        loadBalancerIP: 10.10.20.240
+        loadBalancerClass: io.cilium/l2-announcer

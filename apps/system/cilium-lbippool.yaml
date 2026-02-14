@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v2
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: lan-vips
+spec:
+  blocks:
+    - start: 10.10.20.240
+      stop: 10.10.20.241
+  serviceSelector:
+    matchExpressions:
+      - key: io.kubernetes.service.namespace
+        operator: In
+        values:
+          - kube-system
+      - key: io.kubernetes.service.name
+        operator: In
+        values:
+          - traefik
+          - traefik-internal

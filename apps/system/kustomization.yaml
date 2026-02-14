@@ -5,8 +5,10 @@ resources:
   - cert-manager-cloudflare-secret.sops.yaml
   - cert-manager-clusterissuer.yaml
   - romanpeters-wildcard-cert.yaml
-  - https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
-  - metallb-config.yaml
+  - cilium-helmrepo.yaml
+  - cilium-helmrelease.yaml
+  - cilium-lbippool.yaml
+  - cilium-l2announcementpolicy.yaml
   - external-dns-namespace.yaml
   - external-dns-rbac.yaml
   - external-dns.sops.yaml
@@ -22,6 +24,3 @@ resources:
   - traefik-dashboard-ingressroute.yaml
   - traefik-internal-service.yaml
   - traefik-tlsstore.yaml
-patchesStrategicMerge:
-  - metallb-controller-lbclass-patch.yaml
-  - metallb-speaker-lbclass-patch.yaml
