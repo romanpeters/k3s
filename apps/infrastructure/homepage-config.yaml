@@ -217,7 +217,7 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Garage:
             href: https://garage.romanpeters.nl
-            icon: https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg
+            icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/garage.svg
             siteMonitor: https://garage.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - KVM:
