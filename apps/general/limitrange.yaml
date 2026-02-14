@@ -9,5 +9,5 @@ spec:
         cpu: 100m
         memory: 256Mi
       default:
-        cpu: "1"
+        cpu: "2"
         memory: 24Gi
