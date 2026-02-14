@@ -8,8 +8,6 @@ spec:
   routes:
     - match: Host(`home.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: home-external
           port: 8123
@@ -26,8 +24,6 @@ spec:
   routes:
     - match: Host(`kvm.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: kvm-external
           port: 80
@@ -44,8 +40,6 @@ spec:
   routes:
     - match: Host(`ollama.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: ollama-external
           port: 11434
@@ -62,8 +56,6 @@ spec:
   routes:
     - match: Host(`plex.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: plex-external
           port: 32400
@@ -80,8 +72,6 @@ spec:
   routes:
     - match: Host(`proxmox.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: proxmox-external
           port: 8006
@@ -100,8 +90,6 @@ spec:
   routes:
     - match: Host(`unifi.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: unifi-external
           port: 443
@@ -120,8 +108,6 @@ spec:
   routes:
     - match: Host(`unas.romanpeters.nl`)
       kind: Rule
-      middlewares:
-        - name: authentik-forward-auth
       services:
         - name: unas-external
           port: 443
