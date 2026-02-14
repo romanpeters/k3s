@@ -30,6 +30,8 @@ spec:
               value: Europe/Amsterdam
             - name: NTFY_BASE_URL
               value: https://ntfy.romanpeters.nl
+            - name: NTFY_UPSTREAM_BASE_URL
+              value: https://ntfy.sh
             - name: NTFY_BEHIND_PROXY
               value: "true"
             - name: NTFY_CACHE_FILE
