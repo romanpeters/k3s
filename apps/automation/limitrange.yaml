@@ -8,3 +8,6 @@ spec:
       defaultRequest:
         cpu: 100m
         memory: 256Mi
+      default:
+        cpu: "1"
+        memory: 24Gi
