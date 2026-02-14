@@ -165,7 +165,7 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Alerts:
             href: https://alerts.romanpeters.nl
-            icon: mdi-bell-alert
+            icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/alertmanager.svg
             siteMonitor: https://alerts.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Tautulli:
@@ -217,11 +217,11 @@ data:
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Garage:
             href: https://garage.romanpeters.nl
-            icon: mdi-garage
+            icon: https://upload.wikimedia.org/wikipedia/commons/b/bc/Amazon-S3-Logo.svg
             siteMonitor: https://garage.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - KVM:
             href: https://kvm.romanpeters.nl
-            icon: mdi-monitor
+            icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/sipeed.svg
             siteMonitor: https://kvm.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
