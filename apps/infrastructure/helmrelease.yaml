@@ -24,7 +24,7 @@ spec:
         ingressClassName: traefik
         annotations:
           external-dns: external
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
         hosts:
           - auth.romanpeters.nl
     postgresql:

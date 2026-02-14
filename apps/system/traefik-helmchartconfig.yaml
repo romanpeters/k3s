@@ -9,7 +9,7 @@ spec:
       - "--entrypoints.web.forwardedHeaders.insecure=true"
       - "--entryPoints.websecure-int.http.tls=true"
       - "--entryPoints.websecure-int.http.middlewares=infrastructure-lan-allow-10-8@kubernetescrd"
-      - "--entryPoints.websecure-ext.http.tls=true"
+      - "--entryPoints.websecure-pub.http.tls=true"
       - "--providers.kubernetescrd.allowExternalNameServices=true"
       - "--providers.kubernetesingress.allowExternalNameServices=true"
     ports:
@@ -32,7 +32,7 @@ spec:
         http:
           tls:
             enabled: true
-      websecure-ext:
+      websecure-pub:
         port: 8443
         expose:
           default: true

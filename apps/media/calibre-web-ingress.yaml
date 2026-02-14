@@ -16,7 +16,7 @@ metadata:
   namespace: media
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-calibreweb-xscheme@kubernetescrd
 spec:
   ingressClassName: traefik

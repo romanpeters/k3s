@@ -27,7 +27,7 @@ metadata:
   namespace: media
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
 spec:
   ingressClassName: traefik
   rules:
@@ -49,7 +49,7 @@ metadata:
   namespace: media
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-requests@kubernetescrd
 spec:
   ingressClassName: traefik
@@ -72,7 +72,7 @@ metadata:
   namespace: media
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: media-overseerr-redirect-main@kubernetescrd
 spec:
   ingressClassName: traefik

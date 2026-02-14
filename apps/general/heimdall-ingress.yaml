@@ -5,7 +5,7 @@ metadata:
   namespace: general
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
 spec:
   ingressClassName: traefik
   rules:

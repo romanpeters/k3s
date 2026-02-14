@@ -27,7 +27,7 @@ metadata:
   namespace: infrastructure
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: infrastructure-homepage-tv-redirect-rtv@kubernetescrd,infrastructure-homepage-tv-redirect-romantv@kubernetescrd
 spec:
   ingressClassName: traefik

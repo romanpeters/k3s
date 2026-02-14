@@ -16,7 +16,7 @@ metadata:
   namespace: monitoring
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
 spec:
   ingressClassName: traefik
   rules:
@@ -38,7 +38,7 @@ metadata:
   namespace: monitoring
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: monitoring-grafana-redirect@kubernetescrd
 spec:
   ingressClassName: traefik

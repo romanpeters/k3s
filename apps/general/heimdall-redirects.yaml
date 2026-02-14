@@ -16,7 +16,7 @@ metadata:
   namespace: general
   annotations:
     external-dns: external
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-pub
     traefik.ingress.kubernetes.io/router.middlewares: general-heimdall-redirect-root@kubernetescrd
 spec:
   ingressClassName: traefik
