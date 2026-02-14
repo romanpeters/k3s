@@ -31,10 +31,6 @@ data:
         style: row
         columns: 3
   widgets.yaml: |
-    - unifi_console:
-        url: https://unifi.romanpeters.nl
-        username: "{{HOMEPAGE_VAR_UNIFI_USERNAME}}"
-        password: "{{HOMEPAGE_VAR_UNIFI_PASSWORD}}"
     - kubernetes:
         cluster:
           show: true
@@ -44,6 +40,10 @@ data:
           label: "cluster"
         nodes:
           show: false
+    - unifi_console:
+        url: https://unifi.romanpeters.nl
+        username: "{{HOMEPAGE_VAR_UNIFI_USERNAME}}"
+        password: "{{HOMEPAGE_VAR_UNIFI_PASSWORD}}"
   kubernetes.yaml: |
     mode: cluster
     ingress: false
