@@ -34,10 +34,10 @@ spec:
                   fi
 
                   before_mb=$(du -sm "${store_path}" | awk '{print $1}')
-                  before_images=$(crictl --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
-                  prune_output=$(crictl --runtime-endpoint "${endpoint}" rmi --prune 2>&1 || true)
+                  before_images=$(crictl --config /dev/null --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
+                  prune_output=$(crictl --config /dev/null --runtime-endpoint "${endpoint}" rmi --prune 2>&1 || true)
                   after_mb=$(du -sm "${store_path}" | awk '{print $1}')
-                  after_images=$(crictl --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
+                  after_images=$(crictl --config /dev/null --runtime-endpoint "${endpoint}" images -q | wc -l | tr -d ' ')
                   freed_mb=$((before_mb-after_mb))
 
                   echo "${prune_output}"

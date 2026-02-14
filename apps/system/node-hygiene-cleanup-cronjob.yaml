@@ -16,7 +16,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: cleanup
-              image: bitnami/kubectl:1.33.5
+              image: rancher/k3s:v1.33.5-k3s1
               imagePullPolicy: IfNotPresent
               command:
                 - /bin/sh
@@ -37,3 +37,10 @@ spec:
                   rm -f "${tmp_jobs}"
 
                   echo "node-hygiene-cleanup: deleted succeeded_pods=${succeeded_before} failed_pods=${failed_before} finished_jobs=${jobs_count}"
+          tolerations:
+            - key: "node-role.kubernetes.io/control-plane"
+              operator: Exists
+              effect: NoSchedule
+            - key: "node-role.kubernetes.io/master"
+              operator: Exists
+              effect: NoSchedule
