@@ -1,25 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: homepage
+  name: authentik-outpost-romanpeters-nl
   namespace: infrastructure
   annotations:
-    external-dns: external
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int,websecure-ext
 spec:
   ingressClassName: traefik
   tls:
     - secretName: romanpeters-nl-tls
       hosts:
-        - homepage.romanpeters.nl
+        - "*.romanpeters.nl"
   rules:
-    - host: homepage.romanpeters.nl
+    - host: "*.romanpeters.nl"
       http:
         paths:
-          - path: /
+          - path: /outpost.goauthentik.io/
             pathType: Prefix
             backend:
               service:
-                name: homepage
+                name: ak-outpost-traefik-outpost
                 port:
-                  name: http
+                  number: 9000

@@ -15,6 +15,7 @@ metadata:
   name: gitea
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+    traefik.ingress.kubernetes.io/router.middlewares: infrastructure-authentik-forward-auth@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
 spec:
@@ -37,7 +38,7 @@ metadata:
   name: gitea-redirect
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
-    traefik.ingress.kubernetes.io/router.middlewares: apps-gitea-redirect@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: apps-gitea-redirect@kubernetescrd,infrastructure-authentik-forward-auth@kubernetescrd
   labels:
     app.kubernetes.io/name: gitea
 spec:

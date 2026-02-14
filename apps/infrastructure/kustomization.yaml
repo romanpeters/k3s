@@ -24,6 +24,7 @@ resources:
   - homepage-service.yaml
   - homepage-ingress.yaml
   - authentik-outpost-homepage-ingress.yaml
+  - authentik-outpost-romanpeters-nl-ingress.yaml
   - homepage-tv-config.yaml
   - homepage-tv-deployment.yaml
   - homepage-tv-service.yaml

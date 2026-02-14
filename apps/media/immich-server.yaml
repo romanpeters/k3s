@@ -94,6 +94,7 @@ metadata:
   name: immich
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure-int
+    traefik.ingress.kubernetes.io/router.middlewares: infrastructure-authentik-forward-auth@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:

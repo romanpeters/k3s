@@ -9,6 +9,9 @@ spec:
   routes:
     - match: Host(`traefik.romanpeters.nl`)
       kind: Rule
+      middlewares:
+        - name: authentik-forward-auth
+          namespace: infrastructure
       services:
         - name: api@internal
           kind: TraefikService
