@@ -60,6 +60,11 @@ spec:
                 secretKeyRef:
                   name: homepage-secrets
                   key: HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY
+            - name: HOMEPAGE_VAR_PROXMOX_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: homepage-secrets
+                  key: HOMEPAGE_VAR_PROXMOX_API_SECRET
           volumeMounts:
             - name: config
               mountPath: /app/config
