@@ -3,12 +3,6 @@ kind: Secret
 metadata:
   name: pod-autoheal-telegram
   namespace: monitoring
-  labels:
-    app.kubernetes.io/name: pod-autoheal-telegram
-    app.kubernetes.io/instance: pod-autoheal-telegram-prod
-    app.kubernetes.io/part-of: homelab
-    app.kubernetes.io/managed-by: flux
-    exposure: internal
 type: Opaque
 stringData:
   TELEGRAM_BOT_TOKEN: ENC[AES256_GCM,data:1lbXu8yiWj1S2QiZ5bRgu++1M/Igilj7VCrswPlDXD0+ZB43mLiUOi5rZv55,iv:r3RvkBby9oPMyPQGQdjBDCO3OC2e6vgH1yVQCOiU4NY=,tag:L7Epeal8ypoDGIs0SI+Wng==,type:str]

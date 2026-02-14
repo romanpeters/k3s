@@ -3,12 +3,6 @@ kind: Secret
 metadata:
   name: tautulli-exporter
   namespace: monitoring
-  labels:
-    app.kubernetes.io/name: tautulli-exporter
-    app.kubernetes.io/instance: tautulli-exporter-prod
-    app.kubernetes.io/part-of: homelab
-    app.kubernetes.io/managed-by: flux
-    exposure: internal
 type: Opaque
 stringData:
   TAUTULLI_API_KEY: ENC[AES256_GCM,data:drbonbeeGkjTzvB3cIt0fhHydL5yXhBORsvkH1Wi6Lk=,iv:5x8N+5X1sEhuEVQriQo4/ij+56drly7PTc1eJ/g8yl0=,tag:R0OUmSAicewDFu6Yb9YbCQ==,type:str]

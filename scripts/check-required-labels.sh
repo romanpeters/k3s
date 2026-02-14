@@ -27,6 +27,8 @@ for root in ROOTS:
     for path in sorted(list(root.rglob("*.yaml")) + list(root.rglob("*.yml"))):
         if path.name == "kustomization.yaml":
             continue
+        if path.name.endswith(".sops.yaml") or path.name.endswith(".sops.yml"):
+            continue
         if any(skip == path or skip in path.parents for skip in SKIP_PREFIXES):
             continue
 
