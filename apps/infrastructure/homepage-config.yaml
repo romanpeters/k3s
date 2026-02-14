@@ -35,6 +35,15 @@ data:
     []
   services.yaml: |
     - Apps:
+        - Audiobookshelf:
+            href: https://books.romanpeters.nl
+            icon: audiobookshelf
+            siteMonitor: https://books.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: audiobookshelf
+              url: https://books.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}"
         - Homebox:
             href: https://homebox.romanpeters.nl
             icon: homebox
@@ -55,15 +64,6 @@ data:
             icon: plex
             siteMonitor: https://plex.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - Audiobookshelf:
-            href: https://books.romanpeters.nl
-            icon: audiobookshelf
-            siteMonitor: https://books.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: audiobookshelf
-              url: https://books.romanpeters.nl
-              key: "{{HOMEPAGE_VAR_AUDIOBOOKSHELF_API_KEY}}"
         - Calibre Web:
             href: https://ebooks.romanpeters.nl
             icon: calibre-web
@@ -106,6 +106,15 @@ data:
             siteMonitor: https://transmission.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Monitoring:
+        - ChangeDetection:
+            href: https://change.romanpeters.nl
+            icon: changedetection
+            siteMonitor: https://change.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: changedetectionio
+              url: https://change.romanpeters.nl
+              key: "{{HOMEPAGE_VAR_CHANGEDETECTION_API_KEY}}"
         - Grafana:
             href: https://dashboard.romanpeters.nl
             icon: grafana
@@ -121,15 +130,6 @@ data:
             icon: uptime-kuma
             siteMonitor: https://uptime.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - ChangeDetection:
-            href: https://change.romanpeters.nl
-            icon: changedetection
-            siteMonitor: https://change.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-            widget:
-              type: changedetectionio
-              url: https://change.romanpeters.nl
-              key: "{{HOMEPAGE_VAR_CHANGEDETECTION_API_KEY}}"
         - Tautulli:
             href: https://tautulli.romanpeters.nl
             icon: tautulli
@@ -152,16 +152,6 @@ data:
             siteMonitor: https://n8n.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
     - Infrastructure:
-        - Traefik:
-            href: https://traefik.romanpeters.nl
-            icon: traefik
-            siteMonitor: https://traefik.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
-        - TV:
-            href: https://tv.romanpeters.nl
-            icon: https://images.romanpeters.nl/rtvlogo.jpeg
-            siteMonitor: https://tv.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Authentik:
             href: https://auth.romanpeters.nl
             icon: authentik
@@ -172,11 +162,6 @@ data:
               url: https://auth.romanpeters.nl
               key: "{{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}"
               version: 2
-        - Garage:
-            href: https://garage.romanpeters.nl
-            icon: mdi-garage
-            siteMonitor: https://garage.romanpeters.nl
-            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Proxmox:
             href: https://proxmox.romanpeters.nl
             icon: proxmox
@@ -187,6 +172,21 @@ data:
               url: https://proxmox.romanpeters.nl
               username: api@pam!homepage
               password: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
+        - Traefik:
+            href: https://traefik.romanpeters.nl
+            icon: traefik
+            siteMonitor: https://traefik.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - TV:
+            href: https://tv.romanpeters.nl
+            icon: https://images.romanpeters.nl/rtvlogo.jpeg
+            siteMonitor: https://tv.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Garage:
+            href: https://garage.romanpeters.nl
+            icon: mdi-garage
+            siteMonitor: https://garage.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - UniFi:
             href: https://unifi.romanpeters.nl
             icon: unifi
