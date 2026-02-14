@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: seed-config
-          image: alpine:3.19
+          image: alpine:3.23
           command:
             - /bin/sh
             - -c

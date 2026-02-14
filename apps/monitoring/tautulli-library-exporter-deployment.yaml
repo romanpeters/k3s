@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tautulli-library-exporter
-          image: python:3.12-alpine
+          image: python:3.14-alpine
           imagePullPolicy: IfNotPresent
           command: ["python", "/app/exporter.py"]
           ports:
