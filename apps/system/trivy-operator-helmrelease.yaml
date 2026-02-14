@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: trivy-operator
-      version: 0.31.0
+      version: 0.32.0
       sourceRef:
         kind: HelmRepository
         name: aquasecurity
@@ -22,5 +22,9 @@ spec:
     operator:
       vulnerabilityReportsEnabled: true
       scannerReportTTL: "6h"
+      builtInTrivyServer: true
+      scanJobsConcurrentLimit: 5
+    trivyOperator:
+      skipInitContainers: true
     trivy:
       ignoreUnfixed: true

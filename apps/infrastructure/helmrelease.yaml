@@ -29,6 +29,8 @@ spec:
           - auth.romanpeters.nl
     postgresql:
       enabled: true
+      image:
+        tag: 17.8-bookworm
     redis:
       enabled: true
   valuesFrom:

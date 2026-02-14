@@ -16,3 +16,5 @@ patches:
 images:
   - name: quay.io/ansible/awx-operator
     newTag: 2.19.1
+  - name: gcr.io/kubebuilder/kube-rbac-proxy
+    newTag: v0.16.0
