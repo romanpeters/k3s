@@ -111,6 +111,15 @@ data:
             icon: grafana
             siteMonitor: https://dashboard.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - Glances:
+            href: https://glances.romanpeters.nl
+            icon: mdi-speedometer
+            siteMonitor: https://glances.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+            widget:
+              type: glances
+              url: http://glances.monitoring.svc:61208
+              version: 3
         - Alerts:
             href: https://alerts.romanpeters.nl
             icon: mdi-bell-alert
