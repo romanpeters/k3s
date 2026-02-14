@@ -185,8 +185,8 @@ data:
             widget:
               type: proxmox
               url: https://proxmox.romanpeters.nl
-              token: api@pam!homepage
-              secret: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
+              username: api@pam!homepage
+              password: "{{HOMEPAGE_VAR_PROXMOX_API_SECRET}}"
         - UniFi:
             href: https://unifi.romanpeters.nl
             icon: unifi
