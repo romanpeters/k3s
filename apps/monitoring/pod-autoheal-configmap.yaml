@@ -28,7 +28,6 @@ data:
       "cert-manager",
       "flux-system",
       "external-dns",
-      "trivy-system",
     }
     AGE_THRESHOLD = timedelta(minutes=10)
     STATE_TTL = timedelta(hours=24)

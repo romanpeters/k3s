@@ -42,7 +42,6 @@ flowchart TB
         cilium["Cilium"]
         certmanager["cert-manager"]
         externaldns["ExternalDNS"]
-        trivyop["Trivy Operator"]
       end
 
       subgraph "General Namespace"

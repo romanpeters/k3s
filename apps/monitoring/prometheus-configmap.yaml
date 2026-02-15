@@ -54,14 +54,6 @@ data:
         metrics_path: /metrics
         static_configs:
           - targets: ['tautulli-library-exporter.monitoring.svc.cluster.local:9101']
-      - job_name: trivy-operator
-        metrics_path: /metrics
-        static_configs:
-          - targets: ['trivy-operator.trivy-system.svc.cluster.local:8080']
-      - job_name: trivy-fixable-exporter
-        metrics_path: /metrics
-        static_configs:
-          - targets: ['trivy-fixable-exporter.monitoring.svc.cluster.local:9102']
   alert_rules.yml: |
     groups:
       - name: kubernetes-pods
@@ -144,23 +136,3 @@ data:
             annotations:
               summary: Traefik VIP down
               description: VIP {{ $labels.vip }} is not reachable from the cluster.
-      - name: trivy-vulnerabilities
-        rules:
-          - alert: TrivyCriticalVulnerabilities
-            expr: trivy_image_fixable_vulnerabilities{severity="Critical",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
-            # Avoid noisy notifications from transient scan/report updates.
-            for: 2h
-            labels:
-              severity: critical
-            annotations:
-              summary: Fixable critical image vulnerabilities detected
-              description: "{{ $labels.namespace }}/{{ $labels.resource_kind }}/{{ $labels.resource_name }} ({{ $labels.image_repository }}:{{ $labels.image_tag }}) has {{ $value }} fixable Critical vulnerabilities."
-          - alert: TrivyHighVulnerabilities
-            expr: trivy_image_fixable_vulnerabilities{severity="High",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
-            # Avoid noisy notifications from transient scan/report updates.
-            for: 2h
-            labels:
-              severity: high
-            annotations:
-              summary: Fixable high image vulnerabilities detected
-              description: "{{ $labels.namespace }}/{{ $labels.resource_kind }}/{{ $labels.resource_name }} ({{ $labels.image_repository }}:{{ $labels.image_tag }}) has {{ $value }} fixable High vulnerabilities."
