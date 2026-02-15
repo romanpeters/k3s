@@ -16,6 +16,7 @@ spec:
   failedJobsHistoryLimit: 2
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 600
       template:
         spec:
           serviceAccountName: node-hygiene

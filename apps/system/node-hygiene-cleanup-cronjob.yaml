@@ -10,12 +10,13 @@ metadata:
     app.kubernetes.io/managed-by: flux
     exposure: internal
 spec:
-  schedule: "*/15 * * * *"
+  schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 2
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 600
       template:
         spec:
           serviceAccountName: node-hygiene
@@ -28,7 +29,7 @@ spec:
                 - /bin/sh
                 - -ec
                 - |
-                  max_age_seconds=3600
+                  max_age_seconds=600
                   now_epoch="$(date -u +%s)"
 
                   prune_completed_pods() {
