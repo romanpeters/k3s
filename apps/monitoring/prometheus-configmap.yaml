@@ -148,7 +148,8 @@ data:
         rules:
           - alert: TrivyCriticalVulnerabilities
             expr: trivy_image_fixable_vulnerabilities{severity="Critical",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
-            for: 5m
+            # Avoid noisy notifications from transient scan/report updates.
+            for: 2h
             labels:
               severity: critical
             annotations:
@@ -156,7 +157,8 @@ data:
               description: "{{ $labels.namespace }}/{{ $labels.resource_kind }}/{{ $labels.resource_name }} ({{ $labels.image_repository }}:{{ $labels.image_tag }}) has {{ $value }} fixable Critical vulnerabilities."
           - alert: TrivyHighVulnerabilities
             expr: trivy_image_fixable_vulnerabilities{severity="High",namespace!~"kube-system|cert-manager|metallb-system|flux-system|external-dns|trivy-system"} > 0
-            for: 5m
+            # Avoid noisy notifications from transient scan/report updates.
+            for: 2h
             labels:
               severity: high
             annotations:
