@@ -26,6 +26,8 @@ resources:
   - prowlarr-deployment.yaml
   - prowlarr-service.yaml
   - prowlarr-ingress.yaml
+  - flaresolverr-deployment.yaml
+  - flaresolverr-service.yaml
   - gluetun-openvpn.sops.yaml
   - transmission-deployment.yaml
   - transmission-service.yaml
