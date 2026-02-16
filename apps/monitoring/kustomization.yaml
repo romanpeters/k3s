@@ -34,6 +34,9 @@ resources:
   - grafana-datasource-prometheus.yaml
   - grafana-service.yaml
   - grafana-ingress.yaml
+  - beszel-deployment.yaml
+  - beszel-service.yaml
+  - beszel-ingress.yaml
   - changedetection-deployment.yaml
   - changedetection-service.yaml
   - changedetection-ingress.yaml

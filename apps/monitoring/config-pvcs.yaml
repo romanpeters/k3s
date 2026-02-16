@@ -69,6 +69,23 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  name: beszel-data
+  labels:
+    app.kubernetes.io/name: beszel-data
+    app.kubernetes.io/instance: beszel-data-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
   name: ntfy-data
   labels:
     app.kubernetes.io/name: ntfy-data
