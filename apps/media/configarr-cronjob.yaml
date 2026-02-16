@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/managed-by: flux
     exposure: internal
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "0 3 * * *"
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
   concurrencyPolicy: Forbid
