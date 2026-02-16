@@ -39,11 +39,11 @@ data:
             - quality: "Bluray-480p"
               min: 2
               preferred: 2
-              max: 68.3
+              max: 18
             - quality: "Bluray-576p"
               min: 2
               preferred: 2
-              max: 68.3
+              max: 18
             - quality: "Bluray-720p"
               min: 17.1
               preferred: 17.1
@@ -51,7 +51,7 @@ data:
             - quality: "DVD"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "HDTV-1080p"
               min: 15
               preferred: 15
@@ -67,15 +67,15 @@ data:
             - quality: "Raw-HD"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 35
             - quality: "SDTV"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "Unknown"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "WEBDL-1080p"
               min: 15
               preferred: 15
@@ -87,7 +87,7 @@ data:
             - quality: "WEBDL-480p"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "WEBDL-720p"
               min: 10
               preferred: 10
@@ -103,7 +103,7 @@ data:
             - quality: "WEBRip-480p"
               min: 2
               preferred: 2
-              max: 68.3
+              max: 18
             - quality: "WEBRip-720p"
               min: 10
               preferred: 10
@@ -131,11 +131,11 @@ data:
             - quality: "Bluray-480p"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "Bluray-576p"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "Bluray-720p"
               min: 25.7
               preferred: 25.7
@@ -143,23 +143,23 @@ data:
             - quality: "BR-DISK"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 35
             - quality: "CAM"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "DVD"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "DVD-R"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "DVDSCR"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "HDTV-1080p"
               min: 33.8
               preferred: 33.8
@@ -175,11 +175,11 @@ data:
             - quality: "Raw-HD"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 35
             - quality: "REGIONAL"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "Remux-1080p"
               min: 68.3
               preferred: 68.3
@@ -191,19 +191,19 @@ data:
             - quality: "SDTV"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "TELECINE"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "TELESYNC"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "Unknown"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "WEBDL-1080p"
               min: 12.5
               preferred: 12.5
@@ -215,7 +215,7 @@ data:
             - quality: "WEBDL-480p"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "WEBDL-720p"
               min: 12.5
               preferred: 12.5
@@ -231,7 +231,7 @@ data:
             - quality: "WEBRip-480p"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
             - quality: "WEBRip-720p"
               min: 12.5
               preferred: 12.5
@@ -239,7 +239,7 @@ data:
             - quality: "WORKPRINT"
               min: 0
               preferred: 0
-              max: 68.3
+              max: 18
         include:
           - template: radarr-quality-definition-movie
           - template: radarr-quality-profile-remux-web-1080p
