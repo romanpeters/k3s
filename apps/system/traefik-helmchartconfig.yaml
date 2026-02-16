@@ -51,4 +51,5 @@ spec:
       annotations:
         lbipam.cilium.io/ips: 10.10.20.240
       spec:
+        externalTrafficPolicy: Local
         loadBalancerClass: io.cilium/l2-announcer
