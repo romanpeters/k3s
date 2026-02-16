@@ -19,7 +19,6 @@ data:
         base_url: http://sonarr:8989
         api_key: !secret SONARR_API_KEY
         quality_definition:
-          type: series
           qualities:
             - quality: "Bluray-1080p"
               min: 50.4
@@ -120,7 +119,6 @@ data:
         base_url: http://radarr:7878
         api_key: !secret RADARR_API_KEY
         quality_definition:
-          type: movie
           qualities:
             - quality: "Bluray-1080p"
               min: 50.8
