@@ -22,6 +22,32 @@ spec:
         app.kubernetes.io/managed-by: flux
         exposure: internal
     spec:
+      initContainers:
+        - name: init-searxng-settings
+          image: docker.io/searxng/searxng:2026.2.16-8e824017d@sha256:60055af6f2f1ca14b488d9c0f47a019d1dbaf15b4f6547a7194253bf2ab94744
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+            - |
+              cp /usr/local/searxng/searx/settings.yml /config/settings.yml
+              python - <<'PY'
+              import yaml
+              p = "/config/settings.yml"
+              with open(p, "r", encoding="utf-8") as f:
+                  cfg = yaml.safe_load(f)
+              search = cfg.setdefault("search", {})
+              formats = search.get("formats") or []
+              if "json" not in formats:
+                  formats.append("json")
+              search["formats"] = formats
+              with open(p, "w", encoding="utf-8") as f:
+                  yaml.safe_dump(cfg, f, sort_keys=False)
+              print("enabled json format in searxng settings")
+              PY
+          volumeMounts:
+            - name: searxng-config
+              mountPath: /config
       containers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.41.1@sha256:1a5bf4b4820a879cdf8d93d7ef0d2d963af56670c9ebff8981860b6804ebc8ab
@@ -80,6 +106,8 @@ spec:
               value: "https://search.romanpeters.nl/"
             - name: INSTANCE_NAME
               value: "Roman Search"
+            - name: SEARXNG_SETTINGS_PATH
+              value: "/etc/searxng/settings.yml"
           readinessProbe:
             httpGet:
               path: /
@@ -92,8 +120,13 @@ spec:
               port: http
             initialDelaySeconds: 30
             periodSeconds: 20
+          volumeMounts:
+            - name: searxng-config
+              mountPath: /etc/searxng
       volumes:
         - name: tun
           hostPath:
             path: /dev/net/tun
             type: CharDevice
+        - name: searxng-config
+          emptyDir: {}
