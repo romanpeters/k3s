@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: openwebui-mcp
+  namespace: gen-ai
+  labels:
+    app.kubernetes.io/name: openwebui-mcp
+    app.kubernetes.io/instance: openwebui-mcp-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
+type: Opaque
+stringData:
+  TOOL_SERVER_CONNECTIONS: ENC[AES256_GCM,data:gKrcUc74QZx8YaVO23/QTM0pTwD3bbKd47ZADEPSYrTR3gBDh12uGom/biEUMv1OU6lEV177H8BtOYqqYbyyIB2JQ6fL+16oIKjyo3PgJY95gMgNybXZRzsPOeWAHQY1r7kNhJfePGzrdodfvrVUsH6O9UprMODFU1Q26AT6C4VvNPtry3t2+GnBwlPM6WPF6P2PQ35p6WkYzIDIKQUy9haA1M4aSRVQNXAwtrsPjSB51X3amwwv2+viyK7q3f3XN3MrQvhXVfwBMk4cq83prBtqH1FhqVsEhffsKCuS02cGhc/joSWbJ1G602pb+VfLD6yuI6wtdOMH9sxLdzAzf15NdWBQZadzcQdtr8BYxouE5QeXf6qGbnqgVrUCts11iGUV+a4zlKIoo9m3qt5V6yzMUtanCzmQAkk7BpEueBfl1jXJHTxTRNDp9x7MmbyW1mzkMEsFadg5NQAGiWImtHSkNwM9fA+DE5RhWx/34yPRaZIAxNGTnxv/RqDdhwXWHj+kUaFd5gp8rLZsqrSXEaaLhljztGE=,iv:kkUc8kwgFqGJMyxh9ADmGP7N+0g1aVn0beIp+lJizh4=,tag:pux+OZNdrJTW2LYMzq2llQ==,type:str]
+sops:
+  age:
+    - recipient: age1txdhl8zae9a6kh6ggxydmrtstueysr32dd9fchlrp9x7n3ywhd7qzrn4k4
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3cU95V294M2xNMHo0S0RB
+        cHcvK28rOWJ2ck5seC9UL3l0cC9kaFNDa1ZzClhBdnBHZzRWVU90My9VL2Q3SUZm
+        RnNST0Z1Sm9RSlVHYjhCRlNXWTJoWEUKLS0tIFp4aVhYWnllSDRXaE9qTWFWWUFR
+        aWtyUCttSlprNFpQMjVRNWxVY044eFkKBecevwGbaauqypg2xJGmnyuzPzJ8PBAV
+        UlVKOYtIFc4mO/Nv4FYTSUUG5DK8wIz9iCdz/maxS6MBcMYZx/Xq5Q==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-02-18T19:13:55Z"
+  mac: ENC[AES256_GCM,data:aPC0aQrhh0Br2R32uSGPRiEPQf45eKPUm+JX1fF2yQW1DW5cpWvTeNexQ5bPWbnHz0XBIk3MbAi0XPQ3Rg1U+ww/9/l1yhJdnhMU/Nedd2ZVqzowoyHRX93YclnOpiAg48wHpZwsBPkPbMD4Kl7bt1MjrvFNN0YfT/utiftlZcs=,iv:UHBD6FZhA5k4YkmpW8W6HgPpzJ4l9r/Ws5rcgGcxw8E=,tag:mkCsGqOBMzISdfkItrYEig==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  version: 3.11.0

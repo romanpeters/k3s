@@ -30,6 +30,12 @@ spec:
           ports:
             - containerPort: 8080
               name: http
+          env:
+            - name: TOOL_SERVER_CONNECTIONS
+              valueFrom:
+                secretKeyRef:
+                  name: openwebui-mcp
+                  key: TOOL_SERVER_CONNECTIONS
           volumeMounts:
             - name: data
               mountPath: /app/backend/data
