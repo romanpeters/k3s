@@ -46,7 +46,13 @@ data:
     api_configs["0"]["key"] = ""
     ollama["api_configs"] = api_configs
 
+    web_search = data.setdefault("rag", {}).setdefault("web", {}).setdefault("search", {})
+    web_search["enable"] = True
+    web_search["engine"] = "searxng"
+    web_search["searxng_query_url"] = "http://searxng.media.svc.cluster.local:8080/search"
+    web_search["searxng_language"] = "all"
+
     cur.execute("UPDATE config SET data = ? WHERE id = ?", (json.dumps(data), config_id))
     conn.commit()
     conn.close()
-    print("patched ollama config to no-auth + https://ollama.romanpeters.nl")
+    print("patched ollama + searxng web-search config")

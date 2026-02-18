@@ -35,6 +35,7 @@ resources:
   - transmission-deployment.yaml
   - transmission-service.yaml
   - transmission-ingress.yaml
+  - searxng-networkpolicy-openwebui.yaml
   - tautulli-deployment.yaml
   - tautulli-service.yaml
   - tautulli-ingress.yaml
