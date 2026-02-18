@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openwebui
+  namespace: gen-ai
+  labels:
+    app.kubernetes.io/name: openwebui
+    app.kubernetes.io/instance: openwebui-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openwebui
+  template:
+    metadata:
+      labels:
+        app: openwebui
+        app.kubernetes.io/name: openwebui
+        app.kubernetes.io/instance: openwebui-prod
+        app.kubernetes.io/part-of: homelab
+        app.kubernetes.io/managed-by: flux
+        exposure: internal
+    spec:
+      containers:
+        - name: openwebui
+          image: ghcr.io/open-webui/open-webui:v0.8.3@sha256:205e9cf23b66553643b065afcdeffb7f86b35bf36e0ce643dc56946a911954b7
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: ENABLE_SIGNUP
+              value: "false"
+          volumeMounts:
+            - name: data
+              mountPath: /app/backend/data
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: openwebui-data
