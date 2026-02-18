@@ -1,0 +1,67 @@
+#cloud-config
+
+# Sources:
+# - reader
+# - reader
+# - reader
+# - cmdline
+
+install:
+  auto: true
+  device: auto
+  reboot: true
+k3s:
+  enabled: true
+  args:
+    - --flannel-backend=none
+    - --disable-network-policy
+    - --disable=servicelb
+users:
+  - groups:
+      - admin
+    lock_passwd: true
+    name: romanpeters
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAvUHmajV0+ZqEzAs5nl7vCw+9DmK6LM29zokZFMECuH romanpeters@MacBook-Pro-van-Roman.local
+stages:
+  boot:
+    - name: host-network-config
+      files:
+        - path: /etc/hosts
+          permissions: 0644
+          content: |
+            127.0.0.1 localhost
+            127.0.1.1 k3s
+
+            ::1 localhost ip6-localhost ip6-loopback
+            ff02::1 ip6-allnodes
+            ff02::2 ip6-allrouters
+        - path: /etc/systemd/network/20-dhcp.network
+          permissions: 0644
+          content: |
+            [Match]
+            Name=en*
+            [Network]
+            DHCP=yes
+            Address=fd7b:c87:127b:14::42/64
+            MulticastDNS=yes
+            [DHCP]
+            ClientIdentifier=mac
+        - path: /etc/systemd/resolved.conf.d/00-mdns.conf
+          permissions: 0644
+          content: |
+            [Resolve]
+            MulticastDNS=yes
+    - name: beszel-agent-filesystem-config
+      files:
+        - path: /etc/systemd/system/beszel-agent.service.d/override.conf
+          permissions: 0644
+          content: |
+            [Service]
+            Environment="FILESYSTEM=/usr/local"
+            Environment="EXTRA_FILESYSTEMS=/var/lib/rancher/k3s/agent/containerd"
+  boot.after:
+    - name: restart-beszel-agent
+      commands:
+        - systemctl daemon-reload
+        - systemctl restart beszel-agent
