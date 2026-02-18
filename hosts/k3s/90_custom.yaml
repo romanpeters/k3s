@@ -60,8 +60,26 @@ stages:
             [Service]
             Environment="FILESYSTEM=/usr/local"
             Environment="EXTRA_FILESYSTEMS=/var/lib/rancher/k3s/agent/containerd"
+    - name: containerd-images-mount
+      files:
+        - path: /etc/systemd/system/var-lib-rancher-k3s-agent-containerd.mount
+          permissions: 0644
+          content: |
+            [Unit]
+            Description=Containerd data mount
+            Before=local-fs.target
+
+            [Mount]
+            What=UUID=461c2ec0-6e65-4ac1-9a49-27c56b9578d7
+            Where=/var/lib/rancher/k3s/agent/containerd
+            Type=ext4
+            Options=defaults,noatime
+
+            [Install]
+            WantedBy=local-fs.target
   boot.after:
     - name: restart-beszel-agent
       commands:
         - systemctl daemon-reload
+        - systemctl enable --now var-lib-rancher-k3s-agent-containerd.mount
         - systemctl restart beszel-agent
