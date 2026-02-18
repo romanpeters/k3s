@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - flux-system
   - general
-  - gen-ai
   - automation
   - system
   - monitoring

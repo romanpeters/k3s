@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: openwebui-bootstrap-config
-  namespace: gen-ai
+  namespace: general
   labels:
     app.kubernetes.io/name: openwebui-bootstrap-config
     app.kubernetes.io/instance: openwebui-bootstrap-config-prod

@@ -16,6 +16,12 @@ resources:
   - homebox-deployment.yaml
   - homebox-service.yaml
   - homebox-ingress.yaml
+  - openwebui-bootstrap-config.yaml
+  - openwebui-mcp.sops.yaml
+  - openwebui-pvc.yaml
+  - openwebui-deployment.yaml
+  - openwebui-service.yaml
+  - openwebui-ingress.yaml
   - gitea-postgres-data-pvc.yaml
   - gitea-postgres.yaml
   - gitea-data-pvc.yaml

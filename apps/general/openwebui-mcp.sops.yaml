@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: openwebui-mcp
-  namespace: gen-ai
+  namespace: general
   labels:
     app.kubernetes.io/name: openwebui-mcp
     app.kubernetes.io/instance: openwebui-mcp-prod
