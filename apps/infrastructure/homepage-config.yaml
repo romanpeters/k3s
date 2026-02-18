@@ -117,6 +117,11 @@ data:
             icon: homebox
             siteMonitor: https://homebox.romanpeters.nl
             siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
+        - SearXNG:
+            href: https://search.romanpeters.nl
+            icon: searxng
+            siteMonitor: https://search.romanpeters.nl
+            siteMonitorExpectedCodes: [200, 301, 302, 303, 307, 308]
         - Open WebUI:
             href: https://chat.romanpeters.nl
             icon: open-webui

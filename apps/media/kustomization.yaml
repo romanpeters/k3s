@@ -29,6 +29,9 @@ resources:
   - flaresolverr-deployment.yaml
   - flaresolverr-service.yaml
   - gluetun-openvpn.sops.yaml
+  - searxng-deployment.yaml
+  - searxng-service.yaml
+  - searxng-ingress.yaml
   - transmission-deployment.yaml
   - transmission-service.yaml
   - transmission-ingress.yaml
