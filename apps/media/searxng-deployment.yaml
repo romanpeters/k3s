@@ -31,6 +31,7 @@ spec:
             - -c
             - |
               cp /usr/local/searxng/searx/settings.yml /config/settings.yml
+              sed -i "s/ultrasecretkey/$(head -c 24 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9')/g" /config/settings.yml
               if ! grep -q '^    - json$' /config/settings.yml; then
                 sed -i '/^  formats:$/a\    - json' /config/settings.yml
               fi
