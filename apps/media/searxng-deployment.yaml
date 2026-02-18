@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/instance: searxng-prod
     app.kubernetes.io/part-of: homelab
     app.kubernetes.io/managed-by: flux
-    exposure: public
+    exposure: internal
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/instance: searxng-prod
         app.kubernetes.io/part-of: homelab
         app.kubernetes.io/managed-by: flux
-        exposure: public
+        exposure: internal
     spec:
       containers:
         - name: gluetun
