@@ -31,20 +31,10 @@ spec:
             - -c
             - |
               cp /usr/local/searxng/searx/settings.yml /config/settings.yml
-              python - <<'PY'
-              import yaml
-              p = "/config/settings.yml"
-              with open(p, "r", encoding="utf-8") as f:
-                  cfg = yaml.safe_load(f)
-              search = cfg.setdefault("search", {})
-              formats = search.get("formats") or []
-              if "json" not in formats:
-                  formats.append("json")
-              search["formats"] = formats
-              with open(p, "w", encoding="utf-8") as f:
-                  yaml.safe_dump(cfg, f, sort_keys=False)
-              print("enabled json format in searxng settings")
-              PY
+              if ! grep -q '^    - json$' /config/settings.yml; then
+                sed -i '/^  formats:$/a\    - json' /config/settings.yml
+              fi
+              echo "enabled json format in searxng settings"
           volumeMounts:
             - name: searxng-config
               mountPath: /config
