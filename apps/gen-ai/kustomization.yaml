@@ -5,6 +5,7 @@ resources:
   - namespace.yaml
   - dockerhub-read.sops.yaml
   - openwebui-mcp.sops.yaml
+  - openwebui-bootstrap-config.yaml
   - default-serviceaccount.yaml
   - openwebui-pvc.yaml
   - openwebui-deployment.yaml

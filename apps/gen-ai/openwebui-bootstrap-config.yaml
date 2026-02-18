@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openwebui-bootstrap-config
+  namespace: gen-ai
+  labels:
+    app.kubernetes.io/name: openwebui-bootstrap-config
+    app.kubernetes.io/instance: openwebui-bootstrap-config-prod
+    app.kubernetes.io/part-of: homelab
+    app.kubernetes.io/managed-by: flux
+    exposure: internal
+data:
+  patch_ollama_config.py: |
+    import json
+    import sqlite3
+    from pathlib import Path
+
+    db_path = Path("/app/backend/data/webui.db")
+    if not db_path.exists():
+        print("webui.db not found yet, skipping bootstrap patch")
+        raise SystemExit(0)
+
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    row = cur.execute("SELECT id, data FROM config LIMIT 1").fetchone()
+    if row is None:
+        print("config row not found yet, skipping bootstrap patch")
+        conn.close()
+        raise SystemExit(0)
+
+    config_id, raw = row
+    data = json.loads(raw)
+
+    ollama = data.setdefault("ollama", {})
+    ollama["base_urls"] = ["https://ollama.romanpeters.nl"]
+
+    api_configs = ollama.setdefault("api_configs", {})
+    if not isinstance(api_configs, dict):
+        api_configs = {}
+
+    if "0" not in api_configs or not isinstance(api_configs["0"], dict):
+        api_configs["0"] = {}
+
+    api_configs["0"]["enable"] = True
+    api_configs["0"]["auth_type"] = "none"
+    api_configs["0"]["key"] = ""
+    ollama["api_configs"] = api_configs
+
+    cur.execute("UPDATE config SET data = ? WHERE id = ?", (json.dumps(data), config_id))
+    conn.commit()
+    conn.close()
+    print("patched ollama config to no-auth + https://ollama.romanpeters.nl")

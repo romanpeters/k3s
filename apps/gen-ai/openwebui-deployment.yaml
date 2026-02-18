@@ -24,6 +24,15 @@ spec:
         app.kubernetes.io/managed-by: flux
         exposure: internal
     spec:
+      initContainers:
+        - name: bootstrap-ollama-config
+          image: ghcr.io/open-webui/open-webui:v0.8.3@sha256:205e9cf23b66553643b065afcdeffb7f86b35bf36e0ce643dc56946a911954b7
+          command: ["python", "/bootstrap/patch_ollama_config.py"]
+          volumeMounts:
+            - name: data
+              mountPath: /app/backend/data
+            - name: bootstrap-config
+              mountPath: /bootstrap
       containers:
         - name: openwebui
           image: ghcr.io/open-webui/open-webui:v0.8.3@sha256:205e9cf23b66553643b065afcdeffb7f86b35bf36e0ce643dc56946a911954b7
@@ -31,6 +40,10 @@ spec:
             - containerPort: 8080
               name: http
           env:
+            - name: OLLAMA_BASE_URLS
+              value: https://ollama.romanpeters.nl
+            - name: OLLAMA_API_CONFIGS
+              value: '{"0":{"enable":true,"auth_type":"none","key":""}}'
             - name: TOOL_SERVER_CONNECTIONS
               valueFrom:
                 secretKeyRef:
@@ -55,3 +68,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: openwebui-data
+        - name: bootstrap-config
+          configMap:
+            name: openwebui-bootstrap-config
